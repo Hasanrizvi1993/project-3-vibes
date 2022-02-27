@@ -1,5 +1,6 @@
 import React from 'react'
 import './navBar.scss';
+import { Search, Person, Home } from '@material-ui/icons';
 
 
 
@@ -11,15 +12,22 @@ export const NavBar = () => {
         </div>
         <div className="nav-center">
         <div className="searchbar">
-            
-           
-            </div>
+        <Search className='search-icon'/>
+        <input placeholder="Search..." className="search-input" />
+        </div>
         </div>
         <div className="nav-right">
             <div className="nav-links">
-                <span className="nav-link">Home</span>
-                <span className="nav-link">Profile</span>
+                <div className="nav-link-item">
+                  <Home />
+                  <span className="nav-link">Home</span>
+                </div>
+                <div className="nav-link-item">
+                  <Person />
+                  <span className="nav-link">Profile</span>
+                </div>
             </div>
+            <img className="nav-img" src="/assets/staticImages/no_pf_img.png" alt="" />
         </div>
     </div>
   )
