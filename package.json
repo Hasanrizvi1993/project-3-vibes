@@ -34,5 +34,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "music social network",
+  "main": "index.js",
+  "repository": "git+https://github.com/Hasanrizvi1993/project-3-vibes.git",
+  "keywords": [],
+  "author": "can you feel the mern",
+  "license": "ISC",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server",
+    "packages/*"
+  ],
+  "bugs": {
+    "url": "https://github.com/Hasanrizvi1993/project-3-vibes/issues"
+  },
+  "homepage": "https://github.com/Hasanrizvi1993/project-3-vibes#readme"
 }
