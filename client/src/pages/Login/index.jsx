@@ -44,7 +44,7 @@ const handleLogin = (e) => {
             <button type='submit' className="login-btn">Log In</button>
             <span className="login-forgot">Forgot Password?</span>
           </form>
-          <span className="login-forgot">Don't have an account?<Link to={"/register"}>Sign Up</Link></span>
+          <span className="login-register">Don't have an account? <Link to={"/register"}>Sign Up</Link></span>
          </div>
       </div>
     </div>
