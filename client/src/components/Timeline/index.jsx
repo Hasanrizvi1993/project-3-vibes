@@ -5,10 +5,9 @@ import './timeline.scss';
 
 export const Timeline = () => {
   return (
-    <div>
+    <div className="timeline" >
       <PostForm />
       <Post />
-        Timeline Component
     </div>
   )
 }

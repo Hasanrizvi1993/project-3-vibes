@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Sidebar = () => {
   return (
-    <div>
+    <div className="sidebar" >
         SIDEBAR COMPONENT 
     </div>
   )
