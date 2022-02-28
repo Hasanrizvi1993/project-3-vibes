@@ -8,13 +8,22 @@ export const NavBar = () => {
   return (
     <div className='nav-container'>
         <div className="nav-left">
-        <span className="logo">VIBE$</span>
+        <Link to={"/"} style={{textDecoration: 'none'}} >
+          <span className="logo">VIBE$</span>
+        </Link>
+
         </div>
         <div className="nav-center">
         <div className="nav-links">
-                  <span className="nav-link">Feed</span>
-                  <span className="nav-link">Profile</span>
+          <Link to={"/feed"} style={{textDecoration: 'none', color: 'white'}} >
+            <span className="nav-link">Feed</span>
+          </Link>
+          <Link to={"/profile"} style={{textDecoration: 'none', color: 'white'}} >
+            <span className="nav-link">Profile</span>
+          </Link>
+          <Link to={"#"} style={{textDecoration: 'none', color: 'white'}} >
                   <span className="nav-link">Sign Out</span>
+          </Link>
             </div>
         </div>
         <div className="nav-right">

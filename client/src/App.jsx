@@ -10,8 +10,6 @@ import { Feed } from './components/Feed';
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Home />
       <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />} />
