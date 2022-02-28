@@ -1,11 +1,19 @@
 import React from 'react';
+import { NavBar } from '../../components/NavBar';
+import { Sidebar } from '../../components/Sidebar';
+import { Timeline } from '../../components/Timeline';
+import { EditProfile } from '../../components/EditProfile';
 import './profile.scss';
 
 export const Profile = () => {
   return (
-    <div>PROFILE PAGE
-
-      
+    <div>
+      <NavBar />
+      <div className='profile' >
+        <Sidebar />
+        <Timeline />
+        <EditProfile />
+      </div>
     </div>
   )
 }
