@@ -7,7 +7,9 @@ export const Post = () => {
 
 
  
+  const likeHandler = () => {
 
+  }
 
   return (
     <div className='post'>
@@ -28,12 +30,12 @@ export const Post = () => {
         </div>
         <div className="post-center">
           <span className="post-text">POST TEXT</span>
-          <img className="post-img" src="" alt="" />
+          <img className="post-img" src="/assets/staticImages/snowy.jpeg" alt="" />
         </div>
         <div className="post-bottom">
           <div className="post-bottom-left">
           <img className="like-icon" src="/assets/staticImages/like_icon.png" 
-          alt=""  />
+          alt="" onClick={likeHandler} />
           </div>
           <div className="post-bottom-right">
             <span className="post-comment">Comment</span>

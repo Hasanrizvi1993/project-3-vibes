@@ -1,0 +1,33 @@
+.post {
+    width: 100%;
+
+
+
+
+
+
+
+.post-profile-img {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+object-fit: cover;
+
+}
+
+
+.post-img {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+
+}
+
+.like-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+}

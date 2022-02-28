@@ -29,13 +29,14 @@ const handleLogin = (e) => {
 
   return (
     <div className="login" >
+      <h1>VIBE$</h1>
       <div className="login-wrapper">
         <div className="login-left">
           <h3 className="login-logo-text">MUSIC NEVER SOUNDED SO...
           <span ref={textRef} className="typed-text"></span></h3>
-          
         </div>
           <div className="login-right">
+            <h2>Log In to Your Account</h2>
           <form className="login-box" onSubmit={handleLogin} >
             <input type='email' placeholder="Email" 
             className="login-input" ref={email} required />
