@@ -1,14 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-var favoriteArtistsSchema = new Schema({ name: String });
-
-const userProfileSchema = new Schema({
-	aboutMe: { type: String },
-	profileimage: { type: URL },
-	favoriteArtists: [favoriteArtistsSchema],
-});
-
 const userSchema = new Schema(
 	{
 		name: {
@@ -37,7 +29,10 @@ const userSchema = new Schema(
 
 		currentlyPlaying: { type: String },
 
-		userProfile: [userProfileSchema],
+		profileImage: {
+			type: String,
+			default: "",
+		},
 
 		location: {
 			type: String,
