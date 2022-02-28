@@ -15,7 +15,7 @@ export const NavBar = () => {
         </div>
         <div className="nav-center">
         <div className="nav-links">
-          <Link to={"/feed"} style={{textDecoration: 'none', color: 'white'}} >
+          <Link to={"/"} style={{textDecoration: 'none', color: 'white'}} >
             <span className="nav-link">Feed</span>
           </Link>
           <Link to={"/profile"} style={{textDecoration: 'none', color: 'white'}} >
