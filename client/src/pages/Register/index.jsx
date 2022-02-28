@@ -37,7 +37,7 @@ const handleRegister = (e) => {
             className="register-input" ref={password} required />
             <button type='submit' className="register-btn">Sign Up</button>
           </form>
-          <Link to={"/register"}><button className="register-login">Or Log In Here</button></Link>
+          <Link to={"/login"}><button className="register-login">Or Log In Here</button></Link>
       </div>
     </div>
   )
