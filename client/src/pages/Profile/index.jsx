@@ -3,6 +3,9 @@ import './profile.scss';
 
 export const Profile = () => {
   return (
-    <div>PROFILE PAGE</div>
+    <div>PROFILE PAGE
+
+      
+    </div>
   )
 }

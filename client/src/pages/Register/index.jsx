@@ -10,7 +10,6 @@ export const Register = () => {
 const email = useRef();
 const password = useRef();
 const username = useRef();
-const phone = useRef();
 
 // state for file upload
 const [file, setFile] = useState(null);
@@ -49,8 +48,6 @@ const handleRegister = (e) => {
             className="register-input" ref={email} required />
             <input type="password" placeholder="Password" 
             className="register-input" ref={password} required />
-            <input type="number" placeholder="Phone Number" 
-            className="register-input" ref={phone} required />
             <button type='submit' className="register-btn">Sign Up</button>
           </form>
           <Link to={"/register"}><button className="register-login"> Or Log In Here</button></Link>

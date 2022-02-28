@@ -1,10 +1,13 @@
 import React from 'react';
+import { Post } from '../Post';
 import './timeline.scss';
 
 export const Timeline = () => {
   return (
     <div>
-        Timeline COMPONENT
+
+      <Post />
+        Timeline Component
     </div>
   )
 }
