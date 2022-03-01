@@ -37,7 +37,7 @@ const loginCall = async () => {
   }
   try {
     await axios.post(`${apiUrl}/auth/login`, userFound)
-    navigate("/")
+     navigate("/")
   } catch (err) {
     console.log(err)
   }

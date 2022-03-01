@@ -18,7 +18,7 @@ const userSchema = new Schema(
 			type: String,
 			required: true,
 			//specifies default path selection behavior aka false excludes "password" from query results by default
-			select: false,
+			//select: false,
 		},
 
 		email: {
