@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './register.scss';
 import { Person } from '@material-ui/icons';
+import axios from 'axios';
 
-
+// SERVER API URL
+const apiUrl = "http://localhost:4000/api"
 
 export const Register = () => {
 // useState hooks for email/password
@@ -16,11 +18,18 @@ const name = useRef();
 // register handler
 const handleRegister = async (e) => {
   e.preventDefault()
-  //const user 
-  // need to create new user
-  // make api post call to create new user
-  // redirect to login page
-  // try/catch?
+  const user = {
+      name: name.current.value,
+      userName: userName.current.value,
+      email: email.current.value,
+      password: password.current.value,
+  }
+  try {
+    await axios.post(`${apiUrl}/auth/register`, user)
+  } catch (err) {
+    console.log(err)
+  }
+  
 }
 
 
