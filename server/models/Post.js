@@ -29,16 +29,16 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const commentSchema = new Schema({
-	body: { type: String, required: true },
-});
+// const commentSchema = new Schema({
+// 	body: { type: String, required: true },
+// });
 
 const postSchema = new Schema(
 	{
 		title: { type: String, required: true },
 		body: { type: String, required: true },
 		date: { type: Date },
-		comments: [commentSchema],
+		// comments: [commentSchema],
 	},
 	{
 		timestamps: true,
