@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './register.scss';
 import { Person } from '@material-ui/icons';
 import axios from 'axios';
@@ -8,12 +8,14 @@ import axios from 'axios';
 const apiUrl = "http://localhost:4000/api"
 
 export const Register = () => {
-// useState hooks for email/password
+// useRef hooks for email/password
 const email = useRef();
 const password = useRef();
 const userName = useRef();
 const name = useRef();
 
+// useNavigate hook for page redirect
+const navigate = useNavigate();
 
 // register handler
 const handleRegister = async (e) => {
@@ -26,6 +28,7 @@ const handleRegister = async (e) => {
   }
   try {
     await axios.post(`${apiUrl}/auth/register`, user)
+    navigate("/login")
   } catch (err) {
     console.log(err)
   }
