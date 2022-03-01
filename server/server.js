@@ -1,4 +1,4 @@
-const path = require("path");
+// const path = require("path");
 require("dotenv").config({ path: "../.env" });
 
 /* ====== External Modules  ====== */
@@ -23,7 +23,7 @@ const config = require("@vibes/config");
 
 /* ==== Middleware ==== */
 app.use(cors());
-app.use(express.static(path.join("build")));
+// app.use(express.static(path.join("build"))); ///COMMENTING OUT TO DEBUG
 //helps us read body, including body with Postman and req.body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -39,9 +39,9 @@ app.all("/api/*", (req, res, next) => {
 	res.send("these apis are not working");
 });
 
-app.use((req, res, next) => {
-	res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+// app.use((req, res, next) => {
+// 	res.sendFile(path.join(__dirname, "build", "index.html"));
+// }); // COMMENTING OUT FOR DEBUGGING
 
 /* ====== Server Listener  ====== */
 app.listen(config.PORT, () => {
