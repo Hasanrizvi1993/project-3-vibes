@@ -12,6 +12,7 @@ const app = express();
 const routes = require("./routes");
 const postRouter = require("./routes/posts");
 const userRouter = require("./routes/users");
+const commentRouter = require("./routes/comments");
 /* ====== System Variables  ====== */
 
 /* ====== App Configuration  ====== */
@@ -34,6 +35,8 @@ app.use("/api", routes);
 app.use("/api/posts", postRouter);
 
 app.use("/api/users", userRouter);
+
+app.use("/api/comments", commentRouter);
 
 app.all("/api/*", (req, res, next) => {
 	res.send("these apis are not working");
