@@ -6,15 +6,17 @@ import { Person } from '@material-ui/icons';
 
 
 export const Register = () => {
-// useRef hooks for email/password
+// useState hooks for email/password
 const email = useRef();
 const password = useRef();
-const username = useRef();
+const userName = useRef();
+const name = useRef();
 
 
 // register handler
-const handleRegister = (e) => {
+const handleRegister = async (e) => {
   e.preventDefault()
+  //const user 
   // need to create new user
   // make api post call to create new user
   // redirect to login page
@@ -29,8 +31,10 @@ const handleRegister = (e) => {
       <Person htmlColor='seagreen' style={{fontSize: '65px'}}/>
       <h2>Sign Up for an Account</h2>
           <form className="register-box" onSubmit={handleRegister} >
+          <input type='text' placeholder="Display Name" 
+            className="register-input" ref={name} required />
           <input type='text' placeholder="Username" 
-            className="register-input" ref={username} required />
+            className="register-input" ref={userName} required />
             <input type='email' placeholder="Email" 
             className="register-input" ref={email} required />
             <input type="password" placeholder="Password" 

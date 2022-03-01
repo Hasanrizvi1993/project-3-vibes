@@ -1,7 +1,9 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const db = require("../models")
+const User = require("../models/User")
 
+/*
 const register = async (req, res) => {
 
     try{
@@ -78,9 +80,72 @@ const login = async (req, res) => {
             message: "Site broke or something. oop. Try again."
         })
     }
+} */
+
+
+// REGISTER NEW USER
+const register = async (req, res) => {
+    const userFound = await User.findOne({ email: req.body.email})
+    if (userFound) {
+        res.status(400).json({
+            status: 400, 
+            message: "Email already exists! Login, or try another!"
+        })
+    } else {
+        try {
+            //const hashedPassword = await bcrypt.hash(req.body.password, 10)
+            const user = await User.create({
+                name: req.body.name,
+                userName: req.body.userName,
+                email: req.body.email,
+               // password: hashedPassword,
+               password: req.body.password,
+            }) 
+            res.status(201).json({
+                status: 201, 
+                message: "Account successfully registered!", 
+                user
+            })
+        } catch (error) {
+            res.status(400).json({
+                status: 400,
+                message: "Error in account creation!",
+            })
+        }
+    }
 }
+
+    // LOGIN USER
+    const login = async (req, res) => {
+        const userFound = await User.findOne({ 
+            email: req.body.email,
+            password: req.body.password,
+        })
+        if (!userFound) {
+            res.status(400).json({
+                status: 400, 
+                message: "There is no account with that email!",
+                userFound: false,
+            })
+        } else {
+                res.status(201).json({
+                    status: 201, 
+                    message: "Login Successful!", 
+                    userFound: true,
+                })
+            } 
+        }
+
+    
+
+
+
+
+
+
+
 
 module.exports = {
     register, 
-    login
+    login,
 }
