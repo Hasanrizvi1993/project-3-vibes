@@ -52,11 +52,12 @@ const register = async (req, res) => {
 
                 const token = jwt.sign( { email: userFound.email, }, "VIBE$", {
                     expiresIn: "2h",
-                } )
-                res.status(201).json({
+                })
+                    res.status(201).json({
                     status: 201, 
                     message: "Login Successful!", 
                     token,
+                    userFound
                 })
             }
             else {

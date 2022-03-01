@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import './login.scss';
 import { init } from 'ityped';
 import axios from 'axios';
+import { useAuth } from '../../context/AuthContext';
 
 
 // SERVER API URL
@@ -19,6 +20,7 @@ const textRef = useRef()
 // useNavigate hook for redirect
 const navigate = useNavigate();
 
+
 // useEffect for ityped text
 useEffect(()=> {
   init(textRef.current, {
@@ -29,6 +31,7 @@ useEffect(()=> {
   })
 }, [])
 
+
 // loginCall function may need to move somehwere else to implement authcontext
 const loginCall = async () => {
   const userFound = {
@@ -36,17 +39,18 @@ const loginCall = async () => {
     password: password.current.value,
   }
   try {
-    await axios.post(`${apiUrl}/auth/login`, userFound)
+    const res = await axios.post(`${apiUrl}/auth/login`, userFound)
+    console.log(res.data.userFound)
      navigate("/")
   } catch (err) {
     console.log(err)
   }
-}
+} 
 
 // login handler
 const handleLogin = (e) => {
   e.preventDefault()
-  loginCall();
+  loginCall();  
 }
 
 
