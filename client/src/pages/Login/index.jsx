@@ -6,9 +6,6 @@ import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 
 
-// SERVER API URL
-const apiUrl = "http://localhost:4000/api"
-
 
 export const Login = () => {
 // useRef hooks for email/password
@@ -16,6 +13,9 @@ const email = useRef();
 const password = useRef();
 // ref for ityped text
 const textRef = useRef()
+
+// useAuth hook to pull loginCall from AuthContext
+const { currentUser, loginCall } = useAuth();
 
 // useNavigate hook for redirect
 const navigate = useNavigate();
@@ -32,25 +32,20 @@ useEffect(()=> {
 }, [])
 
 
-// loginCall function may need to move somehwere else to implement authcontext
-const loginCall = async () => {
+
+// login handler
+const handleLogin = (e) => {
+  e.preventDefault()
   const userFound = {
     email: email.current.value,
     password: password.current.value,
   }
   try {
-    const res = await axios.post(`${apiUrl}/auth/login`, userFound)
-    console.log(res.data.userFound)
-     navigate("/")
-  } catch (err) {
-    console.log(err)
+    loginCall(userFound);  
+    navigate("/")
+  } catch (error) {
+    console.log(error)
   }
-} 
-
-// login handler
-const handleLogin = (e) => {
-  e.preventDefault()
-  loginCall();  
 }
 
 
