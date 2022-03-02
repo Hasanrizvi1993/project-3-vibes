@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom';
-import './login.scss';
+import '../../stylesheets/index.scss';
 import { init } from 'ityped';
 
 export const Login = () => {

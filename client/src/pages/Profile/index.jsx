@@ -3,7 +3,7 @@ import { NavBar } from '../../components/NavBar';
 import { Sidebar } from '../../components/Sidebar';
 import { Timeline } from '../../components/Timeline';
 import { EditProfile } from '../../components/EditProfile';
-import './profile.scss';
+import '../../stylesheets/index.scss';
 
 export const Profile = () => {
   return (

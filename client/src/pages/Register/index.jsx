@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './register.scss';
 import { Person } from '@material-ui/icons';
+import "../../stylesheets/index.scss"
 
 
 

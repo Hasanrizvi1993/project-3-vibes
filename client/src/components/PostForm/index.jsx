@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './postForm.scss';
+import '../../stylesheets/index.scss';
 import { PermMedia } from '@material-ui/icons';
 
 export const PostForm = () => {
