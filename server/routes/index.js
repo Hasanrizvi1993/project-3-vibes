@@ -4,10 +4,10 @@ const router = require("express").Router()
 router.use("/posts", require("./posts"))
 router.use("/users", require("./users"))
 router.use("/auth", require("./auth"))
-router.use("/comments", require("./comments"))
-
-
+router.use("/comments", require("./comments")) //NOT SURE IF ROUTER. USE FOR COMMENTS IS CORRECT. 
 //not sure about the comment porition of router.use?????
+
+
 
 
 module.exports = router;
