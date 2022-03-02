@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import './login.scss';
+import '../../stylesheets/index.scss';
 import { init } from 'ityped';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';

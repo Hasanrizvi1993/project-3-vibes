@@ -1,5 +1,5 @@
 import React from 'react';
-import './editProfile.scss';
+import '../../stylesheets/index.scss';
 
 export const EditProfile = () => {
   return (

@@ -1,0 +1,63 @@
+/* =-=-=-=-=-=-=-=-=-=-=-=-
+         Font Imports
+=-=-=-=-=-=-=-=-=-=-=-=- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,698&display=swap');
+
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-
+         Variables
+=-=-=-=-=-=-=-=-=-=-=-=- */
+$hero-color: #639275;
+$white: #FFF;
+
+// HERO FONT: PLAYFAIR DISPLAY ITALIC
+$hero-font: 'Playfair Display', serif;
+// SECONDARY FONT: HELVETICA
+$secondary-font: 'Helvetica', serif;
+
+// Component Styles
+//
+.App {
+    background: radial-gradient(ellipse at bottom left, $hero-color 40px, $white 50%);
+    font-family: $hero-font;
+}
+
+// Nav Bar Styling
+.nav-container {
+    display: flex;
+    border-bottom: 1px solid black; 
+    font-size: 2rem;
+    
+    .logo {
+        flex: 3;
+    }
+
+    .icons{
+        justify-content: flex-end;
+        
+        .nav-link {
+            margin: 0 3rem;
+        }
+    }
+
+
+}
+
+
+// Side Bar Styling
+.side-bar {
+    justify-content: start;
+    flex: 3;
+
+    .side-bar-img {
+        height: 8rem;
+        border-radius: 50%;
+        object-fit: cover;
+        padding: 3rem;
+    }
+}
+
+.timeline {
+    display: flex;
+    justify-content: flex-end;
+}

@@ -6,6 +6,7 @@ import { AuthProvider } from "./context/AuthContext";
 
 
 ReactDOM.render(
+  <div className='entire-page'>
   <React.StrictMode>
     <AuthProvider>
       <App />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Post } from '../Post';
 import { PostForm } from '../PostForm';
-import './timeline.scss';
+import '../../stylesheets/index.scss';
 
 export const Timeline = () => {
   return (
