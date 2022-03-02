@@ -1,7 +1,11 @@
-import React, { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import './login.scss';
 import { init } from 'ityped';
+import axios from 'axios';
+import { useAuth } from '../../context/AuthContext';
+
+
 
 export const Login = () => {
 // useRef hooks for email/password
@@ -9,6 +13,13 @@ const email = useRef();
 const password = useRef();
 // ref for ityped text
 const textRef = useRef()
+
+// useAuth hook to pull loginCall from AuthContext
+const { currentUser, loginCall } = useAuth();
+
+// useNavigate hook for redirect
+const navigate = useNavigate();
+
 
 // useEffect for ityped text
 useEffect(()=> {
@@ -21,9 +32,20 @@ useEffect(()=> {
 }, [])
 
 
+
 // login handler
 const handleLogin = (e) => {
   e.preventDefault()
+  const userFound = {
+    email: email.current.value,
+    password: password.current.value,
+  }
+  try {
+    loginCall(userFound);  
+    navigate("/")
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 
