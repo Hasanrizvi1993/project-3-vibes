@@ -4,7 +4,7 @@ const index = (req, res) => {
 	db.Comment.find().exec((err, allComments) => {
 		if (err)
 			return res.status(400).json({
-				message: "Failure, Comments Could not be found!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(200).json({
@@ -17,7 +17,7 @@ const show = (req, res) => {
 	db.Comment.findById(req.params.id, (err, foundComments) => {
 		if (err)
 			return res.status(400).json({
-				message: "Utter Failure!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(200).json({
@@ -30,7 +30,7 @@ const create = (req, res) => {
 	db.Comment.create(req.body, (err, savedComments) => {
 		if (err)
 			return res.status(400).json({
-				message: "Failure, Comments Could not be found!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(201).json({
@@ -47,7 +47,7 @@ const update = (req, res) => {
 		(err, updatedComments) => {
 			if (err)
 				return res.status(400).json({
-					message: "Utter Failure!",
+					message: "Status 400 Error!",
 					error: err,
 				});
 			return res.status(202).json({
@@ -61,7 +61,7 @@ const destroy = (req, res) => {
 	db.Comment.findByIdAndDelete(req.params.id, (err, deletedComments) => {
 		if (err)
 			return res.status(400).json({
-				message: "Utter Failure!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(200).json({
