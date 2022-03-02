@@ -26,19 +26,21 @@ const show = (req, res) => {
 		});
 	});
 };
-const create = (req, res) => {
-	db.Comment.create(req.body, (err, savedComments) => {
-		if (err)
-			return res.status(400).json({
-				message: "Failure",
-				error: err,
-			});
-		return res.status(201).json({
-			message: "Success",
-			data: savedComments,
-		});
-	});
-};
+// const create = (req, res) => {
+// 	db.Comment.create(req.body, (err, savedComments) => {
+// 		if (err)
+// 			return res.status(400).json({
+// 				message: "Failure",
+// 				error: err,
+// 			});
+// 		return res.status(201).json({
+// 			message: "Success",
+// 			data: savedComments,
+// 		});
+// 	});
+// };
+
+	
 
 const update = (req, res) => {
 	db.Comment.findByIdAndUpdate(

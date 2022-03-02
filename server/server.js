@@ -36,7 +36,7 @@ app.use("/api/posts", postRouter);
 
 app.use("/api/users", userRouter);
 
-app.use("/api/comments", commentRouter);
+app.use("/api", commentRouter);
 
 app.all("/api/*", (req, res, next) => {
 	res.send("these apis are not working");
