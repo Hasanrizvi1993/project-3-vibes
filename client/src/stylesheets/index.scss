@@ -46,18 +46,47 @@ $secondary-font: 'Helvetica', serif;
 
 // Side Bar Styling
 .side-bar {
-    justify-content: start;
     flex: 3;
-
+    width: 20rem;
     .side-bar-img {
         height: 8rem;
         border-radius: 50%;
         object-fit: cover;
         padding: 3rem;
     }
+
+    .side-bar-top {
+        text-align: center;
+    }
+
+    .side-bar-center, .side-bar-bottom {
+        text-align: center;
+        vertical-align: center;
+        margin: 3rem 2rem 3rem 2rem;
+        padding: 0 2rem 0 2rem;
+    }
+
+    .side-bar-label {
+        margin: 0 1rem;
+        padding: 1rem 0;
+        position: relative;
+        color: $hero-color;
+        text-align: center;
+        transform: rotate(-90deg) translatey(-7rem);
+        border: 1px solid red;
+
+    }
+
+    .current-song, .side-bar-top-artists {
+        font-family: $secondary-font;
+        position: relative;
+        transform: translatey(-5rem);
+        border: 1px solid blue;
+    }
 }
 
+
 .timeline {
-    display: flex;
-    justify-content: flex-end;
+    flex: 6;
+    width: 40rem;
 }
