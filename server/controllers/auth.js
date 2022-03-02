@@ -36,7 +36,7 @@ const register = async (req, res) => {
     } catch (error) {
         return res.status(500).json({
             status: 500,
-            message: "Site broke or something. oop. Try again."
+            message: "STATUS 500, INTERNAL SEVER ERROR"
         })
     }
 }
@@ -48,7 +48,7 @@ const login = async (req, res) => {
         if (!foundUser) {
             return res
                 .status(400)
-                .json({status: 400, message: "Email or password is wrong, Homie :((("})
+                .json({status: 400, message: "Incorrect Email or Password, please try again."})
         }
 
         const isMatch = await bcrypt.compare(req.body.password, foundUser.password)
@@ -56,7 +56,7 @@ const login = async (req, res) => {
         if(isMatch) {
             // jwt.sign(payload, secret key for signing, config object)
             // signature ensure that the token hasn't been altered, and we sign off on that with our secret key
-            const token = jwt.sign({_id: foundUser._id}, "hailsatan", {
+            const token = jwt.sign({_id: foundUser._id}, "Succes!", {
                 expiresIn: "3h"
             })
 
@@ -69,13 +69,13 @@ const login = async (req, res) => {
             //the password provided doesn't match the password in the database
             return res.status(400).json({
                 status: 400,
-                message: "Email or password is wrong, Homie :((("
+                message: "Incorrect Email or Password, please try again."
             })
         }
     } catch (error) {
         return res.status(500).json({
             status: 500,
-            message: "Site broke or something. oop. Try again."
+            message: "STATUS 500, INTERNAL SEVER ERROR"
         })
     }
 }
