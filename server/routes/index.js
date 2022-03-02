@@ -7,4 +7,7 @@ router.use("/auth", require("./auth"))
 router.use("/comments", require("./comments"))
 
 
-module.exports = router; 
+//not sure about the comment porition of router.use?????
+
+
+module.exports = router;
