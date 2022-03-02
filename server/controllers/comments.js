@@ -39,6 +39,7 @@ const create = (req, res) => {
 		});
 	});
 };
+
 const update = (req, res) => {
 	db.Comment.findByIdAndUpdate(
 		req.params.id,

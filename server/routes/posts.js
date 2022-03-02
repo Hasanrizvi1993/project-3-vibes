@@ -1,5 +1,6 @@
 const router = require("express").Router()
-const {posts} = require("../controllers") 
+const {posts} = require("../controllers")
+
 
 router.get("/", posts.index)
 router.get("/:id", posts.show)
