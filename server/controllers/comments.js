@@ -1,7 +1,7 @@
 const db = require("../models");
 
 const index = (req, res) => {
-	db.Comments.find().exec((err, allComments) => {
+	db.Comment.find().exec((err, allComments) => {
 		if (err)
 			return res.status(400).json({
 				message: "Failure, Comments Could not be found!",
@@ -14,7 +14,7 @@ const index = (req, res) => {
 	});
 };
 const show = (req, res) => {
-	db.Comments.findById(req.params.id, (err, foundComments) => {
+	db.Comment.findById(req.params.id, (err, foundComments) => {
 		if (err)
 			return res.status(400).json({
 				message: "Utter Failure!",
@@ -27,7 +27,7 @@ const show = (req, res) => {
 	});
 };
 const create = (req, res) => {
-	db.Comments.create(req.body, (err, savedComments) => {
+	db.Comment.create(req.body, (err, savedComments) => {
 		if (err)
 			return res.status(400).json({
 				message: "Failure, Comments Could not be found!",
@@ -40,7 +40,7 @@ const create = (req, res) => {
 	});
 };
 const update = (req, res) => {
-	db.Comments.findByIdAndUpdate(
+	db.Comment.findByIdAndUpdate(
 		req.params.id,
 		req.body,
 		{ new: true },
@@ -58,7 +58,7 @@ const update = (req, res) => {
 	);
 };
 const destroy = (req, res) => {
-	db.Comments.findByIdAndDelete(req.params.id, (err, deletedComments) => {
+	db.Comment.findByIdAndDelete(req.params.id, (err, deletedComments) => {
 		if (err)
 			return res.status(400).json({
 				message: "Utter Failure!",
