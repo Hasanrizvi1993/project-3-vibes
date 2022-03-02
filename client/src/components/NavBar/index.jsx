@@ -3,7 +3,6 @@ import './navBar.scss';
 import { Link } from 'react-router-dom';
 
 
-
 export const NavBar = () => {
   return (
     <div className='nav-container'>
@@ -27,7 +26,7 @@ export const NavBar = () => {
             </div>
         </div>
         <div className="nav-right">
-        <button type="button" class="btn" data-bs-toggle="button" autocomplete="off">Light/Dark</button>
+        <button type="button" class="btn" data-bs-toggle="button">Light/Dark</button>
         </div>
     </div>
   )
