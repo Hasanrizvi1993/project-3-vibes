@@ -26,7 +26,7 @@ export const NavBar = () => {
             </div>
         </div>
         <div className="nav-right">
-        <button type="button" class="btn" data-bs-toggle="button">Light/Dark</button>
+        <button type="button" className="btn" data-bs-toggle="button">Light/Dark</button>
         </div>
     </div>
   )

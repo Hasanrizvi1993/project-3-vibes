@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './post.scss';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import { format } from 'timeago.js';
+import axios from 'axios';
 
 
-export const Post = () => {
+// SERVER API URL
+const apiUrl = "http://localhost:4000/api"
 
+
+
+export const Post = ({ post }) => {
+const [user, setUser] = useState({});
+  const { currentUser } = useAuth();
+
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`)
+      
+      setUser((res.data.data)[0])
+    }
+    fetchUser();
+  }, [post.userId])
 
  
   const likeHandler = () => {
@@ -21,15 +40,15 @@ export const Post = () => {
             src="/assets/staticImages/no_pf_img.png" alt="" />
           </Link>
           <Link to="/profile" style={{textDecoration: 'none'}} >
-            <span className="post-username" >Test Username</span>
+            <span className="post-username" >{user.userName}</span>
           </Link>
           </div>
           <div className="post-top-right">
-          <span className="post-date">4 hour ago</span>
+          <span className="post-date">4 hours ago</span>
           </div>
         </div>
         <div className="post-center">
-          <span className="post-text">POST TEXT</span>
+          <span className="post-text">{post.body}</span>
           <img className="post-img" src="/assets/staticImages/snowy.jpeg" alt="" />
         </div>
         <div className="post-bottom">
@@ -47,3 +66,8 @@ export const Post = () => {
     </div>
   )
 }
+
+/*   
+{format(post.createdAt)}
+{post.body}
+*/

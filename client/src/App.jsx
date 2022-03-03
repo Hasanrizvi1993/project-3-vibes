@@ -6,10 +6,12 @@ import { Profile }from './pages/Profile';
 import { Login }from './pages/Login';
 import { Register }from './pages/Register';
 import { Feed } from './components/Timeline';
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />} />
@@ -18,6 +20,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       </Routes>
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
