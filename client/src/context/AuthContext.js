@@ -23,7 +23,7 @@ const [currentUser, setCurrentUser] = useState()
 const loginCall = async (userFound) => {
     try {
       const res = await axios.post(`${apiUrl}/auth/login`, userFound)
-      setCurrentUser(res.data)
+      setCurrentUser(res.data.userFound)
        
     } catch (err) {
       console.log(err)

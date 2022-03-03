@@ -28,11 +28,9 @@ const show = async (req, res) => {
 const queryUser = async (req, res) => {
     // adding a query to route
     const userId = req.query.userId;
-    const username = req.query.username;
+    const userName = req.query.userName;
     try {
-        const user = userId 
-        ? await db.User.findById(userId) 
-        : await db.User.findOne({ username: username })
+        const user = userId ? await db.User.findById(userId) : await db.User.findOne({ userName: userName })
         
         const { password, updatedAt, ...other} = user._doc
         res.status(200).json(other)

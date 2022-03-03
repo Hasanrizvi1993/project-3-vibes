@@ -48,10 +48,10 @@ app.use("/api/auth", authRouter)
 app.use("/api/comments", commentRouter);
 
 
-app.all("/api/*", (req, res, next) => {
+/*app.all("/api/*", (req, res, next) => {
 	res.send("these apis are not working");
 });
-
+8?
 
 // app.use((req, res, next) => {
 // 	res.sendFile(path.join(__dirname, "build", "index.html"));

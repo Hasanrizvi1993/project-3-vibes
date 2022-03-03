@@ -19,12 +19,11 @@ const [user, setUser] = useState({});
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`)
-      
-      console.log(res.data)
-      setUser(res.data.data)
+        console.log(res.data)
+        setUser(res.data)
     }
     fetchUser();
-  }, [post.userId])
+  }, [post])
 
  
   const likeHandler = () => {
@@ -41,15 +40,15 @@ const [user, setUser] = useState({});
             src="/assets/staticImages/no_pf_img.png" alt="" />
           </Link>
           <Link to="/profile" style={{textDecoration: 'none'}} >
-            <span className="post-username">{user && user.userName}</span>
+            <span className="post-username">{user ? user.userName : currentUser.userName}</span>
           </Link>
           </div>
           <div className="post-top-right">
-          <span className="post-date">{format(post.createdAt)}</span>
+          <span className="post-date">{post && format(post.createdAt)}</span>
           </div>
         </div>
         <div className="post-center">
-          <span className="post-text">{post.body}</span>
+          <span className="post-text">{post && post.body}</span>
           <img className="post-img" src="/assets/staticImages/snowy.jpeg" alt="" />
         </div>
         <div className="post-bottom">
