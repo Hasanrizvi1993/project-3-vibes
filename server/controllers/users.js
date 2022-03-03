@@ -21,7 +21,7 @@ const show = async (req, res) => {
         console.log(error)
         return res
             .status(500)
-            .json({message: "Interanl Server Error."})
+            .json({message: "Internal Server Error."})
     }
 }
 

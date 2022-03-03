@@ -19,7 +19,6 @@ const [user, setUser] = useState({});
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`)
-        console.log(res.data)
         setUser(res.data)
     }
     fetchUser();
@@ -40,7 +39,7 @@ const [user, setUser] = useState({});
             src="/assets/staticImages/no_pf_img.png" alt="" />
           </Link>
           <Link to="/profile" style={{textDecoration: 'none'}} >
-            <span className="post-username">{user ? user.userName : currentUser.userName}</span>
+            <span className="post-username">{user && user.userName}</span>
           </Link>
           </div>
           <div className="post-top-right">

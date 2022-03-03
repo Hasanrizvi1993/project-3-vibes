@@ -1,6 +1,7 @@
 import React from 'react';
 import './sidebar.scss';
 import { LocationOn } from '@material-ui/icons';
+import { useAuth } from '../../context/AuthContext';
 
 export const Sidebar = () => {
   return (
