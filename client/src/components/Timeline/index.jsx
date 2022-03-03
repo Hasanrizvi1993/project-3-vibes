@@ -8,18 +8,18 @@ import './timeline.scss';
 const apiUrl = "http://localhost:4000/api"
 
 
-export const Timeline = () => {
+export const Timeline = ({ userName }) => {
   const [posts, setPosts] = useState();
 
 
  useEffect(() => {
   const fetchPosts = async () => {
-    const res = await axios.get(`${apiUrl}/posts`)
+    const res = userName ? await axios.get(`${apiUrl}/posts/profile/${userName}`) : await axios.get(`${apiUrl}/posts`)
     setPosts(res.data.data.reverse())
   }
   fetchPosts()
   
-}, [posts]) 
+}, [posts, userName]) 
  
 
 

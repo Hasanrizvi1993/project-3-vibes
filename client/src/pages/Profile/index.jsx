@@ -22,7 +22,7 @@ useEffect(() => {
   const fetchUser = async () => {
     const res = await axios.get(`${apiUrl}/users?userName=${userName}`)
     setUser(res.data)
-    console.log(res.data)
+    
   }
   fetchUser();
 }, [userName])
@@ -34,7 +34,7 @@ useEffect(() => {
       <NavBar />
       <div className='profile' >
         <Sidebar />
-        <Timeline />
+        <Timeline userName={userName} />
         <EditProfile />
       </div>
     </div>
