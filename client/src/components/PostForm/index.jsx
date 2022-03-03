@@ -41,7 +41,7 @@ const [file, setFile] = useState(null)
         <form onSubmit={submitHandler} >
         <div className="post-form-top">
           <img className="post-form-img" src='/assets/staticImages/no_pf_img.png' alt='' />
-          <input type="text" placeholder='START A POST...' ref={body} className="post-form-input" />
+          <textarea type="text" placeholder='START A POST...' ref={body} className="post-form-input" />
         </div>
         <hr className="post-form-border" />
         <div className="post-form-bottom">
