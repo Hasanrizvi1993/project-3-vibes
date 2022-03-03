@@ -7,11 +7,11 @@ import { AuthProvider } from "./context/AuthContext";
 
 ReactDOM.render(
   <div className='entire-page'>
-  <React.StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
-  </React.StrictMode>
+    <React.StrictMode>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </React.StrictMode>
   </div>,
   document.getElementById('root')
 );
