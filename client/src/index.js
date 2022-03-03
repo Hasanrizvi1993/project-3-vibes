@@ -2,14 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
+import { AuthProvider } from "./context/AuthContext";
 
 
 ReactDOM.render(
   <div className='entire-page'>
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
-  </div>,
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
