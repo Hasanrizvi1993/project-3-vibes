@@ -33,7 +33,7 @@ const [file, setFile] = useState(null)
     //multer img uploader
     // api post for image
   }
-console.log(currentUser)
+
 
   return (
     <div className='post-form'>

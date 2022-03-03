@@ -24,7 +24,7 @@ const loginCall = async (userFound) => {
     try {
       const res = await axios.post(`${apiUrl}/auth/login`, userFound)
       setCurrentUser(res.data.userFound)
-      
+      localStorage.setItem("userData", JSON.stringify(res.data.userFound))
       if (res.data.token) {
         localStorage.setItem("userToken", JSON.stringify(res.data.token))
       }
@@ -48,6 +48,16 @@ const loginCall = async (userFound) => {
   }
 
 
+   useEffect(() => {
+    const loggedInUser = localStorage.getItem("userData")
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser)
+      setCurrentUser(foundUser)
+    
+    }
+    
+  }, []) 
+ 
 
 
     return (
