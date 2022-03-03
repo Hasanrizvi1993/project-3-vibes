@@ -38,7 +38,12 @@ $secondary-font: 'Helvetica', serif;
 .nav-container {
     display: flex;
     border-bottom: 1px solid black; 
+    height: 3rem;
+    background: $white;
     font-size: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
     
     .logo {
         flex: 3;
@@ -55,11 +60,17 @@ $secondary-font: 'Helvetica', serif;
 
 }
 
+// Home page overall styling
+.home-container {
+    display: flex;
+    width: 100%;
+}
 
 // Side Bar Styling
 .side-bar {
     flex: 3;
     width: 20rem;
+
     .side-bar-img {
         @include profile-pic($img-size: 8rem, $padding-size: 3rem);
     }
@@ -94,14 +105,14 @@ $secondary-font: 'Helvetica', serif;
 // Post Form Creation Styling
 .post-form {
     width: 100%;
+    
     .post-form-img {
         @include profile-pic($img-size: 4rem, $padding-size: 3rem);
     }
-}
 
-.home-container {
-    display: flex;
-    width: 100%;
+    .post-form-input {
+        resize: none;
+    }
 }
 
 // Posts Styling
@@ -111,6 +122,7 @@ $secondary-font: 'Helvetica', serif;
     // display: flex;
 }
 
+// Post display Styling
 .post {
     width: 100%;
     .post-profile-img {

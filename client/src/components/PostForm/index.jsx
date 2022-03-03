@@ -23,7 +23,7 @@ export const PostForm = () => {
         <form onSubmit={submitHandler} >
         <div className="post-form-top">
           <img className="post-form-img" src='/assets/staticImages/no_pf_img.png' alt='' />
-          <input type="text" placeholder='START A POST...' className="post-form-input" />
+          <textarea cols="60" rows="5" placeholder='START A POST...' className="post-form-input" />
         </div>
         <hr className="post-form-border" />
         <div className="post-form-bottom">
