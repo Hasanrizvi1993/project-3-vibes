@@ -15,8 +15,20 @@ $hero-font: 'Playfair Display', serif;
 // SECONDARY FONT: HELVETICA
 $secondary-font: 'Helvetica', serif;
 
-// Component Styles
-//
+/* =-=-=-=-=-=-=-=-=-=-=-=-
+         @Mixins
+=-=-=-=-=-=-=-=-=-=-=-=- */
+@mixin profile-pic($img-size, $padding-size) {
+    height: $img-size;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: $padding-size;
+}
+
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-
+      Component Styles
+=-=-=-=-=-=-=-=-=-=-=-=- */
 .App {
     background: radial-gradient(ellipse at bottom left, $hero-color 40px, $white 50%);
     font-family: $hero-font;
@@ -26,7 +38,12 @@ $secondary-font: 'Helvetica', serif;
 .nav-container {
     display: flex;
     border-bottom: 1px solid black; 
+    height: 3rem;
+    background: $white;
     font-size: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
     
     .logo {
         flex: 3;
@@ -43,21 +60,84 @@ $secondary-font: 'Helvetica', serif;
 
 }
 
+// Home page overall styling
+.home-container {
+    display: flex;
+    width: 100%;
+}
 
 // Side Bar Styling
 .side-bar {
-    justify-content: start;
     flex: 3;
+    width: 20rem;
 
     .side-bar-img {
-        height: 8rem;
-        border-radius: 50%;
-        object-fit: cover;
-        padding: 3rem;
+        @include profile-pic($img-size: 8rem, $padding-size: 3rem);
+    }
+
+    .side-bar-top {
+        text-align: center;
+    }
+
+    .side-bar-center, .side-bar-bottom {
+        text-align: center;
+        vertical-align: center;
+        margin: 3rem 2rem 3rem 2rem;
+        padding: 0 2rem 0 2rem;
+    }
+
+    .side-bar-label {
+        margin: 0 1rem;
+        padding: 1rem 0;
+        position: relative;
+        color: $hero-color;
+        text-align: center;
+        transform: rotate(-90deg) translatey(-7rem);
+    }
+
+    .current-song, .side-bar-top-artists {
+        font-family: $secondary-font;
+        position: relative;
+        transform: translatey(-5rem);
     }
 }
 
+// Post Form Creation Styling
+.post-form {
+    width: 100%;
+    
+    .post-form-img {
+        @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+    }
+
+    .post-form-input {
+        resize: none;
+    }
+}
+
+// Posts Styling
 .timeline {
-    display: flex;
-    justify-content: flex-end;
+    flex: 6;
+    width: 40rem;
+    // display: flex;
+}
+
+// Post display Styling
+.post {
+    width: 100%;
+    .post-profile-img {
+        @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+    }
+
+    .post-img {
+        width: 100%;
+        max-height: 5%;
+        object-fit: contain;
+    }
+
+    .like-icon {
+        width: 2rem;
+        margin-right: 1rem;
+        cursor: pointer;
+    }
 }
