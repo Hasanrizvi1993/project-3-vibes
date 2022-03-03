@@ -15,8 +15,7 @@ export const Timeline = () => {
  useEffect(() => {
   const fetchPosts = async () => {
     const res = await axios.get(`${apiUrl}/posts`)
-    console.log(res.data.data)
-    setPosts(res.data.data)
+    setPosts(res.data.data.reverse())
   }
   fetchPosts()
   

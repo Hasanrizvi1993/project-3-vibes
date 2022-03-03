@@ -31,8 +31,8 @@ const queryUser = async (req, res) => {
     const username = req.query.username;
     try {
         const user = userId 
-        ? await User.findById(userId) 
-        : await User.findOne({ username: username })
+        ? await db.User.findById(userId) 
+        : await db.User.findOne({ username: username })
         
         const { password, updatedAt, ...other} = user._doc
         res.status(200).json(other)

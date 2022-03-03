@@ -20,7 +20,8 @@ const [user, setUser] = useState({});
     const fetchUser = async () => {
       const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`)
       
-      setUser((res.data.data)[0])
+      console.log(res.data)
+      setUser(res.data.data)
     }
     fetchUser();
   }, [post.userId])
@@ -40,11 +41,11 @@ const [user, setUser] = useState({});
             src="/assets/staticImages/no_pf_img.png" alt="" />
           </Link>
           <Link to="/profile" style={{textDecoration: 'none'}} >
-            <span className="post-username" >{user.userName}</span>
+            <span className="post-username">{user && user.userName}</span>
           </Link>
           </div>
           <div className="post-top-right">
-          <span className="post-date">4 hours ago</span>
+          <span className="post-date">{format(post.createdAt)}</span>
           </div>
         </div>
         <div className="post-center">
