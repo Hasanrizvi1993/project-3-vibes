@@ -16,11 +16,11 @@ export const Post = () => {
       <div className="post-wrapper">
         <div className="post-top">
           <div className="post-top-left">
-          <Link to="/profile" style={{textDecoration: 'none'}} >
+          <Link to="/profile">
             <img className='post-profile-img' 
             src="/assets/staticImages/no_pf_img.png" alt="" />
           </Link>
-          <Link to="/profile" style={{textDecoration: 'none'}} >
+          <Link to="/profile">
             <span className="post-username" >Test Username</span>
           </Link>
           </div>

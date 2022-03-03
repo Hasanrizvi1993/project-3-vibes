@@ -15,8 +15,20 @@ $hero-font: 'Playfair Display', serif;
 // SECONDARY FONT: HELVETICA
 $secondary-font: 'Helvetica', serif;
 
-// Component Styles
-//
+/* =-=-=-=-=-=-=-=-=-=-=-=-
+         @Mixins
+=-=-=-=-=-=-=-=-=-=-=-=- */
+@mixin profile-pic($img-size, $padding-size) {
+    height: $img-size;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: $padding-size;
+}
+
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-
+      Component Styles
+=-=-=-=-=-=-=-=-=-=-=-=- */
 .App {
     background: radial-gradient(ellipse at bottom left, $hero-color 40px, $white 50%);
     font-family: $hero-font;
@@ -49,10 +61,7 @@ $secondary-font: 'Helvetica', serif;
     flex: 3;
     width: 20rem;
     .side-bar-img {
-        height: 8rem;
-        border-radius: 50%;
-        object-fit: cover;
-        padding: 3rem;
+        @include profile-pic($img-size: 8rem, $padding-size: 3rem);
     }
 
     .side-bar-top {
@@ -73,20 +82,50 @@ $secondary-font: 'Helvetica', serif;
         color: $hero-color;
         text-align: center;
         transform: rotate(-90deg) translatey(-7rem);
-        border: 1px solid red;
-
     }
 
     .current-song, .side-bar-top-artists {
         font-family: $secondary-font;
         position: relative;
         transform: translatey(-5rem);
-        border: 1px solid blue;
     }
 }
 
+// Post Form Creation Styling
+.post-form {
+    width: 100%;
+    .post-form-img {
+        @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+    }
+}
 
+.home-container {
+    display: flex;
+    width: 100%;
+}
+
+// Posts Styling
 .timeline {
     flex: 6;
     width: 40rem;
+    // display: flex;
+}
+
+.post {
+    width: 100%;
+    .post-profile-img {
+        @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+    }
+
+    .post-img {
+        width: 100%;
+        max-height: 5%;
+        object-fit: contain;
+    }
+
+    .like-icon {
+        width: 2rem;
+        margin-right: 1rem;
+        cursor: pointer;
+    }
 }
