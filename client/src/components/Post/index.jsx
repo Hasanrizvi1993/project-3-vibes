@@ -34,11 +34,11 @@ const [user, setUser] = useState({});
       <div className="post-wrapper">
         <div className="post-top">
           <div className="post-top-left">
-          <Link to="/profile" style={{textDecoration: 'none'}} >
+          <Link to={"/profile/"+user.userName} style={{textDecoration: 'none'}} >
             <img className='post-profile-img' 
             src="/assets/staticImages/no_pf_img.png" alt="" />
           </Link>
-          <Link to="/profile" style={{textDecoration: 'none'}} >
+          <Link to={"/profile/"+user.userName} style={{textDecoration: 'none'}} >
             <span className="post-username">{user && user.userName}</span>
           </Link>
           </div>

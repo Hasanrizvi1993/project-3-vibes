@@ -25,15 +25,13 @@ export const Timeline = () => {
 
   return (
     <div className="timeline" >
+      <div className="timeline-wrapper">
       <PostForm />
       {posts && posts.map((p) => (   
       <Post  post={p} key={p._id} />
         
       ) )}
-
-        
-    
-      
+      </div>
     </div>
   )
 }
