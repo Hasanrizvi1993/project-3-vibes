@@ -45,6 +45,7 @@ const loginCall = async (userFound) => {
 
   const logout = () => {
     localStorage.removeItem("userToken")
+    localStorage.removeItem("userData")
   }
 
 

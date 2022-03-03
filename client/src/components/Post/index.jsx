@@ -22,7 +22,7 @@ const [user, setUser] = useState({});
         setUser(res.data)
     }
     fetchUser();
-  }, [post])
+  }, [post.userId])
 
  
   const likeHandler = () => {

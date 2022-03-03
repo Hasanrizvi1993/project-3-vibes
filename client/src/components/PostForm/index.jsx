@@ -26,7 +26,7 @@ const [file, setFile] = useState(null)
     }
     try {
       await axios.post(`${apiUrl}/posts`, newPost)
-      // window.location.reload()
+       window.location.reload()
     } catch (err) {
       console.log(err)
     }
