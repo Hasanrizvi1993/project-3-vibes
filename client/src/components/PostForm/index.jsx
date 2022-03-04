@@ -24,12 +24,25 @@ const [file, setFile] = useState(null)
       userId: currentUser._id,
       body: body.current.value,
     }
+    if (file) {
+      const data = new FormData()
+      const fileName = file.name;
+      data.append("file", file)
+      data.append("name", fileName)
+      newPost.img = fileName;
+      try {
+        await axios.post(`${apiUrl}/posts/upload`, data);
+      } catch (err) {
+        console.log(err)
+      }
+    }
     try {
       await axios.post(`${apiUrl}/posts`, newPost)
        window.location.reload()
     } catch (err) {
       console.log(err)
     }
+  
     //multer img uploader
     // api post for image
   }

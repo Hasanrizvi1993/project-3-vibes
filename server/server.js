@@ -34,6 +34,7 @@ app.use(cors());
 //helps us read body, including body with Postman and req.body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'));
 
 /* ====== Routes & controllers ====== */
 app.use("/api", routes);

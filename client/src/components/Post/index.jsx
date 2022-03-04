@@ -39,7 +39,7 @@ const [user, setUser] = useState({});
             src="/assets/staticImages/no_pf_img.png" alt="" />
           </Link>
           <Link to={"/profile/"+user.userName} style={{textDecoration: 'none'}} >
-            <span className="post-username">{user && user.userName}</span>
+            <span className="post-username">{user && user.name}</span>
           </Link>
           </div>
           <div className="post-top-right">
