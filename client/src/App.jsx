@@ -11,16 +11,16 @@ import { AuthProvider } from "./context/AuthContext";
 function App() {
   return (
     <div className="App">
-      <AuthProvider>
       <BrowserRouter>
+      <AuthProvider>
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/profile/:userName" element={<Profile />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       </Routes>
-      </BrowserRouter>
       </AuthProvider>
+      </BrowserRouter>
     </div>
   );
 }

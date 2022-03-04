@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import './login.scss';
 import { init } from 'ityped';
@@ -12,12 +12,12 @@ const email = useRef();
 const password = useRef();
 // ref for ityped text
 const textRef = useRef()
-
+// message state hook
+const [message, setMessage] = useState('');
 // useAuth hook to pull loginCall from AuthContext
-const { currentUser, loginCall } = useAuth();
+const { currentUser, loginCall, loginMessage } = useAuth();
 
-// useNavigate hook for redirect
-const navigate = useNavigate();
+
 
 
 // useEffect for ityped text
@@ -41,7 +41,6 @@ const handleLogin = (e) => {
   }
   try {
     loginCall(userFound);  
-    navigate("/")
   } catch (error) {
     console.log(error)
   }
@@ -58,6 +57,9 @@ const handleLogin = (e) => {
         </div>
           <div className="login-right">
             <h2>Log In to Your Account</h2>
+            <div className="login-form-message">
+          {loginMessage && <span className="post-img-text" style={{color:'crimson'}}>{loginMessage}</span>}
+          </div>
           <form className="login-box" onSubmit={handleLogin} >
             <input type='email' placeholder="Email" 
             className="login-input" ref={email} required />

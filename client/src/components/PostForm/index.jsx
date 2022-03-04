@@ -16,6 +16,8 @@ export const PostForm = () => {
 const body = useRef();
   // state for share img uploader
 const [file, setFile] = useState(null)
+// state for success/error message 
+const [message, setMessage] = useState('')
 
   // empty submitHandler - onChange for img input is already set to change file to first img uploaded if multiple
   const submitHandler = async (e) => {
@@ -34,13 +36,16 @@ const [file, setFile] = useState(null)
         await axios.post(`${apiUrl}/posts/upload`, data);
       } catch (err) {
         console.log(err)
+        setMessage('ERROR! Could not post image...')
       }
     }
     try {
       await axios.post(`${apiUrl}/posts`, newPost)
+      setMessage('SUCCESS! You made a new ')
        window.location.reload()
     } catch (err) {
       console.log(err)
+      setMessage('ERROR! Could not create post...')
     }
   
     //multer img uploader
@@ -53,6 +58,9 @@ const [file, setFile] = useState(null)
       <div className="post-form-wrapper">
         <form onSubmit={submitHandler} >
         <div className="post-form-top">
+          <div className="post-form-message">
+          {message && <span className="post-img-text" style={{color:'green'}}>{message}</span>}
+          </div>
           <img className="post-form-img" src='/assets/staticImages/no_pf_img.png' alt='' />
           <textarea type="text" placeholder='START A POST...' ref={body} className="post-form-input" />
         </div>
@@ -61,7 +69,8 @@ const [file, setFile] = useState(null)
           <div className="post-img">
           <label htmlFor='file' className="post-img-label">
             <PermMedia className="post-img-icon" />
-            <span className="post-img-text">ADD PHOTO TO POST</span>
+            {file ? <span className="post-img-text" style={{color:'green'}} >PHOTO ADDED!</span> 
+            : <span className="post-img-text" style={{color:'crimson'}} >ADD PHOTO</span>}
             <input style={{display:'none'}} type="file" id="file" 
                     accept=".png, .jpg, .jpeg"
                     onChange={(e) => setFile(e.target.files[0])} />

@@ -1,5 +1,6 @@
 // AUTH CONTEXT
 import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -18,6 +19,10 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
 // state hook for the current logged in user
 const [currentUser, setCurrentUser] = useState()
+// loginMessage hook
+const [loginMessage, setLoginMessage] = useState('')
+// useNavigate hook for redirect
+const navigate = useNavigate();
 
 // loginCall function for user login
 const loginCall = async (userFound) => {
@@ -27,13 +32,12 @@ const loginCall = async (userFound) => {
       localStorage.setItem("userData", JSON.stringify(res.data.userFound))
       if (res.data.token) {
         localStorage.setItem("userToken", JSON.stringify(res.data.token))
+        navigate("/")
       }
-       return res.data.token 
-       
-      
+       return res.data.token  
 
     } catch (err) {
-      
+      setLoginMessage('Login Failed! Check Email or Password')
     }
   } 
 
@@ -68,6 +72,7 @@ const loginCall = async (userFound) => {
             logout,
             checkCurrentUser, 
             currentUser,
+            loginMessage,
             
         }}>
             {children}

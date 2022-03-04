@@ -5,6 +5,9 @@ import { useAuth } from '../../context/AuthContext';
 import { format } from 'timeago.js';
 import axios from 'axios';
 
+// BACKEND PUBLIC FOLDER UPLOADS
+const POST_IMG = process.env.REACT_APP_POST_IMAGES;
+
 
 // SERVER API URL
 const apiUrl = "http://localhost:4000/api"
@@ -48,7 +51,7 @@ const [user, setUser] = useState({});
         </div>
         <div className="post-center">
           <span className="post-text">{post && post.body}</span>
-          <img className="post-img" src="/assets/staticImages/snowy.jpeg" alt="" />
+          <img className="post-img" src={post.img && POST_IMG+post.img} alt="" />
         </div>
         <div className="post-bottom">
           <div className="post-bottom-left">
