@@ -51,7 +51,6 @@ const handleLogin = (e) => {
 
   return (
     <div className="login" >
-      <h1>VIBE$</h1>
       <div className="login-wrapper">
         <div className="login-left">
           <h3 className="login-logo-text">MUSIC NEVER SOUNDED SO...

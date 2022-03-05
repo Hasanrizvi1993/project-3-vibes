@@ -10,6 +10,8 @@ import { Feed } from './components/Timeline';
 function App() {
   return (
     <div className="App">
+    <div className='page-background'></div>
+    <h1 className='master-logo'>VIBE$</h1>
       <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />} />
