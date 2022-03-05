@@ -1,8 +1,12 @@
 import React from 'react';
 import '../../stylesheets/index.scss';
 import { LocationOn } from '@material-ui/icons';
+import { useAuth } from '../../context/AuthContext';
 
 export const Sidebar = () => {
+  const { currentUser } = useAuth()
+
+
   return (
     <div className="side-bar" >
         <div className="side-bar-wrapper">

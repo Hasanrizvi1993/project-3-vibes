@@ -34,6 +34,7 @@ app.use(express.static(path.join("build"))); ///COMMENTING OUT TO DEBUG
 //helps us read body, including body with Postman and req.body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'));
 
 /* ====== Routes & controllers ====== */
 app.use("/api", routes);
@@ -48,10 +49,10 @@ app.use("/api/auth", authRouter)
 app.use("/api/comments", commentRouter);
 
 
-app.all("/api/*", (req, res, next) => {
+/*app.all("/api/*", (req, res, next) => {
 	res.send("these apis are not working");
 });
-
+8?
 
 app.use((req, res, next) => {
 	res.sendFile(path.join(__dirname, "build", "index.html"));

@@ -8,6 +8,9 @@ router.put("/:id", users.update) //USED TO EDIT USERS
 router.delete("/:id", users.destroy)//USED TO DELETE USERS
 
 
+router.get("/", users.queryUser)
+router.get("/profile", authRequired, users.show);
+
 
 
 module.exports = router;

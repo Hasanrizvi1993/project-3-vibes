@@ -50,7 +50,7 @@ const register = async (req, res) => {
         const validPassword = await bcrypt.compare(req.body.password, userFound.password)  
             if (validPassword) {
 
-                const token = jwt.sign( { email: userFound.email, }, "VIBE$", {
+                const token = jwt.sign( { _id: userFound._id }, "VIBE$", {
                     expiresIn: "2h",
                 })
                     res.status(201).json({

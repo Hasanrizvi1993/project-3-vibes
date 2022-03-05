@@ -1,9 +1,18 @@
 import React from 'react'
 import '../../stylesheets/index.scss';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 
 export const NavBar = () => {
+  const { logout } = useAuth();
+
+  const signOut = () => {
+    logout()
+    
+  }
+
+
   return (
     <div className='nav-container'>
         <div className="logo">
@@ -20,13 +29,13 @@ export const NavBar = () => {
           <Link to={"/profile"} >
             <span className="nav-link">Profile</span>
           </Link>
-          <Link to={"#"} >
-                  <span className="nav-link">Sign Out</span>
+          <Link to={"#"} style={{textDecoration: 'none', color: 'white', cursor: 'pointer'}} >
+                  <span className="nav-link" onClick={signOut} >Sign Out</span>
           </Link>
             </div>
         </div>
         <div className="nav-right">
-        <button type="button" class="btn" data-bs-toggle="button">Light/Dark</button>
+        <button type="button" className="btn" data-bs-toggle="button">Light/Dark</button>
         </div>
     </div>
   )
