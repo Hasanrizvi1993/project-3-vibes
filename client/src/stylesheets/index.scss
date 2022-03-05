@@ -8,6 +8,7 @@
          Variables
 =-=-=-=-=-=-=-=-=-=-=-=- */
 $hero-color: #639275;
+$background-color: #ECEDEE;
 $white: #FFFFFF;
 
 // HERO FONT: PLAYFAIR DISPLAY ITALIC
@@ -56,9 +57,9 @@ $secondary-font: 'Helvetica', serif;
     position: fixed;
     width: 100%;
     min-height: 100%;
-    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $white 225px);
+    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $background-color 225px);
     font-family: $hero-font;
-    z-index: -1;
+    z-index: -2;
 }
 
 .master-logo {
@@ -66,6 +67,7 @@ $secondary-font: 'Helvetica', serif;
     bottom: 5px;
     left: 2px;
     font-size: 54px;
+    z-index: -1;
 }
 
 // Nav Bar Styling
@@ -207,13 +209,15 @@ $secondary-font: 'Helvetica', serif;
         border: 1px solid purple;
         display: flex;
         flex-direction: column;
-        right: 2%;
+        position: absolute;
+        top: 50px;
+        right: 50px;
         flex: 3;
         text-align: center;
         background: rgba(255, 255, 255, .50);
-        border-radius: 40%;
+        border-radius: 45px;
         height: 400px;
-        width: 200px;
+        width: 350px;
 
         .login-btn {
             width: 90%;
