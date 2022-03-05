@@ -8,45 +8,45 @@ import { useAuth } from '../../context/AuthContext';
 
 
 export const Login = () => {
-// useRef hooks for email/password
-const email = useRef();
-const password = useRef();
-// ref for ityped text
-const textRef = useRef()
+  // useRef hooks for email/password
+  const email = useRef();
+  const password = useRef();
+  // ref for ityped text
+  const textRef = useRef()
 
-// useAuth hook to pull loginCall from AuthContext
-const { currentUser, loginCall } = useAuth();
+  // useAuth hook to pull loginCall from AuthContext
+  const { currentUser, loginCall } = useAuth();
 
-// useNavigate hook for redirect
-const navigate = useNavigate();
-
-
-// useEffect for ityped text
-useEffect(()=> {
-  init(textRef.current, {
-    backDelay: 1000,
-    backSpeed: 70,
-    showCursor: false,
-    strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC"],
-  })
-}, [])
+  // useNavigate hook for redirect
+  const navigate = useNavigate();
 
 
+  // useEffect for ityped text
+  useEffect(()=> {
+    init(textRef.current, {
+      backDelay: 1000,
+      backSpeed: 70,
+      showCursor: false,
+      strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC"],
+    })
+  }, [])
 
-// login handler
-const handleLogin = (e) => {
-  e.preventDefault()
-  const userFound = {
-    email: email.current.value,
-    password: password.current.value,
+
+
+  // login handler
+  const handleLogin = (e) => {
+    e.preventDefault()
+    const userFound = {
+      email: email.current.value,
+      password: password.current.value,
+    }
+    try {
+      loginCall(userFound);  
+      navigate("/")
+    } catch (error) {
+      console.log(error)
+    }
   }
-  try {
-    loginCall(userFound);  
-    navigate("/")
-  } catch (error) {
-    console.log(error)
-  }
-}
 
 
   return (
@@ -54,7 +54,7 @@ const handleLogin = (e) => {
       <div className="login-wrapper">
         <div className="login-left">
           <h3 className="login-logo-text">MUSIC NEVER SOUNDED SO...
-          <span ref={textRef} className="typed-text"></span></h3>
+          <div ref={textRef} className="typed-text"></div></h3>
         </div>
           <div className="login-right">
             <h2>Log In to Your Account</h2>
