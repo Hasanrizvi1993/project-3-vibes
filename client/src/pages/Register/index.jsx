@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './register.scss';
+import "../../stylesheets/index.scss"
 import { Person } from '@material-ui/icons';
 import axios from 'axios';
 

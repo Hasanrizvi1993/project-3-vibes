@@ -1,9 +1,9 @@
-// const path = require("path");
 require("dotenv").config({ path: "../.env" });
 
 /* ====== External Modules  ====== */
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 /* ====== Internal Modules  ====== */
 
@@ -29,7 +29,7 @@ const config = require("@vibes/config");
 /* ==== Middleware ==== */
 app.use(cors());
 
-// app.use(express.static(path.join("build"))); ///COMMENTING OUT TO DEBUG
+app.use(express.static(path.join("build"))); ///COMMENTING OUT TO DEBUG
 
 //helps us read body, including body with Postman and req.body
 app.use(express.urlencoded({ extended: true }));
@@ -54,9 +54,9 @@ app.use("/api/comments", commentRouter);
 });
 8?
 
-// app.use((req, res, next) => {
-// 	res.sendFile(path.join(__dirname, "build", "index.html"));
-// }); // COMMENTING OUT FOR DEBUGGING
+app.use((req, res, next) => {
+	res.sendFile(path.join(__dirname, "build", "index.html"));
+}); // COMMENTING OUT FOR DEBUGGING
 
 
 /* ====== Server Listener  ====== */

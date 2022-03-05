@@ -6,9 +6,13 @@ import App from './App';
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <div className='entire-page'>
+    <React.StrictMode>
+      <AuthProvider>
         <App />
-  </React.StrictMode>,
+      </AuthProvider>
+    </React.StrictMode>
+  </div>,
   document.getElementById('root')
 );
 

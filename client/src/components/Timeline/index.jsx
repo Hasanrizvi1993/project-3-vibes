@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Post } from '../Post';
 import { PostForm } from '../PostForm';
 import axios from 'axios';
-import './timeline.scss';
+import '../../stylesheets/index.scss';
 
 // SERVER API URL
 const apiUrl = "http://localhost:4000/api"
