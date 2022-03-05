@@ -19,25 +19,31 @@ const { currentUser, loginCall, loginMessage } = useAuth();
 
 
 
-
-// useEffect for ityped text
-useEffect(()=> {
-  init(textRef.current, {
-    backDelay: 1000,
-    backSpeed: 70,
-    showCursor: false,
-    strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC"],
-  })
-}, [])
-
+  // useEffect for ityped text
+  useEffect(()=> {
+    init(textRef.current, {
+      backDelay: 1000,
+      backSpeed: 70,
+      showCursor: false,
+      strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC"],
+    })
+  }, [])
 
 
-// login handler
-const handleLogin = (e) => {
-  e.preventDefault()
-  const userFound = {
-    email: email.current.value,
-    password: password.current.value,
+
+  // login handler
+  const handleLogin = (e) => {
+    e.preventDefault()
+    const userFound = {
+      email: email.current.value,
+      password: password.current.value,
+    }
+    try {
+      loginCall(userFound);  
+      navigate("/")
+    } catch (error) {
+      console.log(error)
+    }
   }
   try {
     loginCall(userFound);  
@@ -52,7 +58,7 @@ const handleLogin = (e) => {
       <div className="login-wrapper">
         <div className="login-left">
           <h3 className="login-logo-text">MUSIC NEVER SOUNDED SO...
-          <span ref={textRef} className="typed-text"></span></h3>
+          <div ref={textRef} className="typed-text"></div></h3>
         </div>
           <div className="login-right">
             <h2>Log In to Your Account</h2>
