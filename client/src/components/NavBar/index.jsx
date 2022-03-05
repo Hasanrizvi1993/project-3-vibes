@@ -29,7 +29,7 @@ export const NavBar = () => {
           <Link to={"/profile"} >
             <span className="nav-link">Profile</span>
           </Link>
-          <Link to={"#"} style={{textDecoration: 'none', color: 'white', cursor: 'pointer'}} >
+          <Link to={"#"} >
                   <span className="nav-link" onClick={signOut} >Sign Out</span>
           </Link>
             </div>

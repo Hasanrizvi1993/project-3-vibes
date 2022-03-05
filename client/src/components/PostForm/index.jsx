@@ -48,8 +48,6 @@ const [message, setMessage] = useState('')
       setMessage('ERROR! Could not create post...')
     }
   
-    //multer img uploader
-    // api post for image
   }
 
 

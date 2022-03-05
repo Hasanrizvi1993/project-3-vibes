@@ -37,11 +37,11 @@ const [user, setUser] = useState({});
       <div className="post-wrapper">
         <div className="post-top">
           <div className="post-top-left">
-          <Link to={"/profile/"+user.userName} style={{textDecoration: 'none'}} >
+          <Link to={"/profile/"+user.userName} >
             <img className='post-profile-img' 
             src="/assets/staticImages/no_pf_img.png" alt="" />
           </Link>
-          <Link to={"/profile/"+user.userName} style={{textDecoration: 'none'}} >
+          <Link to={"/profile/"+user.userName} >
             <span className="post-username">{user && user.name}</span>
           </Link>
           </div>
@@ -68,8 +68,3 @@ const [user, setUser] = useState({});
     </div>
   )
 }
-
-/*   
-{format(post.createdAt)}
-{post.body}
-*/

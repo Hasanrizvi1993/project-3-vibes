@@ -3,9 +3,9 @@ import { NavBar } from '../../components/NavBar';
 import { Sidebar } from '../../components/Sidebar';
 import { Timeline } from '../../components/Timeline';
 import { EditProfile } from '../../components/EditProfile';
+import '../../stylesheets/index.scss';
 import axios from 'axios';
 import { useParams } from 'react-router';
-import '../../stylesheets/index.scss';
 
 
 // SERVER API URL
