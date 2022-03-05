@@ -8,9 +8,7 @@ import App from './App';
 ReactDOM.render(
   <div className='entire-page'>
     <React.StrictMode>
-      <AuthProvider>
         <App />
-      </AuthProvider>
     </React.StrictMode>
   </div>,
   document.getElementById('root')
