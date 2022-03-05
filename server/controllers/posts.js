@@ -4,7 +4,7 @@ const index = (req, res) => {
 	db.Post.find().exec((err, allPosts) => {
 		if (err)
 			return res.status(400).json({
-				message: "Utter Failure!",
+				message: "Failure!",
 				error: err,
 			});
 		return res.status(200).json({
@@ -17,7 +17,7 @@ const show = (req, res) => {
 	db.Post.findById(req.params.id, (err, foundPost) => {
 		if (err)
 			return res.status(400).json({
-				message: "Utter Failure!",
+				message: "Failure!",
 				error: err,
 			});
 		return res.status(200).json({
@@ -30,7 +30,7 @@ const create = (req, res) => {
 	db.Post.create(req.body, (err, savedPost) => {
 		if (err)
 			return res.status(400).json({
-				message: "Utter Failure!",
+				message: "Failure!",
 				error: err,
 			});
 		return res.status(201).json({
@@ -47,21 +47,21 @@ const update = (req, res) => {
 		(err, updatedPost) => {
 			if (err)
 				return res.status(400).json({
-					message: "Utter Failure!",
+					message: "Failure!",
 					error: err,
 				});
 			return res.status(202).json({
 				message: "Success",
 				data: updatedPost,
 			});
-		}
+		},
 	);
 };
 const destroy = (req, res) => {
 	db.Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
 		if (err)
 			return res.status(400).json({
-				message: "Utter Failure!",
+				message: "Failure!",
 				error: err,
 			});
 		return res.status(200).json({
@@ -71,7 +71,42 @@ const destroy = (req, res) => {
 	});
 };
 
+const commentCreate = (req, res) => {
+	db.Post.findById(req.params.id)
+		.then((foundPost) => {
+			if (!foundPost) return console.log("error!!!!");
 
+			foundPost.comments.push(req.body.body);
+			foundPost.save();
+
+			return res.status(201).json({
+				message: "comments are done",
+				data: foundPost.comments,
+			});
+		})
+		.catch((err) => console.log(err));
+};
+
+
+
+
+
+
+
+// const commentUpdate = (req, res) => {
+// 	db.Post.findById(req.params.id).then((foundPost) => {
+// 		if (!foundPost)
+// 			return console.log("there is problem with comments updating");
+
+// 		const commentById = foundPost.comments.id(req.params.commentId);
+// 		commentById.body = req.body;
+// 		foundPost.save();
+// 		return res.status(202).json({
+// 			message: "Updated comments!!!",
+// 			data: commentById,
+// 		});
+// 	});
+// };
 
 module.exports = {
 	index,
@@ -79,4 +114,6 @@ module.exports = {
 	create,
 	update,
 	destroy,
+	commentCreate,
+	// commentUpdate,
 };

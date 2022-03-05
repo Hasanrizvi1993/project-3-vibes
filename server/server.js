@@ -12,7 +12,7 @@ const app = express();
 const routes = require("./routes");
 const postRouter = require("./routes/posts");
 const userRouter = require("./routes/users");
-const commentRouter = require("./routes/comments");
+// const commentRouter = require("./routes/comments");
 /* ====== System Variables  ====== */
 
 /* ====== App Configuration  ====== */
@@ -28,6 +28,7 @@ app.use(cors());
 //helps us read body, including body with Postman and req.body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+//necessary for post requests
 
 /* ====== Routes & controllers ====== */
 app.use("/api", routes);
@@ -36,7 +37,7 @@ app.use("/api/posts", postRouter);
 
 app.use("/api/users", userRouter);
 
-app.use("/api", commentRouter);
+// app.use("/api", commentRouter);
 
 app.all("/api/*", (req, res, next) => {
 	res.send("these apis are not working");
