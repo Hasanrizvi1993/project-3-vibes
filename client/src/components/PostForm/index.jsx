@@ -69,8 +69,8 @@ const [message, setMessage] = useState('')
           <div className="post-img">
           <label htmlFor='file' className="post-img-label">
             <PermMedia className="post-img-icon" />
-            {file ? <span className="post-img-text" style={{color:'green'}} >PHOTO ADDED!</span> 
-            : <span className="post-img-text" style={{color:'crimson'}} >ADD PHOTO</span>}
+            {file ? <span className="post-img-text" style={{color:'green'}}>PHOTO ADDED!</span> 
+            : <span className="post-img-text" style={{color:'crimson'}}>ADD PHOTO</span>}
             <input style={{display:'none'}} type="file" id="file" 
                     accept=".png, .jpg, .jpeg"
                     onChange={(e) => setFile(e.target.files[0])} />
