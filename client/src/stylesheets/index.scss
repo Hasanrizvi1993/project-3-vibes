@@ -9,7 +9,7 @@
 =-=-=-=-=-=-=-=-=-=-=-=- */
 $hero-color: #639275;
 $background-color: #ECEDEE;
-$white: #FFFFFF;
+$white:rgba(255, 255, 255, .5);
 
 // HERO FONT: PLAYFAIR DISPLAY ITALIC
 $hero-font: 'Playfair Display', serif;
@@ -40,6 +40,12 @@ $secondary-font: 'Helvetica', serif;
     font-family: $secondary-font;
     vertical-align: top;
     text-align: center;
+}
+
+@mixin default-btn () {
+    width: 90%;
+    background-color: $hero-color;
+    color: #FFFFFF;
 }
 
 
@@ -189,8 +195,6 @@ $secondary-font: 'Helvetica', serif;
 
 // Login Page 
 .login-wrapper {
-    display: flex;
-    justify-content: space-evenly;
 
     .login-left {
         position: absolute;
@@ -223,10 +227,29 @@ $secondary-font: 'Helvetica', serif;
         width: 350px;
 
         .login-btn {
-            width: 90%;
-            background-color: $hero-color;
-            color: #FFFFFF;
+            @include default-btn();
         }
     }
 
+}
+
+// Sign up Page
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .register-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid red;
+        background: $white;
+        max-width: 500px;
+
+        .register-box {
+            width: 40%;
+        }
+    }
 }
