@@ -35,10 +35,13 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema(
 	{
-		title: { type: String, required: true },
+		title: { type: String, },
 		body: { type: String, required: true },
-		date: { type: Date },
+		img: { type: String, },
 		// comments: [commentSchema],
+
+		
+		userId: { type: String, },
 	},
 	{
 		timestamps: true,

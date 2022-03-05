@@ -1,24 +1,22 @@
-import React, { useEffect, useRef, useContext } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import '../../stylesheets/index.scss';
 import { init } from 'ityped';
-import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 
 
 
 export const Login = () => {
-  // useRef hooks for email/password
-  const email = useRef();
-  const password = useRef();
-  // ref for ityped text
-  const textRef = useRef()
+// useRef hooks for email/password
+const email = useRef();
+const password = useRef();
+// ref for ityped text
+const textRef = useRef()
+// message state hook
+const [message, setMessage] = useState('');
+// useAuth hook to pull loginCall from AuthContext
+const { currentUser, loginCall, loginMessage } = useAuth();
 
-  // useAuth hook to pull loginCall from AuthContext
-  const { currentUser, loginCall } = useAuth();
-
-  // useNavigate hook for redirect
-  const navigate = useNavigate();
 
 
   // useEffect for ityped text
@@ -47,6 +45,12 @@ export const Login = () => {
       console.log(error)
     }
   }
+  try {
+    loginCall(userFound);  
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 
   return (
@@ -58,6 +62,9 @@ export const Login = () => {
         </div>
           <div className="login-right">
             <h2>Log In to Your Account</h2>
+            <div className="login-form-message">
+          {loginMessage && <span className="post-img-text" style={{color:'crimson'}}>{loginMessage}</span>}
+          </div>
           <form className="login-box" onSubmit={handleLogin} >
             <input type='email' placeholder="Email" 
             className="login-input" ref={email} required />
