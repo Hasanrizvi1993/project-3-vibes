@@ -50,6 +50,7 @@ $secondary-font: 'Helvetica', serif;
 .entire-page {
     font-family: $hero-font;
 }
+
 .page-background {
     top: 0;
     position: fixed;
@@ -58,6 +59,13 @@ $secondary-font: 'Helvetica', serif;
     background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $white 225px);
     font-family: $hero-font;
     z-index: -1;
+}
+
+.master-logo {
+    position: fixed;
+    bottom: 5px;
+    left: 2px;
+    font-size: 54px;
 }
 
 // Nav Bar Styling
