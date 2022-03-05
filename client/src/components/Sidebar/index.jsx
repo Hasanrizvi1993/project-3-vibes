@@ -12,6 +12,7 @@ export const Sidebar = () => {
         <div className="side-bar-wrapper">
             <div className="side-bar-top">
               <img className="side-bar-img" src="/assets/staticImages/no_pf_img.png"  />
+
               <h3 className="side-bar-username">{currentUser && currentUser.name}</h3>
               <LocationOn htmlColor='seagreen' style={{fontSize: "24px"}} />
               <span className='side-bar-location'>{currentUser && currentUser.location}</span>
@@ -20,6 +21,7 @@ export const Sidebar = () => {
             <div className="side-bar-center">
               <div  className="side-bar-label">NOW PLAYING</div>
               <div><iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/1479458365" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
+
                   </div>
                 <p className="current-song">NEED MUSIC PLAYER COMPONENT?</p>
             </div>

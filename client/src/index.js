@@ -8,7 +8,7 @@ import App from './App';
 ReactDOM.render(
   <div className='entire-page'>
   <React.StrictMode>
-        <App />
+    <App />
   </React.StrictMode>
   </div>,
   document.getElementById('root')
