@@ -11,6 +11,8 @@ import { AuthProvider } from "./context/AuthContext";
 function App() {
   return (
     <div className="App">
+    <div className='page-background'></div>
+    <h1 className='master-logo'>VIBE$</h1>
       <BrowserRouter>
       <AuthProvider>
       <Routes>

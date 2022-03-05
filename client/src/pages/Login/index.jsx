@@ -26,7 +26,7 @@ useEffect(()=> {
     backDelay: 1000,
     backSpeed: 70,
     showCursor: false,
-    strings: [" COOL", " DOPE"],
+    strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC"],
   })
 }, [])
 
@@ -49,7 +49,6 @@ const handleLogin = (e) => {
 
   return (
     <div className="login" >
-      <h1>VIBE$</h1>
       <div className="login-wrapper">
         <div className="login-left">
           <h3 className="login-logo-text">MUSIC NEVER SOUNDED SO...

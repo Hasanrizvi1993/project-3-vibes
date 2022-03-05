@@ -8,7 +8,7 @@
          Variables
 =-=-=-=-=-=-=-=-=-=-=-=- */
 $hero-color: #639275;
-$white: #FFF;
+$white: #FFFFFF;
 
 // HERO FONT: PLAYFAIR DISPLAY ITALIC
 $hero-font: 'Playfair Display', serif;
@@ -25,13 +25,39 @@ $secondary-font: 'Helvetica', serif;
     padding: $padding-size;
 }
 
+@mixin side-bar-overall() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: center;
+    margin: 3rem 2rem 3rem 2rem;
+    padding: 0 2rem 0 2rem;
+}
+
+@mixin side-bar-detail-default () {
+    font-family: $secondary-font;
+    vertical-align: top;
+    text-align: center;
+}
+
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-
       Component Styles
 =-=-=-=-=-=-=-=-=-=-=-=- */
-.App {
-    background: radial-gradient(ellipse at bottom left, $hero-color 40px, $white 50%);
+
+// Back ground and Default Font
+.entire-page {
     font-family: $hero-font;
+}
+.page-background {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $white 225px);
+    font-family: $hero-font;
+    z-index: -1;
 }
 
 // Nav Bar Styling
@@ -60,8 +86,8 @@ $secondary-font: 'Helvetica', serif;
 
 }
 
-// Home page overall styling
-.home-container {
+// Overall Default Page Styling
+.home-container, .profile, .login{
     display: flex;
     width: 100%;
 }
@@ -69,7 +95,12 @@ $secondary-font: 'Helvetica', serif;
 // Side Bar Styling
 .side-bar {
     flex: 3;
-    width: 20rem;
+    margin: 1%;
+    width: 100%;
+
+    .side-bar-divider {
+        background: linear-gradient(to right #FFFFFF, #000000, #FFFFFF);
+    }
 
     .side-bar-img {
         @include profile-pic($img-size: 8rem, $padding-size: 3rem);
@@ -79,26 +110,30 @@ $secondary-font: 'Helvetica', serif;
         text-align: center;
     }
 
-    .side-bar-center, .side-bar-bottom {
-        text-align: center;
-        vertical-align: center;
-        margin: 3rem 2rem 3rem 2rem;
-        padding: 0 2rem 0 2rem;
+    .side-bar-center {
+        @include side-bar-overall();
+    }
+    
+    .side-bar-bottom {
+        @include side-bar-overall();
     }
 
     .side-bar-label {
         margin: 0 1rem;
         padding: 1rem 0;
-        position: relative;
+        position: absolute;
         color: $hero-color;
         text-align: center;
-        transform: rotate(-90deg) translatey(-7rem);
+        transform: rotate(-90deg) translateY(-7rem);
     }
 
-    .current-song, .side-bar-top-artists {
-        font-family: $secondary-font;
-        position: relative;
-        transform: translatey(-5rem);
+    .current-song{
+        @include side-bar-detail-default ();
+        width: 11rem;
+    }
+
+    .side-bar-top-artists {
+        @include side-bar-detail-default ();
     }
 }
 
@@ -142,6 +177,41 @@ $secondary-font: 'Helvetica', serif;
     }
 }
 
-.post-form-wrapper {
-    width: 100%;
+// Login Page 
+.login-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+
+    .login-left {
+        flex: 6;
+        font-size: 20px;
+        min-width: 49%;
+        max-width: 50%;
+        border: 1px solid red;
+
+        .login-motto-text {
+            width: 70%;
+            border: 1px solid blue;
+        }
+    }
+
+    .login-right {
+        border: 1px solid purple;
+        display: flex;
+        flex-direction: column;
+        right: 2%;
+        flex: 3;
+        text-align: center;
+        background: rgba(255, 255, 255, .50);
+        border-radius: 40%;
+        height: 400px;
+        width: 200px;
+
+        .login-btn {
+            width: 90%;
+            background-color: $hero-color;
+            color: #FFFFFF;
+        }
+    }
+
 }
