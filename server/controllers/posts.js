@@ -4,7 +4,7 @@ const index = (req, res) => {
 	db.Post.find().exec((err, allPosts) => {
 		if (err)
 			return res.status(400).json({
-				message: "Utter Failure!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(200).json({
@@ -17,7 +17,7 @@ const show = (req, res) => {
 	db.Post.findById(req.params.id, (err, foundPost) => {
 		if (err)
 			return res.status(400).json({
-				message: "Utter Failure!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(200).json({
@@ -30,7 +30,7 @@ const create = (req, res) => {
 	db.Post.create(req.body, (err, savedPost) => {
 		if (err)
 			return res.status(400).json({
-				message: "Utter Failure!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(201).json({
@@ -47,7 +47,7 @@ const update = (req, res) => {
 		(err, updatedPost) => {
 			if (err)
 				return res.status(400).json({
-					message: "Utter Failure!",
+					message: "Status 400 Error!",
 					error: err,
 				});
 			return res.status(202).json({
@@ -61,7 +61,7 @@ const destroy = (req, res) => {
 	db.Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
 		if (err)
 			return res.status(400).json({
-				message: "Utter Failure!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(200).json({

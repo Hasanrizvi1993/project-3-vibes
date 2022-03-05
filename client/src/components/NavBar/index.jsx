@@ -1,5 +1,5 @@
 import React from 'react'
-import './navBar.scss';
+import '../../stylesheets/index.scss';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
@@ -15,21 +15,21 @@ export const NavBar = () => {
 
   return (
     <div className='nav-container'>
-        <div className="nav-left">
+        <div className="logo">
         <Link to={"/"} style={{textDecoration: 'none'}} >
           <span className="logo">VIBE$</span>
         </Link>
 
         </div>
-        <div className="nav-center">
+        <div className="icons">
         <div className="nav-links">
-          <Link to={"/"} style={{textDecoration: 'none', color: 'white'}} >
+          <Link to={"/"} >
             <span className="nav-link">Feed</span>
           </Link>
-          <Link to={"/profile"} style={{textDecoration: 'none', color: 'white'}} >
+          <Link to={"/profile"} >
             <span className="nav-link">Profile</span>
           </Link>
-          <Link to={"#"} style={{textDecoration: 'none', color: 'white', cursor: 'pointer'}} >
+          <Link to={"#"} >
                   <span className="nav-link" onClick={signOut} >Sign Out</span>
           </Link>
             </div>

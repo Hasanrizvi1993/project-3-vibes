@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import './postForm.scss';
+import '../../stylesheets/index.scss';
 import { PermMedia } from '@material-ui/icons';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
@@ -48,8 +48,6 @@ const [message, setMessage] = useState('')
       setMessage('ERROR! Could not create post...')
     }
   
-    //multer img uploader
-    // api post for image
   }
 
 
@@ -62,7 +60,7 @@ const [message, setMessage] = useState('')
           {message && <span className="post-img-text" style={{color:'green'}}>{message}</span>}
           </div>
           <img className="post-form-img" src='/assets/staticImages/no_pf_img.png' alt='' />
-          <textarea type="text" placeholder='START A POST...' ref={body} className="post-form-input" />
+          <textarea cols="60" rows="5" placeholder='START A POST...' ref={body} className="post-form-input" />
         </div>
         <hr className="post-form-border" />
         <div className="post-form-bottom">

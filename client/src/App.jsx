@@ -1,4 +1,4 @@
-import './App.scss';
+import './stylesheets/index.scss';
 import { NavBar } from './components/NavBar';
 import { Home } from './pages/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -11,6 +11,8 @@ import { AuthProvider } from "./context/AuthContext";
 function App() {
   return (
     <div className="App">
+    <div className='page-background'></div>
+    <h1 className='master-logo'>VIBE$</h1>
       <BrowserRouter>
       <AuthProvider>
       <Routes>
