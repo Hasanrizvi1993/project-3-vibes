@@ -8,6 +8,7 @@ export const Sidebar = () => {
 
 
   return (
+    <div className="background-card">
     <div className="side-bar" >
         <div className="side-bar-wrapper">
             <div className="side-bar-top">
@@ -36,6 +37,7 @@ export const Sidebar = () => {
                 </ul>
             </div>
         </div>   
+    </div>
     </div>
   )
 }
