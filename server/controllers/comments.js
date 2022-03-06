@@ -18,6 +18,15 @@ const create = (req, res) => {
 	});
 };
 
+const destroy = (req, res) => {
+	bd.Post.findById(req.params.id)
+}
+
+
+
+
+
+
 module.exports = {
 	// index,
 	// show,

@@ -32,7 +32,7 @@ router.delete("/:id", posts.destroy); //LETS USER DELETE POST
 // GET PROFILE PAGE POSTS for single user
 router.get("/profile/:userName", posts.getProfilePosts);
 
-//comment
+// CREATE COMMENT
 router.post("/:id/comments", comments.create);
 //router.put("/:id/comment/:commentId", posts.commentUpdate);
 // router.get("/:id/comments", posts.commentsShow);
