@@ -20,8 +20,8 @@ export const NavBar = () => {
   }, [user.userId])
 
   const signOut = () => {
-    logout()
-    
+    logout();
+    window.location.reload();
   }
 
 

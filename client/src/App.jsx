@@ -1,28 +1,27 @@
 import './stylesheets/index.scss';
 import { NavBar } from './components/NavBar';
 import { Home } from './pages/Home';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Navigate, Routes, Route } from 'react-router-dom'
 import { Profile }from './pages/Profile';
 import { Login }from './pages/Login';
 import { Register }from './pages/Register';
-import { Feed } from './components/Timeline';
-import { AuthProvider } from "./context/AuthContext";
+import { useAuth } from "./context/AuthContext";
 
 function App() {
+// current logged in user
+const { currentUser } = useAuth();
+
+
   return (
     <div className="App">
     <div className='page-background'></div>
     <h1 className='master-logo'>VIBE$</h1>
-      <BrowserRouter>
-      <AuthProvider>
       <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={currentUser ? <Home /> : <Register />} />
       <Route path="/profile/:userName" element={<Profile />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={currentUser ? <Navigate to={"/"} /> : <Login />} />
+      <Route path="/register" element={currentUser ? <Navigate to={"/"} /> : <Register />} />
       </Routes>
-      </AuthProvider>
-      </BrowserRouter>
     </div>
   );
 }
