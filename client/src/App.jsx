@@ -1,4 +1,4 @@
-import './App.scss';
+import './stylesheets/index.scss';
 import { NavBar } from './components/NavBar';
 import { Home } from './pages/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -6,17 +6,22 @@ import { Profile }from './pages/Profile';
 import { Login }from './pages/Login';
 import { Register }from './pages/Register';
 import { Feed } from './components/Timeline';
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
     <div className="App">
+    <div className='page-background'></div>
+    <h1 className='master-logo'>VIBE$</h1>
       <BrowserRouter>
+      <AuthProvider>
       <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route path="/profile/:userName" element={<Profile />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       </Routes>
+      </AuthProvider>
       </BrowserRouter>
     </div>
   );

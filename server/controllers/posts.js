@@ -17,7 +17,7 @@ const show = (req, res) => {
 	db.Post.findById(req.params.id, (err, foundPost) => {
 		if (err)
 			return res.status(400).json({
-				message: "Failure!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(200).json({
@@ -30,7 +30,7 @@ const create = (req, res) => {
 	db.Post.create(req.body, (err, savedPost) => {
 		if (err)
 			return res.status(400).json({
-				message: "Failure!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(201).json({
@@ -47,7 +47,7 @@ const update = (req, res) => {
 		(err, updatedPost) => {
 			if (err)
 				return res.status(400).json({
-					message: "Failure!",
+					message: "Status 400 Error!",
 					error: err,
 				});
 			return res.status(202).json({
@@ -61,7 +61,7 @@ const destroy = (req, res) => {
 	db.Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
 		if (err)
 			return res.status(400).json({
-				message: "Failure!",
+				message: "Status 400 Error!",
 				error: err,
 			});
 		return res.status(200).json({
@@ -71,42 +71,40 @@ const destroy = (req, res) => {
 	});
 };
 
-const commentCreate = (req, res) => {
-	db.Post.findById(req.params.id)
-		.then((foundPost) => {
-			if (!foundPost) return console.log("error!!!!");
 
-			foundPost.comments.push(req.body.body);
-			foundPost.save();
-
-			return res.status(201).json({
-				message: "comments are done",
-				data: foundPost.comments,
-			});
-		})
-		.catch((err) => console.log(err));
+//PROFILE PAGE POSTS ONLY (based on the queried userName prop passed from profile page)
+const getProfilePosts = async (req, res) => {
+	try {
+		// find user based on userName
+		const user = await db.User.findOne({ userName: req.params.userName });
+		// get just that users posts based on the userId field
+		const posts = await db.Post.find({ userId: user._id });
+		res.status(200).json({
+			message: "Success!",
+			data: posts,
+		});
+	} catch (err) {
+		res.status(500).json({
+			message: "Unable to populate User's Posts",
+			error: err,
+		});
+	}
 };
 
+// POST IMG UPLOAD CONTROLLER
 
-
-
-
-
-
-// const commentUpdate = (req, res) => {
-// 	db.Post.findById(req.params.id).then((foundPost) => {
-// 		if (!foundPost)
-// 			return console.log("there is problem with comments updating");
-
-// 		const commentById = foundPost.comments.id(req.params.commentId);
-// 		commentById.body = req.body;
-// 		foundPost.save();
-// 		return res.status(202).json({
-// 			message: "Updated comments!!!",
-// 			data: commentById,
-// 		});
-// 	});
-// };
+const uploadPostImage = (req, res) => {
+	try {
+		return res.status(200).json({
+			message: "Post Image Uploaded successfully",
+		});
+	} catch (err) {
+		res.status(500).json({
+			message: "Unable to Upload Post Image",
+			error: err,
+		});
+	}
+};
 
 module.exports = {
 	index,
@@ -114,6 +112,6 @@ module.exports = {
 	create,
 	update,
 	destroy,
-	commentCreate,
-	// commentUpdate,
+	getProfilePosts,
+	uploadPostImage,
 };

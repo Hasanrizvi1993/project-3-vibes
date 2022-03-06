@@ -1,18 +1,21 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const commentSchema = new Schema({
-	author: { type: Schema.Types.ObjectId, ref: "User" },
-	body: { type: String, required: true },
-});
+const commentSchema = new Schema(
+	{
+		body: { type: String, required: true },
+	},
+	{
+		timestamps: true,
+	},
+);
 
 const postSchema = new Schema(
 	{
-		title: { type: String, required: true },
 		body: { type: String, required: true },
-		userId: { type: String, required: true },
-		date: { type: Date },
-		comments: [{ commentSchema }],
+		img: { type: String },
+		comments: [commentSchema],
+		userId: { type: String },
 	},
 	{
 		timestamps: true,
@@ -20,6 +23,3 @@ const postSchema = new Schema(
 );
 
 module.exports = mongoose.model("Post", postSchema);
-
-//we have pulled out comments successfully. because we were not able to get the
-//embedded comment data to work

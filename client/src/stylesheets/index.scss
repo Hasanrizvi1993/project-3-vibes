@@ -1,0 +1,217 @@
+/* =-=-=-=-=-=-=-=-=-=-=-=-
+         Font Imports
+=-=-=-=-=-=-=-=-=-=-=-=- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,698&display=swap');
+
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-
+         Variables
+=-=-=-=-=-=-=-=-=-=-=-=- */
+$hero-color: #639275;
+$white: #FFFFFF;
+
+// HERO FONT: PLAYFAIR DISPLAY ITALIC
+$hero-font: 'Playfair Display', serif;
+// SECONDARY FONT: HELVETICA
+$secondary-font: 'Helvetica', serif;
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-
+         @Mixins
+=-=-=-=-=-=-=-=-=-=-=-=- */
+@mixin profile-pic($img-size, $padding-size) {
+    height: $img-size;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: $padding-size;
+}
+
+@mixin side-bar-overall() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: center;
+    margin: 3rem 2rem 3rem 2rem;
+    padding: 0 2rem 0 2rem;
+}
+
+@mixin side-bar-detail-default () {
+    font-family: $secondary-font;
+    vertical-align: top;
+    text-align: center;
+}
+
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-
+      Component Styles
+=-=-=-=-=-=-=-=-=-=-=-=- */
+
+// Back ground and Default Font
+.entire-page {
+    font-family: $hero-font;
+}
+.page-background {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $white 225px);
+    font-family: $hero-font;
+    z-index: -1;
+}
+
+// Nav Bar Styling
+.nav-container {
+    display: flex;
+    border-bottom: 1px solid black; 
+    height: 3rem;
+    background: $white;
+    font-size: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    
+    .logo {
+        flex: 3;
+    }
+
+    .icons{
+        justify-content: flex-end;
+        
+        .nav-link {
+            margin: 0 3rem;
+        }
+    }
+
+
+}
+
+// Overall Default Page Styling
+.home-container, .profile, .login{
+    display: flex;
+    width: 100%;
+}
+
+// Side Bar Styling
+.side-bar {
+    flex: 3;
+    margin: 1%;
+    width: 100%;
+
+    .side-bar-divider {
+        background: linear-gradient(to right #FFFFFF, #000000, #FFFFFF);
+    }
+
+    .side-bar-img {
+        @include profile-pic($img-size: 8rem, $padding-size: 3rem);
+    }
+
+    .side-bar-top {
+        text-align: center;
+    }
+
+    .side-bar-center {
+        @include side-bar-overall();
+    }
+    
+    .side-bar-bottom {
+        @include side-bar-overall();
+    }
+
+    .side-bar-label {
+        margin: 0 1rem;
+        padding: 1rem 0;
+        position: absolute;
+        color: $hero-color;
+        text-align: center;
+        transform: rotate(-90deg) translateY(-7rem);
+    }
+
+    .current-song{
+        @include side-bar-detail-default ();
+        width: 11rem;
+    }
+
+    .side-bar-top-artists {
+        @include side-bar-detail-default ();
+    }
+}
+
+// Post Form Creation Styling
+.post-form {
+    width: 100%;
+    
+    .post-form-img {
+        @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+    }
+
+    .post-form-input {
+        resize: none;
+    }
+}
+
+// Posts Styling
+.timeline {
+    flex: 6;
+    width: 40rem;
+    // display: flex;
+}
+
+// Post display Styling
+.post {
+    width: 100%;
+    .post-profile-img {
+        @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+    }
+
+    .post-img {
+        width: 100%;
+        max-height: 5%;
+        object-fit: contain;
+    }
+
+    .like-icon {
+        width: 2rem;
+        margin-right: 1rem;
+        cursor: pointer;
+    }
+}
+
+// Login Page 
+.login-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+
+    .login-left {
+        flex: 6;
+        font-size: 20px;
+        min-width: 49%;
+        max-width: 50%;
+        border: 1px solid red;
+
+        .login-motto-text {
+            width: 70%;
+            border: 1px solid blue;
+        }
+    }
+
+    .login-right {
+        border: 1px solid purple;
+        display: flex;
+        flex-direction: column;
+        right: 2%;
+        flex: 3;
+        text-align: center;
+        background: rgba(255, 255, 255, .50);
+        border-radius: 40%;
+        height: 400px;
+        width: 200px;
+
+        .login-btn {
+            width: 90%;
+            background-color: $hero-color;
+            color: #FFFFFF;
+        }
+    }
+
+}

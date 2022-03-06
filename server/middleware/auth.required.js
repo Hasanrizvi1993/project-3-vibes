@@ -1,5 +1,5 @@
 // jwt middleware for verification
-const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken"); //MAY NEED TO BE UPTDATED FOR AUTHENTICATION
 
 module.exports = async (req, res, next) => {
     try {
@@ -13,8 +13,8 @@ module.exports = async (req, res, next) => {
 
         //if there is a token
         const token = bearerHeader.split(" ")[1];
-        console.log(token, "Token Success")
-        const payload = await jwt.verify(token, "Token Verified");
+        
+        const payload = await jwt.verify(token, "VIBE$");
         console.log(payload, "Payload Sucess")
         req.userId = payload._id
 
