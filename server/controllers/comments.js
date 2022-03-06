@@ -1,5 +1,22 @@
 const db = require("../models");
 
+const show = (req, res) => {
+	db.Post.findById(req.params.id, (err, post) => {
+		if (post) {
+			return res.status(200).json({
+				message: "success",
+				data: post,
+			});
+		}
+		if (err) {
+			return res.status(404).json({
+				message: "status 404",
+				error: err,
+			});
+		}
+	});
+};
+
 const create = (req, res) => {
 	db.Post.findById(req.params.id, (err, post) => {
 		post.comments.push(req.body);
@@ -18,6 +35,13 @@ const create = (req, res) => {
 	});
 };
 
+
+
+
+
+
+
+
 const destroy = (req, res) => {
 	db.Post.findById(req.params.id, (err, post) => {
 		const foundComment = post.comments.id(req.params.commentId);
@@ -34,7 +58,7 @@ const destroy = (req, res) => {
 
 module.exports = {
 	// index,
-	// show,
+	show,
 	create,
 	// update,
 	destroy,
