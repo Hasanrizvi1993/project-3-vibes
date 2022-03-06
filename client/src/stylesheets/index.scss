@@ -63,7 +63,7 @@ $secondary-font: 'Helvetica', serif;
     position: fixed;
     width: 100%;
     min-height: 100%;
-    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $background-color 225px);
+    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 250px, $background-color 400px);
     font-family: $hero-font;
     z-index: -2;
 }
@@ -176,8 +176,10 @@ $secondary-font: 'Helvetica', serif;
 // Post display Styling
 .post {
     width: 100%;
+    font-family: $secondary-font;
     .post-profile-img {
         @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+        
     }
 
     .post-img {
