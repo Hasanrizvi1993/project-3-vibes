@@ -4,16 +4,12 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 
-
 const apiUrl = "http://localhost:4000/api"
-
 
 export const NavBar = () => {
   const { logout, currentUser } = useAuth();
 
   const [user, setUser] = useState({});
-  const { currentUser } = useAuth();
-
 
   useEffect(() => {
     const fetchUser = async () => {

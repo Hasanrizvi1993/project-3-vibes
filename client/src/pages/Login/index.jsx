@@ -16,8 +16,7 @@ const textRef = useRef()
 const [message, setMessage] = useState('');
 // useAuth hook to pull loginCall from AuthContext
 const { currentUser, loginCall, loginMessage } = useAuth();
-// useNavigate hook for redirect
- const navigate = useNavigate();
+
 
 
   // useEffect for ityped text
@@ -41,7 +40,7 @@ const { currentUser, loginCall, loginMessage } = useAuth();
     }
     try {
       loginCall(userFound);  
-      navigate("/")
+      
     } catch (error) {
       console.log(error)
     }

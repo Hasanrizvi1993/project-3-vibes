@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../../stylesheets/index.scss';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
@@ -16,7 +16,11 @@ const apiUrl = "http://localhost:4000/api"
 
 export const Post = ({ post }) => {
 const [user, setUser] = useState({});
-  const { currentUser } = useAuth();
+// ref hook for comment text
+const comment = useRef();
+// pulling logged in user from authcontext
+const { currentUser } = useAuth();
+
 
 
   useEffect(() => {
@@ -24,9 +28,21 @@ const [user, setUser] = useState({});
       const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`)
         setUser(res.data)
     }
-    fetchUser();
+    
   }, [post.userId])
 
+  const submitComment = async (e) => {
+    e.preventDefault()
+    const newComment = {
+      body: comment.current.value,
+    }
+    try {
+        await axios.post(`${apiUrl}/posts/${post._id}/comments`, newComment)
+    } catch (err) {
+      console.log(err)
+    }
+
+  }
  
   const likeHandler = () => {
 
@@ -59,10 +75,22 @@ const [user, setUser] = useState({});
           alt="" onClick={likeHandler} />
           </div>
           <div className="post-bottom-right">
-            <span className="post-comment">Comment</span>
+            <form className='comment-box' onSubmit={submitComment} >
+            <input className='comment-input' type="text" placeholder='Add Comment' ref={comment} />
+            <button className="comment=btn" type="submit">Add Comment</button>
+            </form>
           </div>
         </div>
+        <div className="post-comments">
+          <ul className="comments-list">
+            {post && post.comments.map((c) => (
+              <li className="comments-list-item" key={c.id} >
+                  <span className="comments-list-text">{c.body}</span>
+              </li>
+            ))}
 
+          </ul>
+        </div>
       </div>
 
     </div>
