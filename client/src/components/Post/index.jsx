@@ -28,6 +28,7 @@ const { currentUser } = useAuth();
       const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`)
         setUser(res.data)
     }
+    fetchUser();
     
   }, [post.userId])
 
@@ -38,11 +39,25 @@ const { currentUser } = useAuth();
     }
     try {
         await axios.post(`${apiUrl}/posts/${post._id}/comments`, newComment)
+        window.location.reload();
     } catch (err) {
       console.log(err)
     }
 
   }
+
+  const deleteComment = async (e, c) => {
+    e.peventDefault()
+  try {
+    e.peventDefault()
+     await axios.delete(`${apiUrl}/post/$${post._id}/comments/${c._id}`)
+
+  } catch (err) {
+      console.log(err)
+  }  
+  }
+
+  
  
   const likeHandler = () => {
 
@@ -85,7 +100,17 @@ const { currentUser } = useAuth();
           <ul className="comments-list">
             {post && post.comments.map((c) => (
               <li className="comments-list-item" key={c.id} >
-                  <span className="comments-list-text">{c.body}</span>
+                <div className='comment-left' key={c.id} >
+                  <span className="comments-list-text" key={c.id} >{c.body}</span>
+                  </div>
+                  <div className='comment-right' key={c.id} >
+                    <form action="" className="delete-comment" key={c.id} >
+                  {currentUser._id === post.userId ? <button className="comment-delete-btn" onClick={deleteComment} >Delete</button>
+                  : <p style={{display: 'none'}}></p>}
+                  </form>
+                  <span className="comment-time" key={c.id} >{c && format(c.createdAt)}</span>
+                  </div>
+                  <hr className="comment-border" key={c.id} />
               </li>
             ))}
 
