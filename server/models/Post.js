@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema(
 	{
- 		body: { type: String, required: true },
+		body: { type: String, required: true },
 	},
 	{
 		timestamps: true,
 	},
- );
+);
 
 const postSchema = new Schema(
 	{

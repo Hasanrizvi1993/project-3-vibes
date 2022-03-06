@@ -8,7 +8,8 @@
          Variables
 =-=-=-=-=-=-=-=-=-=-=-=- */
 $hero-color: #639275;
-$white: #FFFFFF;
+$background-color: #ECEDEE;
+$white:rgba(255, 255, 255, .5);
 
 // HERO FONT: PLAYFAIR DISPLAY ITALIC
 $hero-font: 'Playfair Display', serif;
@@ -41,6 +42,12 @@ $secondary-font: 'Helvetica', serif;
     text-align: center;
 }
 
+@mixin default-btn () {
+    width: 90%;
+    background-color: $hero-color;
+    color: #FFFFFF;
+}
+
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-
       Component Styles
@@ -50,13 +57,22 @@ $secondary-font: 'Helvetica', serif;
 .entire-page {
     font-family: $hero-font;
 }
+
 .page-background {
     top: 0;
     position: fixed;
     width: 100%;
     min-height: 100%;
-    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $white 225px);
+    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $background-color 225px);
     font-family: $hero-font;
+    z-index: -2;
+}
+
+.master-logo {
+    position: fixed;
+    bottom: 5px;
+    left: 2px;
+    font-size: 54px;
     z-index: -1;
 }
 
@@ -166,7 +182,7 @@ $secondary-font: 'Helvetica', serif;
 
     .post-img {
         width: 100%;
-        max-height: 5%;
+        max-height: 350px;
         object-fit: contain;
     }
 
@@ -179,39 +195,61 @@ $secondary-font: 'Helvetica', serif;
 
 // Login Page 
 .login-wrapper {
-    display: flex;
-    justify-content: space-evenly;
 
     .login-left {
-        flex: 6;
+        position: absolute;
+        top: 30%;
+        left: 20%;
         font-size: 20px;
-        min-width: 49%;
-        max-width: 50%;
-        border: 1px solid red;
+        min-width: 400px;
 
         .login-motto-text {
             width: 70%;
             border: 1px solid blue;
         }
-    }
 
-    .login-right {
-        border: 1px solid purple;
-        display: flex;
-        flex-direction: column;
-        right: 2%;
-        flex: 3;
-        text-align: center;
-        background: rgba(255, 255, 255, .50);
-        border-radius: 40%;
-        height: 400px;
-        width: 200px;
-
-        .login-btn {
-            width: 90%;
-            background-color: $hero-color;
-            color: #FFFFFF;
+        .typed-text {
+            display: flex;
+            justify-content: flex-end;
         }
     }
 
+    .login-right {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 25%;
+        right: 10%;
+        text-align: center;
+        background: rgba(255, 255, 255, .5);
+        border-radius: 45px;
+        height: 400px;
+        width: 350px;
+
+        .login-btn {
+            @include default-btn();
+        }
+    }
+
+}
+
+// Sign up Page
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .register-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid red;
+        background: $white;
+        max-width: 500px;
+
+        .register-box {
+            width: 40%;
+        }
+    }
 }

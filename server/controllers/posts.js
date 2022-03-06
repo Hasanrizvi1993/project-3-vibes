@@ -4,7 +4,7 @@ const index = (req, res) => {
 	db.Post.find().exec((err, allPosts) => {
 		if (err)
 			return res.status(400).json({
-				message: "Status 400 Error!",
+				message: "Failure!",
 				error: err,
 			});
 		return res.status(200).json({
@@ -54,7 +54,7 @@ const update = (req, res) => {
 				message: "Success",
 				data: updatedPost,
 			});
-		}
+		},
 	);
 };
 const destroy = (req, res) => {
@@ -76,35 +76,35 @@ const destroy = (req, res) => {
 const getProfilePosts = async (req, res) => {
 	try {
 		// find user based on userName
-		const user = await db.User.findOne({ userName: req.params.userName })
+		const user = await db.User.findOne({ userName: req.params.userName });
 		// get just that users posts based on the userId field
-		const posts = await db.Post.find({ userId: user._id })
+		const posts = await db.Post.find({ userId: user._id });
 		res.status(200).json({
 			message: "Success!",
 			data: posts,
-		})
+		});
 	} catch (err) {
 		res.status(500).json({
 			message: "Unable to populate User's Posts",
 			error: err,
-		})
+		});
 	}
-}
+};
 
 // POST IMG UPLOAD CONTROLLER
 
 const uploadPostImage = (req, res) => {
-    try {
-        return res.status(200).json({
-			message: "Post Image Uploaded successfully"
-		})
-    } catch (err) {
-        res.status(500).json({
+	try {
+		return res.status(200).json({
+			message: "Post Image Uploaded successfully",
+		});
+	} catch (err) {
+		res.status(500).json({
 			message: "Unable to Upload Post Image",
 			error: err,
-		})
-    }
-}
+		});
+	}
+};
 
 module.exports = {
 	index,

@@ -38,22 +38,21 @@ const handleRegister = async (e) => {
 
   return (
     <div className="register" >
-      <h1>VIBE$</h1>
       <div className="register-wrapper">
-      <Person htmlColor='seagreen' style={{fontSize: '65px'}}/>
-      <h2>Sign Up for an Account</h2>
-          <form className="register-box" onSubmit={handleRegister} >
-          <input type='text' placeholder="Display Name" 
-            className="register-input" ref={name} required />
-          <input type='text' placeholder="Username" 
-            className="register-input" ref={userName} required />
-            <input type='email' placeholder="Email" 
-            className="register-input" ref={email} required />
-            <input type="password" placeholder="Password" 
-            className="register-input" ref={password} required />
-            <button type='submit' className="register-btn">Sign Up</button>
-          </form>
-          <Link to={"/login"}><button className="register-login">Or Log In Here</button></Link>
+        <Person htmlColor='#639275' style={{fontSize: '65px'}}/>
+        <h2>Sign Up for an Account</h2>
+            <form className="register-box" onSubmit={handleRegister} >
+              <input type='text' placeholder="Display Name" 
+                className="register-input" ref={name} required />
+              <input type='text' placeholder="Username" 
+                className="register-input" ref={userName} required />
+              <input type='email' placeholder="Email" 
+                className="register-input" ref={email} required />
+              <input type="password" placeholder="Password" 
+                className="register-input" ref={password} required />
+              <button type='submit' className="register-btn">Sign Up</button>
+            </form>
+            <Link to={"/login"}><button className="register-login">Log In</button></Link>
       </div>
     </div>
   )

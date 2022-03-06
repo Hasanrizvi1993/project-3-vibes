@@ -30,9 +30,14 @@ router.put("/:id", posts.update); //LETS USER EDIT POST
 router.delete("/:id", posts.destroy); //LETS USER DELETE POST
 
 // GET PROFILE PAGE POSTS for single user
-router.get("/profile/:userName", posts.getProfilePosts)
-
-// CREATE COMMENT 
+router.get("/profile/:userName", posts.getProfilePosts);
+// SHOW COMMENTS
+router.get("/:id/comments", comments.show);
+// CREATE COMMENT
 router.post("/:id/comments", comments.create);
+// UPDATING COMMENT
+router.put("/:id/comments/:commentId", comments.update);
+//DELETING COMMENT
+router.delete("/:id/comments/:commentId", comments.destroy);
 
 module.exports = router;

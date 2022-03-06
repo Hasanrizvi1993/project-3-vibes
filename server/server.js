@@ -13,7 +13,7 @@ const routes = require("./routes");
 const postRouter = require("./routes/posts");
 const userRouter = require("./routes/users");
 
-const authRouter = require("./routes/auth")
+const authRouter = require("./routes/auth");
 
 /* ====== System Variables  ====== */
 
@@ -32,7 +32,7 @@ app.use(express.static(path.join("build"))); ///COMMENTING OUT TO DEBUG
 //helps us read body, including body with Postman and req.body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 /* ====== Routes & controllers ====== */
 app.use("/api", routes);
@@ -41,10 +41,10 @@ app.use("/api/posts", postRouter);
 
 app.use("/api/users", userRouter);
 
-app.use("/api/auth", authRouter)
+app.use("/api/auth", authRouter);
 
 // app.use((req, res, next) => {
-//	res.sendFile(path.join(__dirname, "build", "index.html"));
+// 	res.sendFile(path.join(__dirname, "build", "index.html"));
 // }); // COMMENTING OUT FOR DEBUGGING
 
 /* ====== Server Listener  ====== */
