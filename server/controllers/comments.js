@@ -35,12 +35,18 @@ const create = (req, res) => {
 	});
 };
 
+const update = (req, res) => {
+	db.Post.findById(req.params.id, (err, post) => {
+		const foundComment = post.comments.id(req.params.commentId);
+		foundComment.body = req.body.body;
+		post.save();
 
-
-
-
-
-
+		return res.status(200).json({
+			message: "sucess!",
+			data: foundComment,
+		});
+	});
+};
 
 const destroy = (req, res) => {
 	db.Post.findById(req.params.id, (err, post) => {
@@ -60,7 +66,7 @@ module.exports = {
 	// index,
 	show,
 	create,
-	// update,
+	update,
 	destroy,
 };
 
