@@ -15,8 +15,6 @@ const userRouter = require("./routes/users");
 
 const authRouter = require("./routes/auth");
 
-// const commentRouter = require("./routes/comments");
-
 /* ====== System Variables  ====== */
 
 /* ====== App Configuration  ====== */
@@ -45,18 +43,9 @@ app.use("/api/users", userRouter);
 
 app.use("/api/auth", authRouter);
 
-//may remove later
-// app.use("/api/comments", commentRouter);
-
-/*app.all("/api/*", (req, res, next) => {
-	res.send("these apis are not working");
-});
-8?
-
-app.use((req, res, next) => {
-	res.sendFile(path.join(__dirname, "build", "index.html"));
-}); // COMMENTING OUT FOR DEBUGGING
-
+// app.use((req, res, next) => {
+// 	res.sendFile(path.join(__dirname, "build", "index.html"));
+// }); // COMMENTING OUT FOR DEBUGGING
 
 /* ====== Server Listener  ====== */
 app.listen(config.PORT, () => {
