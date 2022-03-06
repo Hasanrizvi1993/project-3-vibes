@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const {posts} = require("../controllers") 
+const { posts, comments } = require("../controllers") 
 const multer = require('multer')
 
 // Multer Img Uploader Middleware for Post Imgs
@@ -21,18 +21,18 @@ const upload = multer({
 })
 
 // POST IMAGE UPLOAD ROUTE
-router.post("/upload", upload.single('file'), posts.uploadPostImage)
+router.post("/upload", upload.single('file'), posts.uploadPostImage);
 
-
-
-
-router.get("/", posts.index) //RENDERS ALL POSTS
-router.get("/:id", posts.show) //RENDERS SINGULAR POST
-router.post("/", posts.create) //LETS USER CREATE POST 
-router.put("/:id", posts.update) //LETS USER EDIT POST
-router.delete("/:id", posts.destroy) //LETS USER DELETE POST
+router.get("/", posts.index); //RENDERS ALL POSTS
+router.get("/:id", posts.show); //RENDERS SINGULAR POST
+router.post("/", posts.create); //LETS USER CREATE POST 
+router.put("/:id", posts.update); //LETS USER EDIT POST
+router.delete("/:id", posts.destroy); //LETS USER DELETE POST
 
 // GET PROFILE PAGE POSTS for single user
 router.get("/profile/:userName", posts.getProfilePosts)
+
+// CREATE COMMENT 
+router.post("/:id/comments", comments.create);
 
 module.exports = router;

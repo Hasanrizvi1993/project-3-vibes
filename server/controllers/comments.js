@@ -1,5 +1,33 @@
 const db = require("../models");
 
+const create = (req, res) => {
+    db.Post.findById(req.params.id, (err, post) => {
+        post.comments.push(req.body);
+        post.save();
+        if (err) {
+            return res.status(400).json({
+                message: "Status 400 Error!",
+                error: err,
+            });
+        }
+
+        return res.status(201).json({
+            message: "comment created",
+            data: post.comments,
+        });
+    });
+};
+
+module.exports = {
+    // index,
+    // show,
+    create,
+    // update,
+    // destroy,
+};
+
+
+/*
 const index = (req, res) => {
 	db.Comment.find().exec((err, allComments) => {
 		if (err)
@@ -70,11 +98,4 @@ const destroy = (req, res) => {
 		});
 	});
 };
-
-module.exports = {
-	index,
-	show,
-	create,
-	update,
-	destroy,
-};
+*/
