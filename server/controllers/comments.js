@@ -19,20 +19,25 @@ const create = (req, res) => {
 };
 
 const destroy = (req, res) => {
-	bd.Post.findById(req.params.id)
-}
+	db.Post.findById(req.params.id, (err, post) => {
+		const foundComment = post.comments.id(req.params.commentId);
+		console.log(foundComment);
+		foundComment.remove();
+		post.save();
 
-
-
-
-
+		return res.status(200).json({
+			message: "comment deleted",
+			data: foundComment,
+		});
+	});
+};
 
 module.exports = {
 	// index,
 	// show,
 	create,
 	// update,
-	// destroy,
+	destroy,
 };
 
 // const create = (req, res) => {

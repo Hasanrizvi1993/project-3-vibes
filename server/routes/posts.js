@@ -36,6 +36,6 @@ router.get("/profile/:userName", posts.getProfilePosts);
 router.post("/:id/comments", comments.create);
 //router.put("/:id/comment/:commentId", posts.commentUpdate);
 // router.get("/:id/comments", posts.commentsShow);
-// router.delete("/:id/comment/:commentId", comments.commentDestroy);
+router.delete("/:id/comments/:commentId", comments.destroy);
 
 module.exports = router;
