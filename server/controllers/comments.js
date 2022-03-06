@@ -48,9 +48,9 @@ const update = (req, res) => {
 	});
 };
 
-/*const destroy = (req, res) => {
+const destroy = (req, res) => {
 	db.Post.findById(req.params.id, (err, post) => {
-		const foundComment = (req.params.commentId);
+		const foundComment = post.comments.id(req.params.commentId);
 		if (err) {
 			res.status(400).json({
 				error: err,
@@ -65,26 +65,6 @@ const update = (req, res) => {
 		});
 	});
 };
-*/
-const destroy = async (req, res) => {
-	await db.Post.findById(req.params.id).then((post) => {
-		const foundComment = post.comments.findById(req.params.commentId)
-		foundComment.remove();
-		post.save();
-
-		return res.status(200).json({
-			message: "Comment Deleted!",
-			});
-
-	}).catch((err) => {
-		return res.status(400).json({
-			message: "Error. Couldn't Delete Comment...",
-			err,
-			})
-
-	})  
-	}
-
 
 module.exports = {
 	// index,

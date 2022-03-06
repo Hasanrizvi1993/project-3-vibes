@@ -21,8 +21,7 @@ const comment = useRef();
 // pulling logged in user from authcontext
 const { currentUser } = useAuth();
 
-
-
+// Fetching user who created post
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`)
@@ -32,6 +31,7 @@ const { currentUser } = useAuth();
     
   }, [post.userId])
 
+  // Comment Submit Handler
   const submitComment = async (e) => {
     e.preventDefault()
     const newComment = {
@@ -45,18 +45,6 @@ const { currentUser } = useAuth();
     }
 
   }
-
-  const deleteComment = async (e, c) => {
-    e.peventDefault()
-  try {
-    e.peventDefault()
-     await axios.delete(`${apiUrl}/post/$${post._id}/comments/${c._id}`)
-
-  } catch (err) {
-      console.log(err)
-  }  
-  }
-
   
  
   const likeHandler = () => {
@@ -70,7 +58,7 @@ const { currentUser } = useAuth();
           <div className="post-top-left">
           <Link to={"/profile/"+user.userName} >
             <img className='post-profile-img' 
-            src="/assets/staticImages/no_pf_img.png" alt="" />
+            src={"/assets/staticImages/no_pf_img.png"} alt="" />
           </Link>
           <Link to={"/profile/"+user.userName} >
             <span className="post-username">{user && user.name}</span>
@@ -92,32 +80,33 @@ const { currentUser } = useAuth();
           <div className="post-bottom-right">
             <form className='comment-box' onSubmit={submitComment} >
             <input className='comment-input' type="text" placeholder='Add Comment' ref={comment} />
-            <button className="comment=btn" type="submit">Add Comment</button>
+            <button className="comment-btn" type="submit">Add Comment</button>
             </form>
           </div>
         </div>
         <div className="post-comments">
           <ul className="comments-list">
             {post && post.comments.map((c) => (
-              <li className="comments-list-item" key={c.id} >
-                <div className='comment-left' key={c.id} >
-                  <span className="comments-list-text" key={c.id} >{c.body}</span>
+              <li className="comments-list-item" key={c._id+"-1"} >
+                <div className='comment-left' key={c._id+"0"} >
+                  <span className="comments-list-text" key={c._id} >{c.body}<br /> 
+                  <small className="comment-time" key={c._id+"3"} >{c && format(c.createdAt)}</small> </span>
                   </div>
-                  <div className='comment-right' key={c.id} >
-                    <form action="" className="delete-comment" key={c.id} >
-                  {currentUser._id === post.userId ? <button className="comment-delete-btn" onClick={deleteComment} >Delete</button>
-                  : <p style={{display: 'none'}}></p>}
-                  </form>
-                  <span className="comment-time" key={c.id} >{c && format(c.createdAt)}</span>
+                  <div className='comment-right' key={c._id+"1"} >
+                    <div className="delete-comment" key={c._id+"2"} >
+                      {currentUser._id === post.userId ? <button className="delete-comment-btn" onClick={async () => (
+                      await axios.delete(`${apiUrl}/posts/${post._id}/comments/${c._id}`), 
+                      window.location.reload()
+                      )} >Delete</button>
+                      : <p style={{display: 'none'}}></p>}
+                    </div>
                   </div>
-                  <hr className="comment-border" key={c.id} />
+                  <hr className="comment-border" key={c._id+"4"} />
               </li>
             ))}
-
           </ul>
         </div>
       </div>
-
     </div>
   )
 }
