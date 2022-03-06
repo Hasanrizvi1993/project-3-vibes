@@ -9,7 +9,7 @@ const apiUrl = "http://localhost:4000/api"
 
 
 export const NavBar = () => {
-  const { logout } = useAuth();
+  const { logout, currentUser } = useAuth();
 
   const [user, setUser] = useState({});
   const { currentUser } = useAuth();

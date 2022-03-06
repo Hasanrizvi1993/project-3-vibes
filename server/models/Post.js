@@ -13,9 +13,9 @@ const commentSchema = new Schema(
 const postSchema = new Schema(
 	{
 		body: { type: String, required: true },
-		img: { type: String },
+		img: { type: String, },
 		comments: [commentSchema],
-		userId: { type: String },
+		userId: { type: String, },
 	},
 	{
 		timestamps: true,

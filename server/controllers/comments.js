@@ -69,19 +69,3 @@ module.exports = {
 	update,
 	destroy,
 };
-
-// const create = (req, res) => {
-// 	db.Post.findById(req.params.id)
-// 		.then((foundPost) => {
-// 			if (!foundPost) return console.log("error!!!!");
-
-// 			foundPost.comments.push(req.body.body);
-// 			foundPost.save();
-
-// 			return res.status(201).json({
-// 				message: "comments are done",
-// 				data: foundPost.comments,
-// 			});
-// 		})
-// 		.catch((err) => console.log(err));
-// };
