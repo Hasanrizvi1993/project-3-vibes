@@ -223,6 +223,7 @@ $secondary-font: 'Helvetica', serif;
     min-height: 450px;
     margin-top: 50px;
     margin-bottom: 50px;
+    text-align: center;
     
     .post-profile-img {
         @include profile-pic($img-size: 4rem, $padding-size: 3rem);
@@ -232,14 +233,19 @@ $secondary-font: 'Helvetica', serif;
 
     .post-img { //FOR ANY IMAGE THE USER ADDS
         width: 100%;
-        max-height: 150px;//MAKING IMAGE SMALLER
+        max-height: 250px;//MAKING IMAGE SMALLER
         object-fit: contain;
+        margin-top: 25px;
+        margin-bottom: 25px;
     }
 
     .like-icon {
         width: 2rem;
         margin-right: 1rem;
         cursor: pointer;
+        position: relative;
+        bottom: -28px;
+        left: -150px
        
     }
 }
