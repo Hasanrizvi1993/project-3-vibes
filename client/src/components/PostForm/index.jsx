@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import '../../stylesheets/index.scss';
-import { PermMedia } from '@material-ui/icons';
+import { HdrStrong, NoEncryption, PermMedia } from '@material-ui/icons';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 
@@ -68,15 +68,15 @@ const [message, setMessage] = useState('')
           <div className="post-img">
           <label htmlFor='file' className="post-img-label">
             <PermMedia className="post-img-icon" />
-            {file ? <span className="post-img-text" style={{color:'green'}}>PHOTO ADDED!</span> 
-            : <span className="post-img-text" style={{color:'crimson'}}>ADD PHOTO</span>}
+            {file ? <span className="post-img-text" style={{color:'green', fontFamily: "HelveticaNeue-CondensedBold"}}>PHOTO ADDED!</span> 
+            : <span className="post-img-text" style={{color:'black', fontFamily: "Helvetica", position: "Absolute", bottom: "70px", left:"65px" }}>ADD PHOTO</span>}
             <input style={{display:'none'}} type="file" id="file" 
                     accept=".png, .jpg, .jpeg"
                     onChange={(e) => setFile(e.target.files[0])} />
           </label>
 
           </div>
-          <button className="publish-btn" type='submit'>Publish</button>
+          <button className="publish-btn" type='submit'  style={{fontFamily: "playfair display", border: "none", position: "Absolute", bottom: "20px", right: "50px",background: "rgba(236,237,238, .5)", fontSize: "20px",textDecoration: "underline", textDecorationColor: "#639275", textDecorationThicknes: "5px", }}>PUBLISH</button>
         </div>
         </form>
       </div>

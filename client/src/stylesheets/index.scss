@@ -8,7 +8,7 @@
          Variables
 =-=-=-=-=-=-=-=-=-=-=-=- */
 $hero-color: #639275;
-$background-color: #ECEDEE;
+$background-color: white;//UPDATING TO WHITE AS PER WIREFRAME
 $white:rgba(255, 255, 255, .5);
 
 // HERO FONT: PLAYFAIR DISPLAY ITALIC
@@ -63,7 +63,7 @@ $secondary-font: 'Helvetica', serif;
     position: fixed;
     width: 100%;
     min-height: 100%;
-    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 250px, $background-color 400px);
+    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 300px, $background-color 450px);
     font-family: $hero-font;
     z-index: -2;
 }
@@ -179,16 +179,16 @@ $secondary-font: 'Helvetica', serif;
 
 // Post Form Creation Styling
 .post-form {
-    width: 50%;
     margin: auto;
-    width: 50%;
-    border: 0.1px solid grey;
+    width: 60%;
     padding: 10px;
     position: relative;
     background: rgba(236,237,238, .5);
     border-radius: 45px;
     max-height: 800px;
     min-height: 350px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 
 
 
@@ -214,9 +214,13 @@ $secondary-font: 'Helvetica', serif;
     width: 60%;//MAIN POST FEED
     font-family: $secondary-font;//HELVETICA
     margin: auto;
-    width: 50%;
-    border: 3px solid green;
     padding: 10px;
+    background: rgba(236,237,238, .5);
+    border-radius: 45px;
+    max-height: 800px;
+    min-height: 450px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     
     .post-profile-img {
         @include profile-pic($img-size: 4rem, $padding-size: 3rem);
@@ -266,7 +270,7 @@ $secondary-font: 'Helvetica', serif;
         top: 25%;
         right: 10%;
         text-align: center;
-        background: rgba(255, 255, 255, .5);
+        background: rgba(255, 255, 255, .25);
         border-radius: 45px;
         height: 400px;
         width: 350px;
