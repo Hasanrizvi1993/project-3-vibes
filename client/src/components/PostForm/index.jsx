@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import '../../stylesheets/index.scss';
-import { PermMedia, Cancel } from '@material-ui/icons';
+import { HdrStrong, NoEncryption, PermMedia, Cancel } from '@material-ui/icons';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 
@@ -53,6 +53,7 @@ const [message, setMessage] = useState('')
 
   return (
     <div className='post-form'>
+      <div className='post-spacer'></div>
       <div className="post-form-wrapper">
         <form onSubmit={submitHandler} >
         <div className="post-form-top">
@@ -60,7 +61,7 @@ const [message, setMessage] = useState('')
           {message && <span className="post-img-text" style={{color:'green'}}>{message}</span>}
           </div>
           <img className="post-form-img" src='/assets/staticImages/no_pf_img.png' alt='' />
-          <textarea cols="60" rows="5" placeholder='START A POST...' ref={body} className="post-form-input" />
+          <textarea style={{fontFamily: "helvetica", width: "98%",}} cols="60" rows="" placeholder='START A POST...' ref={body} className="post-form-input" />
         </div>
         <hr className="post-form-border" />
         <div className="post-form-bottom">
@@ -72,16 +73,16 @@ const [message, setMessage] = useState('')
           )}
           <div className="post-img">
           <label htmlFor='file' className="post-img-label">
-            <PermMedia className="post-img-icon" />
-            {file ? <span className="post-img-text" style={{color:'green'}}>PHOTO ADDED!</span> 
-            : <span className="post-img-text" style={{color:'crimson'}}>ADD PHOTO</span>}
+            <PermMedia className="post-img-icon" style={{position: "absolute", bottom: "115px", left:"20px" }} />
+            {file ? <span className="post-img-text" style={{color:'green', fontFamily: "Helvetica", position: "absolute", bottom: "115px", left:"55px" }}>PHOTO ADDED!</span> 
+            : <span className="post-img-text" style={{color:'black', fontFamily: "Helvetica", position: "Absolute", bottom: "115px", left:"55px" }}>ADD PHOTO</span>}
             <input style={{display:'none'}} type="file" id="file" 
                     accept=".png, .jpg, .jpeg"
                     onChange={(e) => setFile(e.target.files[0])} />
           </label>
 
           </div>
-          <button className="publish-btn" type='submit'>Publish</button>
+          <button className="publish-btn" type='submit'  style={{fontFamily: "playfair display", border: "none", position: "Absolute", bottom: "20px", right: "50px",background: "rgba(236,237,238, .5)", fontSize: "20px",textDecoration: "underline", textDecorationColor: "#639275", textDecorationThicknes: "5px", }}>PUBLISH</button>
         </div>
         </form>
       </div>
