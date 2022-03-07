@@ -80,7 +80,7 @@ $secondary-font: 'Helvetica', serif;
 .nav-container {
     display: flex;
     border-bottom: 1px solid black; 
-    height: 3rem;
+    height: 5rem;
     background: $white;
     font-size: 2rem;
     position: sticky;
@@ -179,8 +179,20 @@ $secondary-font: 'Helvetica', serif;
 
 // Post Form Creation Styling
 .post-form {
-    width: 100%;
-    
+    width: 50%;
+    margin: auto;
+    width: 50%;
+    border: 0.1px solid grey;
+    padding: 10px;
+    position: relative;
+    background: rgba(236,237,238, .5);
+    border-radius: 45px;
+    max-height: 800px;
+    min-height: 350px;
+
+
+
+
     .post-form-img {
         @include profile-pic($img-size: 4rem, $padding-size: 3rem);
     }
@@ -199,16 +211,22 @@ $secondary-font: 'Helvetica', serif;
 
 // Post display Styling
 .post {
-    width: 100%;
-    font-family: $secondary-font;
+    width: 60%;//MAIN POST FEED
+    font-family: $secondary-font;//HELVETICA
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    
     .post-profile-img {
         @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+      
         
     }
 
-    .post-img {
+    .post-img { //FOR ANY IMAGE THE USER ADDS
         width: 100%;
-        max-height: 350px;
+        max-height: 150px;//MAKING IMAGE SMALLER
         object-fit: contain;
     }
 
@@ -216,6 +234,7 @@ $secondary-font: 'Helvetica', serif;
         width: 2rem;
         margin-right: 1rem;
         cursor: pointer;
+       
     }
 }
 

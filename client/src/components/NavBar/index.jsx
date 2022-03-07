@@ -12,7 +12,7 @@ export const NavBar = () => {
   const { logout, currentUser } = useAuth();
 
   const [user, setUser] = useState({});
-  const { currentUser } = useAuth();
+  // const { currentUser } = useAuth();
 
 
   useEffect(() => {

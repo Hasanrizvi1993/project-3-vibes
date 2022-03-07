@@ -53,6 +53,7 @@ const [message, setMessage] = useState('')
 
   return (
     <div className='post-form'>
+      <div className='post-spacer'></div>
       <div className="post-form-wrapper">
         <form onSubmit={submitHandler} >
         <div className="post-form-top">
