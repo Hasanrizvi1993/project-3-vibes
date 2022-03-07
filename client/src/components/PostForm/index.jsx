@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import '../../stylesheets/index.scss';
-import { PermMedia } from '@material-ui/icons';
+import { PermMedia, Cancel } from '@material-ui/icons';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 
@@ -41,11 +41,11 @@ const [message, setMessage] = useState('')
     }
     try {
       await axios.post(`${apiUrl}/posts`, newPost)
-      setMessage('SUCCESS! You made a new ')
+      setMessage('SUCCESS! You made a new Post!')
        window.location.reload()
     } catch (err) {
       console.log(err)
-      setMessage('ERROR! Could not create post...')
+      setMessage('ERROR! Could not create post...Try Again.')
     }
   
   }
@@ -64,6 +64,12 @@ const [message, setMessage] = useState('')
         </div>
         <hr className="post-form-border" />
         <div className="post-form-bottom">
+          {file && (
+            <div className="post-img-box">
+              <img src={URL.createObjectURL(file)} alt="" className="post-img-preview" style={{width: "350px", objectFit: "cover"}} />
+              <Cancel className="post-img-cancel" onClick={() => setFile(null)} />
+            </div>
+          )}
           <div className="post-img">
           <label htmlFor='file' className="post-img-label">
             <PermMedia className="post-img-icon" />

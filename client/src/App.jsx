@@ -17,11 +17,11 @@ const { currentUser } = useAuth();
     <div className='page-background'></div>
     <h1 className='master-logo'>VIBE$</h1>
       <Routes>
-      <Route path="/" element={currentUser ? <Home /> : <Register />} />
-      <Route path="/profile/:userName" element={<Profile />} />
-      <Route path="/login" element={currentUser ? <Navigate to={"/"} /> : <Login />} />
-      <Route path="/register" element={currentUser ? <Navigate to={"/"} /> : <Register />} />
-      </Routes>
+        <Route path="/" element={currentUser ? <Home /> : <Register />} />
+        <Route path="/profile/:userName" element={currentUser ? <Profile /> : <Register />} />
+        <Route path="/login" element={currentUser ? <Navigate to={"/"} /> : <Login />} />
+        <Route path="/register" element={currentUser ? <Navigate to={"/"} /> : <Register />} />
+     </Routes> 
     </div>
   );
 }

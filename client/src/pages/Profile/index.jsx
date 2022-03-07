@@ -35,7 +35,7 @@ useEffect(() => {
       <div className='profile' >
         <Sidebar />
         <Timeline userName={userName} />
-        <EditProfile />
+        <EditProfile user={user} />
       </div>
     </div>
   )
