@@ -21,7 +21,8 @@ export const Sidebar = () => {
             <hr className='side-bar-divider'/>
             <div className="side-bar-center">
               <div  className="side-bar-label">NOW PLAYING</div>
-              <div><iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/1479458365" width="200" height="200" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
+
+              <div><iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/1479458365" width="100%" height="300" frameBorder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
 
                   </div>
             </div>

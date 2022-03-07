@@ -1,31 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';    // NOTE NEED TO UPDATE NAVBAR PF IMAGE AFTER USER IMG UPLOADER COMPLETED
 import '../../stylesheets/index.scss';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 
-
 const apiUrl = "http://localhost:4000/api"
-
 
 export const NavBar = () => {
   const { logout, currentUser } = useAuth();
 
-  const [user, setUser] = useState({});
-  // const { currentUser } = useAuth();
-
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const res = await axios.get(`${apiUrl}/users?userId=${user.userId}`)
-        setUser(res.data)
-    }
-    fetchUser();
-  }, [user.userId])
 
   const signOut = () => {
-    logout()
-    
+    logout();
+    window.location.reload();
   }
 
 
@@ -42,16 +29,24 @@ export const NavBar = () => {
           <Link to={"/"} >
             <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", }}>FEED</span>
           </Link>
-          <Link to={"/profile/"+user.userName} >
-            <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", }}>PROFILE</span>
-          </Link>
+          {currentUser ? <Link to={"/profile/"+currentUser.userName} >
+            <span className="nav-link">Profile</span>
+          </Link> : <p></p>}
           <Link to={"#"} >
                   <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px",}} onClick={signOut} >SIGN OUT</span>
           </Link>
             </div>
         </div>
         <div className="nav-right">
-        <button type="button" className="btn" data-bs-toggle="button">LIGHT/DARK</button>
+          <div className="dark-mode">
+            <button type="button" className="btn" data-bs-toggle="button">Light/Dark</button>
+          </div>
+            <div className="nav-pf" style={{marginLeft: '25px'}} >
+             {currentUser ? <Link to={`/profile/${currentUser.userName}`} >
+              <img className='nav-img' style={{height: '46px', width: '46px', borderRadius: '50%', objectFit: 'cover'}} src={currentUser && currentUser.profileImage 
+              ? currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt="" />
+              </Link> : <p></p>}
+            </div>
         </div>
     </div>
   )

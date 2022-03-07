@@ -19,7 +19,7 @@ export const Timeline = ({ userName }) => {
   }
   fetchPosts()
   
-}, [posts, userName]) 
+}, [userName]) 
  
 
 
