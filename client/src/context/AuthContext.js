@@ -42,8 +42,11 @@ const loginCall = async (userFound) => {
   } 
 
   const checkCurrentUser = () => {
-    let user = localStorage.getItem("userToken")
-    return JSON.parse(user)
+    const loggedInUser = localStorage.getItem("userData")
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser)
+      setCurrentUser(foundUser)
+    }
 }
 
 
