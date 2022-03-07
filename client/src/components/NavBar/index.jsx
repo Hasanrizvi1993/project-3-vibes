@@ -33,25 +33,25 @@ export const NavBar = () => {
     <div className='nav-container'>
         <div className="logo">
         <Link to={"/"} style={{textDecoration: 'none'}} >
-          <span className="logo">VIBE$</span>
+          <span className="logo" style={{fontSize: "50px", color:"white", WebkitTextStrokeWidth: "1px", WebkitTextStrokeColor:"black", }}>VIBES</span>
         </Link>
 
         </div>
         <div className="icons">
         <div className="nav-links">
           <Link to={"/"} >
-            <span className="nav-link">Feed</span>
+            <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", }}>FEED</span>
           </Link>
           <Link to={"/profile/"+user.userName} >
-            <span className="nav-link">Profile</span>
+            <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", }}>PROFILE</span>
           </Link>
           <Link to={"#"} >
-                  <span className="nav-link" onClick={signOut} >Sign Out</span>
+                  <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px",}} onClick={signOut} >SIGN OUT</span>
           </Link>
             </div>
         </div>
         <div className="nav-right">
-        <button type="button" className="btn" data-bs-toggle="button">Light/Dark</button>
+        <button type="button" className="btn" data-bs-toggle="button">LIGHT/DARK</button>
         </div>
     </div>
   )
