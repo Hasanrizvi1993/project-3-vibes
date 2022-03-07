@@ -194,7 +194,8 @@ $secondary-font: 'Helvetica', serif;
 
 
     .post-form-img {
-        @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+        @include profile-pic($img-size: 4rem, $padding-size: 3rem,);
+      
     }
 
     .post-form-input {

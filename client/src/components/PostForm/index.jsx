@@ -61,15 +61,15 @@ const [message, setMessage] = useState('')
           {message && <span className="post-img-text" style={{color:'green'}}>{message}</span>}
           </div>
           <img className="post-form-img" src='/assets/staticImages/no_pf_img.png' alt='' />
-          <textarea style={{fontFamily: "helvetica"}} cols="60" rows="5" placeholder='START A POST...' ref={body} className="post-form-input" />
+          <textarea style={{fontFamily: "helvetica", width: "98%",}} cols="60" rows="" placeholder='START A POST...' ref={body} className="post-form-input" />
         </div>
         <hr className="post-form-border" />
         <div className="post-form-bottom">
           <div className="post-img">
           <label htmlFor='file' className="post-img-label">
-            <PermMedia className="post-img-icon" />
-            {file ? <span className="post-img-text" style={{color:'green', fontFamily: "Helvetica", position: "Absolute", bottom: "70px", left:"55px" }}>PHOTO ADDED!</span> 
-            : <span className="post-img-text" style={{color:'black', fontFamily: "Helvetica", position: "Absolute", bottom: "70px", left:"55px" }}>ADD PHOTO</span>}
+            <PermMedia className="post-img-icon" style={{position: "absolute", bottom: "115px", left:"20px" }} />
+            {file ? <span className="post-img-text" style={{color:'green', fontFamily: "Helvetica", position: "absolute", bottom: "115px", left:"55px" }}>PHOTO ADDED!</span> 
+            : <span className="post-img-text" style={{color:'black', fontFamily: "Helvetica", position: "Absolute", bottom: "115px", left:"55px" }}>ADD PHOTO</span>}
             <input style={{display:'none'}} type="file" id="file" 
                     accept=".png, .jpg, .jpeg"
                     onChange={(e) => setFile(e.target.files[0])} />
