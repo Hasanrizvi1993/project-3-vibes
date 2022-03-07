@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
 import '../../stylesheets/index.scss';
 
 export const EditProfile = ({ user }) => {
   // pf img upload hook
   const [file, setFile] = useState();
+  // current logged in user
+  const { currentUser } = useAuth();
 
 
   return (
@@ -18,25 +21,24 @@ export const EditProfile = ({ user }) => {
           </div>
           </div>
           <hr className='edit-border' />
-          <div className="edit-profile-center">
-            <h4 className="edit-form-header">Edit Your Profile Info</h4>
-            <form className="edit-form">
-              <input type="email" placeholder="Edit Your Email" className="edit-input" />
-              <input type="name" placeholder="Edit Your Name" className="edit-input" />
-              <input type="text" placeholder="Edit Your Username" className="edit-input" />
-              <input type="text" placeholder="Currently Playing?" className="edit-input" />
-              <input type="text" placeholder="Edit Your About Me" className="edit-input" />
-              <div className="pf-img-upload">
+         {currentUser._id === user._id ? <><div className="edit-profile-center">
+          <h4 className="edit-form-header">Edit Your Profile Info</h4>
+          <form className="edit-form">
+            <input type="email" placeholder="Edit Your Email" className="edit-input" />
+            <input type="name" placeholder="Edit Your Name" className="edit-input" />
+            <input type="text" placeholder="Edit Your Username" className="edit-input" />
+            <input type="text" placeholder="Currently Playing?" className="edit-input" />
+            <input type="text" placeholder="Edit Your About Me" className="edit-input" />
+            <div className="pf-img-upload">
               <label htmlFor='file' className="post-img-label">Add or Update Your Profile Picture!
-                <input type="file" name="file" placeholder="Update Profile Picture" id="file" 
-                    accept=".png, .jpg, .jpeg"
-                    onChange={(e) => setFile(e.target.files[0])} />
+                <input type="file" name="file" placeholder="Update Profile Picture" id="file"
+                  accept=".png, .jpg, .jpeg"
+                  onChange={(e) => setFile(e.target.files[0])} />
               </label>
-              </div>
-              <button type="submit" className="edit-profile-btn">Update Info</button>
-            </form>
-          </div>
-          <hr className='edit-border' />
+            </div>
+            <button type="submit" className="edit-profile-btn">Update Info</button>
+          </form>
+        </div><hr className='edit-border' /></> : <p></p>}
           <div className="edit-profile-bottom">
             <div className="saved-posts">
               NEED TO CREATE SAVED POST MODEL & LOGIC
