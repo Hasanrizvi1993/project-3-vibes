@@ -1,10 +1,12 @@
 # Vibes Social Media App for music lovers
 
-Vibes is a fully functional social media app for music lovers with multiple features built with React, Node, Mongoose, Express, APIs, while using MongoDB Atlas database.
+## Introduction
 
-## Available Scripts
+Vibes is a fully functional social media app for music lovers with multiple features.built with React, Node, Mongoose, Express, APIs, while using MongoDB Atlas database.
 
-In the project directory, you can run:
+## Features
+
+- User 
 
 ### `yarn start`
 
