@@ -44,7 +44,7 @@ This project was bootstrapped with Create React App.
 
 https://miro.com/app/board/uXjVOK5wtNw=/
 
-#### Heroku
+#### Deployed on Heroku - weblink
 
 https://vibesbymern.herokuapp.com/
 
