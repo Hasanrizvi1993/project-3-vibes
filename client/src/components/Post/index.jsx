@@ -28,7 +28,13 @@ const { currentUser } = useAuth();
 // Fetching user who created post
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`)
+      const userToken = JSON.parse(localStorage.getItem("userToken"))
+      const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`, {
+        headers: {
+          "Content-type": "application/json",
+          authorization: `Bearer ${userToken}`
+        }
+      })
         setUser(res.data)
     }
     fetchUser();
@@ -89,8 +95,8 @@ const { currentUser } = useAuth();
         <div className="post-top">
           <div className="post-top-left">
           <Link to={"/profile/"+user.userName} >
-            <img className='post-profile-img' style={{position: "relative", left:"25px", top:"-30px", height: '65px', width: '65px', borderRadius: '150%', }}  src={currentUser && currentUser.profileImage 
-              ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt=""   />
+            <img className='post-profile-img' style={{position: "relative", left:"25px", top:"-30px", height: '65px', width: '65px', borderRadius: '150%', }}  src={user && user.profileImage 
+              ? PF_IMG+user.profileImage : "/assets/staticImages/no_pf_img.png"} alt=""   />
           </Link>
           <Link to={"/profile/"+user.userName} style={{position: "relative", left:"-90px", top:"-50px", fontFamily: "Helvetica", fontSize: "24px"}} >
             <span className="post-username">{user && user.name}</span>
@@ -103,13 +109,13 @@ const { currentUser } = useAuth();
         <div className="post-center">
           <span className="post-text">{post && post.body}</span>
           <img className="post-img" src={post.img && POST_IMG+post.img} alt="" />
-          {post && post.userId === currentUser._id ? <div className="edit-delete">
-            <button onClick={deletePost} className="delete-post">Delete</button>
+          {post && post.userId === currentUser._id ? <div className="edit-delete" style={{margin: 'auto', justifyContent: 'space-between'}} >
+            <button onClick={deletePost} className="delete-post" style={{marginRight: '20px'}} >Delete</button>
             <span onClick={()=> setEditInput(!editInput)} className='edit-text' 
-            style={{cursor: "pointer", color: "green", fontWeight: "bold"}}>Edit</span>
+            style={{cursor: "pointer", color: "green", fontWeight: "bold", marginLeft: '20px'}}>Edit</span>
             {editInput && 
-            <div className='edit-box'> 
-              <input className='edit-post-input' type='text' ref={editRef} />
+            <div className='edit-box'  > 
+              <input className='edit-post-input' type='text' ref={editRef}  />
               <button onClick={editPost} className='edit-post'>Edit</button>
             </div>}
           </div> : <p></p>}
@@ -129,7 +135,7 @@ const { currentUser } = useAuth();
         <div className="post-comments">
           <ul className="comments-list">
             {post && post.comments.map((c) => (
-              <li className="comments-list-item" key={c._id+"-1"} >
+              <li style={{listStyle: 'none'}} className="comments-list-item" key={c._id+"-1"} >
                 <div className='comment-left' key={c._id+"0"} >
                   <span className="comments-list-text" key={c._id} >{c.body}<br /> 
                   <small className="comment-time" key={c._id+"3"} >{c && format(c.createdAt)}</small> </span>

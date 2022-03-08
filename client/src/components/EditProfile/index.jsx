@@ -61,6 +61,12 @@ export const EditProfile = ({ user }) => {
         <div className="edit-profile-top">
           <div className='user-info'>
           <br></br>
+            <h2 className="profile-display-name" style={{fontWeight: "bold"}} >{user && user.name ? user.name+"'s Profile" : ""}</h2><br />
+            <br></br>
+            <span className="user-info-label"style={{fontWeight: "bold"}} >Location:
+            </span><br />
+            <span className="location" >{user && user.location ? user.location : ""}</span><br />
+            <br></br>
             <span className="user-info-label"style={{fontWeight: "bold"}} >CURRENTLY PLAYING:
             </span><br />
             <span className="currently-playing" >{user && user.currentlyPlaying ? user.currentlyPlaying : "Nothing Yet!"}</span><br />
