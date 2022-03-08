@@ -47,9 +47,9 @@ const handleRegister = async (e) => {
               <input type='text' placeholder="Username" 
                 className="register-input" ref={userName} required />
               <input type='email' placeholder="Email" 
-                className="register-input" ref={email} required />
+                className="register-input register-btn" ref={email} required />
               <input type="password" placeholder="Password" 
-                className="register-input" ref={password} required />
+                className="register-input register-btn" ref={password} required />
               <button type='submit' className="register-btn">Sign Up</button>
             </form>
             <Link to={"/login"}><button className="register-login">Log In</button></Link>

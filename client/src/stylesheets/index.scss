@@ -10,6 +10,8 @@
 $hero-color: #639275;
 $background-color: #ECEDEE;
 $white:rgba(255, 255, 255, .5);
+$background-dark-mode: #181A1B;
+
 
 // HERO FONT: PLAYFAIR DISPLAY ITALIC
 $hero-font: 'Playfair Display', serif;
@@ -48,6 +50,27 @@ $secondary-font: 'Helvetica', serif;
     color: #FFFFFF;
 }
 
+@mixin light-mode () {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $background-color 225px);
+    font-family: $hero-font;
+    z-index: -2;
+}
+
+@mixin dark-mode () {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $background-dark-mode 225px);
+    font-family: $hero-font;
+    color: $background-color;
+    z-index: -2;
+}
+
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-
       Component Styles
@@ -59,13 +82,11 @@ $secondary-font: 'Helvetica', serif;
 }
 
 .page-background {
-    top: 0;
     position: fixed;
-    width: 100%;
-    min-height: 100%;
-    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $background-color 225px);
-    font-family: $hero-font;
-    z-index: -2;
+    background: radial-gradient(circle at bottom 3em left 5em, #639275 125px, rgba(0,0,0,0) 225px);
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
 }
 
 .master-logo {
@@ -73,7 +94,73 @@ $secondary-font: 'Helvetica', serif;
     bottom: 5px;
     left: 2px;
     font-size: 54px;
-    z-index: -1;
+    z-index: 0;
+}
+
+// Dark Mode Switch Styling
+.switch {
+    position: fixed;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    z-index: 9999;
+    right: .5em;
+    top: .5em;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 2em;
+        background-color: #CCCCCC;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        border-radius: 2em;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #10171d;
+      }
+      
+      input:focus + .slider {
+        box-shadow: 0 0 1px #10171d;
+      }
+      
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+      
+      /* Rounded sliders */
+      .slider.round {
+        border-radius: 34px;
+      }
+      
+      .slider.round:before {
+        border-radius: 50%;
+      }
 }
 
 // Nav Bar Styling
@@ -103,9 +190,10 @@ $secondary-font: 'Helvetica', serif;
 }
 
 // Overall Default Page Styling
-.home-container, .profile, .login{
+.home-container, .profile, .login {
     display: flex;
     width: 100%;
+    z-index: 20;
 }
 
 // Side Bar Styling
@@ -113,6 +201,7 @@ $secondary-font: 'Helvetica', serif;
     flex: 3;
     margin: 1%;
     width: 100%;
+    z-index: 5;
 
     .side-bar-divider {
         background: linear-gradient(to right #FFFFFF, #000000, #FFFFFF);
@@ -239,6 +328,7 @@ $secondary-font: 'Helvetica', serif;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    z-index: 25;
 
     .register-wrapper {
         display: flex;

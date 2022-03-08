@@ -7,23 +7,40 @@ import { Login }from './pages/Login';
 import { Register }from './pages/Register';
 import { Feed } from './components/Timeline';
 import { AuthProvider } from "./context/AuthContext";
+import { ThemeProvider } from "styled-components";
+import GlobalStyles from './components/DarkModeToggle';
+import {lightTheme, darkTheme} from './components/DarkModeToggle/themes';
+import { useState } from 'react';
 
 function App() {
+  
+  const [theme, setTheme] = useState('light');
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  }
+
   return (
-    <div className="App">
-    <div className='page-background'></div>
-    <h1 className='master-logo'>VIBE$</h1>
-      <BrowserRouter>
-      <AuthProvider>
-      <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/profile/:userName" element={<Profile />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      </Routes>
-      </AuthProvider>
-      </BrowserRouter>
-    </div>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <div className="App">
+        <BrowserRouter>
+          <AuthProvider>
+            <GlobalStyles />
+            <div className='page-background'></div>
+            <label className='switch'>
+              <input type='checkbox' onChange={themeToggler}></input>
+              <span className='slider'></span>
+            </label>
+            <h1 className='master-logo'>VIBE$</h1>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/profile/:userName" element={<Profile />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Routes>
+          </AuthProvider>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 }
 
