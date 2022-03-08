@@ -109,13 +109,13 @@ const { currentUser } = useAuth();
         <div className="post-center">
           <span className="post-text">{post && post.body}</span>
           <img className="post-img" src={post.img && POST_IMG+post.img} alt="" />
-          {post && post.userId === currentUser._id ? <div className="edit-delete">
-            <button onClick={deletePost} className="delete-post">Delete</button>
+          {post && post.userId === currentUser._id ? <div className="edit-delete" style={{margin: 'auto', justifyContent: 'space-between'}} >
+            <button onClick={deletePost} className="delete-post" style={{marginRight: '20px'}} >Delete</button>
             <span onClick={()=> setEditInput(!editInput)} className='edit-text' 
-            style={{cursor: "pointer", color: "green", fontWeight: "bold"}}>Edit</span>
+            style={{cursor: "pointer", color: "green", fontWeight: "bold", marginLeft: '20px'}}>Edit</span>
             {editInput && 
-            <div className='edit-box'> 
-              <input className='edit-post-input' type='text' ref={editRef} />
+            <div className='edit-box'  > 
+              <input className='edit-post-input' type='text' ref={editRef}  />
               <button onClick={editPost} className='edit-post'>Edit</button>
             </div>}
           </div> : <p></p>}
@@ -135,7 +135,7 @@ const { currentUser } = useAuth();
         <div className="post-comments">
           <ul className="comments-list">
             {post && post.comments.map((c) => (
-              <li className="comments-list-item" key={c._id+"-1"} >
+              <li style={{listStyle: 'none'}} className="comments-list-item" key={c._id+"-1"} >
                 <div className='comment-left' key={c._id+"0"} >
                   <span className="comments-list-text" key={c._id} >{c.body}<br /> 
                   <small className="comment-time" key={c._id+"3"} >{c && format(c.createdAt)}</small> </span>
