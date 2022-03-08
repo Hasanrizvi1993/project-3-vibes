@@ -18,9 +18,9 @@ Vibes is a fully functional social media app for music lovers with many useful f
 
 ## Packages
 
-- node-sass:
-- axios:
-- ityped:
+- node-sass: used Sass to style our app
+- axios: used to create HTTP requests that are present externally especially
+- ityped: used to display a string on our app, and it allowed us to type at the speed we had set, it also backspace what it's typed, and begin a new sentence for however many strings we had added.
 - prop-types:
 - timeago.js:
 - @material-ui/core:
