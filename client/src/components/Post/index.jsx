@@ -12,6 +12,11 @@ const POST_IMG = process.env.REACT_APP_POST_IMAGES;
 const apiUrl = "http://localhost:4000/api";
 
 export const Post = ({ post }) => {
+	// for edit input
+	const [editInput, setEditInput] = useState(false);
+
+	const editRef = useRef();
+
 	const [user, setUser] = useState({});
 	// ref hook for comment text
 	const comment = useRef();
@@ -41,13 +46,9 @@ export const Post = ({ post }) => {
 		}
 	};
 
-	const deletePost = () => {
-    
-  };
+	const deletePost = () => {};
 
-	const editPost = () => {
-
-  };
+	const editPost = () => {};
 
 	const likeHandler = () => {};
 
@@ -91,9 +92,20 @@ export const Post = ({ post }) => {
 						<button onClick={deletePost} className='delete-post'>
 							Delete
 						</button>
-						<button onClick={editPost} className='edit-post'>
+						<span
+							onClick={() => setEditInput(!editInput)}
+							className='edit-post'
+							style={{ cursor: "pointer", color: "green", fonWeight: "bold" }}>
 							Edit
-						</button>
+						</span>
+						{editInput && (
+							<div className='edit-box'>
+								<input className='edit-post-input' type='text' ref={editRef} />
+								<button onClick={editPost} className='edit-post'>
+									Edit
+								</button>
+							</div>
+						)}
 					</div>
 				</div>
 				<div className='post-bottom'>
