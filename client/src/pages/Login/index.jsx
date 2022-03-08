@@ -25,7 +25,7 @@ const { currentUser, loginCall, loginMessage } = useAuth();
       backDelay: 1000,
       backSpeed: 70,
       showCursor: false,
-      strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC", " MOVING ", " FUNKY ", " CALMING ", " JOYFUL ", " INTERESTING ", "ROCK N ROLL", "BRAVE", "BRIGHT", "BEAUTIFUL", "COLORFUL", "DISTINCT", "FANTASTIC", "TENDER" ],
+      strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC", " MOVING ", " FUNKY ", " CALMING ", " JOYFUL ", " INTERESTING ", "ROCK N ROLL", "BRAVE", "BRIGHT", "BEAUTIFUL", "COLORFUL", "DISTINCT", "FANTASTIC", "TENDER", " COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC", " MOVING ", " FUNKY ", " CALMING ", " JOYFUL ", " INTERESTING ", "ROCK N ROLL", "BRAVE", "BRIGHT", "BEAUTIFUL", "COLORFUL", "DISTINCT", "FANTASTIC", "TENDER", ],
     })
   }, [])
 
@@ -62,14 +62,15 @@ const { currentUser, loginCall, loginMessage } = useAuth();
           {loginMessage && <span className="post-img-text" style={{color:'crimson'}}>{loginMessage}</span>}
           </div>
           <form className="login-box" onSubmit={handleLogin} >
-            <input type='email' placeholder="Email" 
+            <input style={{margin: "5px", border: "none", minHeight: "25px", borderRadius: "5px"}} type='email' placeholder="EMAIL" 
             className="login-input" ref={email} required />
-            <input type="password" placeholder="Password" 
+            <input style={{margin: "5px", border: "none", minHeight: "25px", borderRadius: "5px"}} type="password" placeholder="PASSWORD" 
             className="login-input" ref={password} required />
-            <button type='submit' className="login-btn" style={{backgroundColor: "#639275", color: "white", margin: "5px", border:"none", minHeight:"25px", borderRadius: "5px"}}>LOG IN</button>
-            <span className="login-forgot">Forgot Password?</span>
+            <button type='submit' className="login-btn" style={{backgroundColor: "#639275", color: "white", margin: "10px", border:"none", minHeight:"25px", borderRadius: "5px", fontWeight: "bold",}}>LOG IN</button>
+            <span className="login-forgot">FORGOT PASSWORD?</span>
           </form>
-          <span className="login-register">Don't have an account? <Link to={"/register"}>Sign Up</Link></span>
+          <span className="login-register">DON'T HAVE AN ACCOUNT? <Link to={"/register"} style={{fontWeight: "bold"
+ }}>SIGN UP</Link></span>
          </div>
       </div>
     </div>
