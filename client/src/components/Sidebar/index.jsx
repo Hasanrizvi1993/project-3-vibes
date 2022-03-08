@@ -14,9 +14,9 @@ export const Sidebar = () => {
             <div className="side-bar-top">
               <img className="side-bar-img" src="/assets/staticImages/no_pf_img.png"  />
 
-              <h3 className="side-bar-username">{currentUser && currentUser.name}</h3>
+              <h3 className="side-bar-username" style={{fontFamily: "Helvetica",}}>{currentUser && currentUser.name}</h3>
               <LocationOn htmlColor='seagreen' style={{fontSize: "24px"}} />
-              <span className='side-bar-location'>{currentUser && currentUser.location}</span>
+              <span className='side-bar-location' style={{fontFamily: "Helvetica",}}>{currentUser && currentUser.location}</span>
             </div> 
             <hr className='side-bar-divider'/>
             <div className="side-bar-center">

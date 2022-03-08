@@ -39,20 +39,20 @@ const handleRegister = async (e) => {
   return (
     <div className="register" >
       <div className="register-wrapper">
-        <Person htmlColor='#639275' style={{fontSize: '65px'}}/>
-        <h2>Sign Up for an Account</h2>
+        <Person htmlColor='#639275' style={{fontSize: '65px',}}/>
+        <h2>SIGN UP FOR AN ACCOUNT</h2>
             <form className="register-box" onSubmit={handleRegister} >
-              <input type='text' placeholder="Display Name" 
-                className="register-input" ref={name} required />
-              <input type='text' placeholder="Username" 
+              {/* <input type='text' placeholder="Display Name" 
+                className="register-input" ref={name} required /> JW: COMMENTING OUT AS IT IS REDUNDANT TO USERNAME */}
+              <input type='text' placeholder="  USERNAME" style={{margin: "5px", border: "none", minHeight: "25px", borderRadius: "5px"}}
                 className="register-input" ref={userName} required />
-              <input type='email' placeholder="Email" 
+              <input type='email' placeholder="  EMAIL" style={{margin: "5px", border: "none", minHeight: "25px", borderRadius: "5px"}}
                 className="register-input" ref={email} required />
-              <input type="password" placeholder="Password" 
+              <input type="password" placeholder="  PASSWORD" style={{margin: "5px", border: "none", minHeight: "25px", borderRadius: "5px"}}
                 className="register-input" ref={password} required />
-              <button type='submit' className="register-btn">Sign Up</button>
+              <button type='submit' className="register-btn" style={{backgroundColor: "#639275", color: "white", margin: "5px", border:"none", minHeight:"25px", borderRadius: "5px"}}>SIGN UP</button>
             </form>
-            <Link to={"/login"}><button className="register-login">Log In</button></Link>
+            <Link to={"/login"}><button className="register-login" style={{ margin: "5px", border:"none", minHeight:"25px", borderRadius: "5px"}}>LOG IN</button></Link>
       </div>
     </div>
   )

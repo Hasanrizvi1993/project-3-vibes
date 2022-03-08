@@ -15,7 +15,7 @@ const { currentUser } = useAuth();
   return (
     <div className="App">
     <div className='page-background'></div>
-    <h1 className='master-logo'>VIBE$</h1>
+    <h1 className='master-logo'>VIBES</h1>
       <Routes>
         <Route path="/" element={currentUser ? <Home /> : <Register />} />
         <Route path="/profile/:userName" element={currentUser ? <Profile /> : <Register />} />

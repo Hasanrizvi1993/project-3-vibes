@@ -30,19 +30,25 @@ export const NavBar = () => {
         <div className="icons">
         <div className="nav-links">
           <Link to={"/"} >
-            <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", }}>FEED</span>
+            <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", left:"-150px", fontSize: "28px"}}>FEED</span>
           </Link>
           {currentUser ? <Link to={"/profile/"+currentUser.userName} >
-            <span className="nav-link">Profile</span>
+            <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", left:"-150px", fontSize: "28px"}}>PROFILE</span>
           </Link> : <p></p>}
           <Link to={"#"} >
-                  <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px",}} onClick={signOut} >SIGN OUT</span>
+                  <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", left:"-150px",fontSize: "28px",}} onClick={signOut} >SIGN OUT</span>
           </Link>
+          <div className="nav-pf" >
+             {currentUser ? <Link to={`/profile/${currentUser.userName}`} >
+              <img className='nav-img' style={{height: '50px', width: '50px', borderRadius: '50%', objectFit: 'cover', position: "relative", bottom: "30px", right:"-500px",}} src={currentUser && currentUser.profileImage 
+              ? currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt="" />
+              </Link> : <p></p>}
+            </div>
             </div>
         </div>
         <div className="nav-right">
           <div className="dark-mode">
-            <button type="button" className="btn" data-bs-toggle="button">Light/Dark</button>
+            <button type="button" className="btn" data-bs-toggle="button" style={{fontFamily: "helvetica", marginRight:"15px", marginTop: "28px"}}>LIGHT/DARK</button>
           </div>
             <div className="nav-pf" style={{marginLeft: '25px'}} >
              {currentUser ? <Link to={`/profile/${currentUser.userName}`} >
