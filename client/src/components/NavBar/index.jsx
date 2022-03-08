@@ -23,7 +23,7 @@ export const NavBar = () => {
     <div className='nav-container'>
         <div className="logo">
         <Link to={"/"} style={{textDecoration: 'none'}} >
-          <span className="logo" style={{fontSize: "50px", color:"white", WebkitTextStrokeWidth: "1px", WebkitTextStrokeColor:"black", }}>VIBES</span>
+          <span className="logo" style={{fontSize: "50px", color:"white", WebkitTextStrokeWidth: "1px", WebkitTextStrokeColor:"black", position: "fixed", left:"5px", top:"0px"}}>VIBES</span>
         </Link>
 
         </div>
