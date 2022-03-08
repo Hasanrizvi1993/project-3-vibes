@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Vibes Social Media App for music lovers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Vibes is a fully functional social media app for music lovers with multiple features built with React, Node, Mongoose, Express, APIs, while using MongoDB Atlas database.
 
 ## Available Scripts
 
