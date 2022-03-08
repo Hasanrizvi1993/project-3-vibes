@@ -22,10 +22,9 @@ Vibes is a fully functional social media app for music lovers with many useful f
 - axios: used to create HTTP requests that are present externally especially
 - ityped: used to display a string on our app, and it allowed us to type at the speed we had set, it also backspace what it's typed, and begin a new sentence for however many strings we had added.
 - prop-types:
-- timeago.js:
-- @material-ui/core:
-- @material-ui/icons:
-- react-router-dom:
+- timeago.js: used to show the datetime with "time ago" in our posts and comments
+- @material-ui/icons: used to bring icons in.
+- react-router-dom: enabled us to implement dynamic routing in a web app. It allows us to display pages and allow users to navigate them. It is a fully-featured client and server-side routing library for React.
 
 ## Getting Started
 
