@@ -76,6 +76,7 @@ const loginCall = async (userFound) => {
             checkCurrentUser, 
             currentUser,
             loginMessage,
+            setCurrentUser,
             
         }}>
             {children}
