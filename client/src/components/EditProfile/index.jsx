@@ -14,7 +14,6 @@ export const EditProfile = ({ user }) => {
   // refs for update user
   const email = useRef(currentUser.email);
   const name = useRef(currentUser.name)
-  const userName = useRef(currentUser.userName);
   const currentlyPlaying = useRef(currentUser.currentlyPlaying);
   const location = useRef(currentUser.location);
   const aboutMe = useRef(currentUser.aboutMe);
@@ -28,17 +27,18 @@ export const EditProfile = ({ user }) => {
     const updatedUser = {
     email: email.current.value,
     name: name.current.value,
-    userName: userName.current.value,
     currentlyPlaying: currentlyPlaying.current.value,
     location: location.current.value,
     aboutMe: aboutMe.current.value,
     }
     try {
       const res = await axios.put(`${apiUrl}/users/${currentUser._id}`, updatedUser)
-      console.log(res.data)
+      localStorage.setItem("userData", JSON.stringify(res.data.data))
+      
     } catch (err) {
       console.log(err)
     }
+    window.location.reload();
   }
 
 
@@ -62,12 +62,8 @@ export const EditProfile = ({ user }) => {
             <input type="email" placeholder="Edit Your Email" className="edit-input" defaultValue={currentUser.email} ref={email} required />
             </label><br />
             <label htmlFor="" className="edit-label">
-              Name<br />
+              Display Name<br />
             <input type="name" placeholder="Edit Your Name" className="edit-input" defaultValue={currentUser.name} ref={name} required />
-            </label><br />
-            <label htmlFor="" className="edit-label">
-              Username<br />
-            <input type="text" placeholder="Edit Your Username" className="edit-input" defaultValue={currentUser.userName} ref={userName} required />
             </label><br />
             <label htmlFor="" className="edit-label">
               Currently Playing<br />
