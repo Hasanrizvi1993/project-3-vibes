@@ -50,8 +50,15 @@ const { currentUser } = useAuth();
 
   }
 
-  const deletePost = (e) => {
+  const deletePost = async (e) => {
     e.preventDefault()
+    try {
+      await axios.delete(`${apiUrl}/posts/${post._id}`)
+      
+    } catch (err) {
+      console.log(err)
+    }
+    window.location.reload();
   }
 
   const editPost = async (e) => {
