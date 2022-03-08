@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { users } = require("../controllers");
 const multer = require('multer');
-// const authRequired = require("../middleware/auth.required"); COMMENTING OUT UNTIL MIDDLEWARE IS ADDED BACK IN
+const { authRequired } = require("../middleware/auth.required");//COMMENTING OUT UNTIL MIDDLEWARE IS ADDED BACK IN
 
 // Multer Img Uploader Middleware for Profile Imgs
 // Define Storage
@@ -24,8 +24,8 @@ const upload = multer({
 // POST IMAGE UPLOAD ROUTE
 router.post("/upload", upload.single('file'), users.uploadProfileImage);
 
-router.get("/", users.queryUser) 
-router.get("/profile",users.show); //REMOVED AUTHREQUIRED TO WAIT FOR AUTHENTICATION 
+router.get("/", authRequired, users.queryUser) 
+router.get("/profile", authRequired, users.show); //REMOVED AUTHREQUIRED TO WAIT FOR AUTHENTICATION 
 router.put("/:id", users.update) //USED TO EDIT USERS
 router.delete("/:id", users.destroy)//USED TO DELETE USERS
 

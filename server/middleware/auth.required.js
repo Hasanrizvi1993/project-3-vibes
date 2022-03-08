@@ -1,21 +1,15 @@
 // jwt middleware for verification
 const jwt = require("jsonwebtoken"); //MAY NEED TO BE UPTDATED FOR AUTHENTICATION
 
-module.exports = async (req, res, next) => {
-    try {
-        //grab that token
+const authRequired = async (req, res, next) => {
+    try {        
         const bearerHeader = req.headers.authorization;
 
-        //if there is no token
         if (typeof bearerHeader === "undefined") {
             return res.sendStatus(403)
         }
-
-        //if there is a token
-        const token = bearerHeader.split(" ")[1];
-        
-        const payload = await jwt.verify(token, "VIBE$");
-        console.log(payload, "Payload Sucess")
+        const userToken = bearerHeader.split(" ")[1];
+        const payload = await jwt.verify(userToken, "VIBE$");
         req.userId = payload._id
 
         next()
@@ -23,6 +17,28 @@ module.exports = async (req, res, next) => {
         console.log(error);
         return res
             .status(500)
-            .json({status: 500, message: "Internal Server Error."})
+            .json({
+                status: 500, 
+                message: "Internal Server Error"
+            })
     }
 }
+
+function verifyToken(req, res, next) {
+    const userToken = req.header('Authorization');
+    if (!userToken) return res.status(401).send('Access Denied!');
+    
+    try {
+      const verified = jwt.verify(userToken, 'VIBES');
+      req.user = verified;
+    }
+    catch(err) {
+     res.status(400).send('Invalid Token!');
+    }
+  }
+
+  module.exports = {
+      authRequired,
+      verifyToken
+    }
+  

@@ -11,6 +11,7 @@ import { useParams } from 'react-router';
 // SERVER API URL
 const apiUrl = "http://localhost:4000/api"
 
+
 export const Profile = () => {
 // state hook for user's profile
 const [user, setUser] = useState({});
@@ -20,7 +21,13 @@ const userName = useParams().userName;
 // fetch user based on username param
 useEffect(() => {
   const fetchUser = async () => {
-    const res = await axios.get(`${apiUrl}/users?userName=${userName}`)
+    const userToken = JSON.parse(localStorage.getItem("userToken"))
+    const res = await axios.get(`${apiUrl}/users?userName=${userName}`, {
+      headers: {
+        "Content-type": "application/json",
+        authorization: `Bearer ${userToken}`
+      }
+    })
     setUser(res.data)
     
   }

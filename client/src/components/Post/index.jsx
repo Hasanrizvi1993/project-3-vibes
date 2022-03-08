@@ -28,7 +28,13 @@ const { currentUser } = useAuth();
 // Fetching user who created post
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`)
+      const userToken = JSON.parse(localStorage.getItem("userToken"))
+      const res = await axios.get(`${apiUrl}/users?userId=${post.userId}`, {
+        headers: {
+          "Content-type": "application/json",
+          authorization: `Bearer ${userToken}`
+        }
+      })
         setUser(res.data)
     }
     fetchUser();
@@ -89,8 +95,8 @@ const { currentUser } = useAuth();
         <div className="post-top">
           <div className="post-top-left">
           <Link to={"/profile/"+user.userName} >
-            <img className='post-profile-img' style={{position: "relative", left:"25px", top:"-30px", height: '65px', width: '65px', borderRadius: '150%', }}  src={currentUser && currentUser.profileImage 
-              ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt=""   />
+            <img className='post-profile-img' style={{position: "relative", left:"25px", top:"-30px", height: '65px', width: '65px', borderRadius: '150%', }}  src={user && user.profileImage 
+              ? PF_IMG+user.profileImage : "/assets/staticImages/no_pf_img.png"} alt=""   />
           </Link>
           <Link to={"/profile/"+user.userName} style={{position: "relative", left:"-90px", top:"-50px", fontFamily: "Helvetica", fontSize: "24px"}} >
             <span className="post-username">{user && user.name}</span>

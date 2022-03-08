@@ -30,11 +30,11 @@ const loginCall = async (userFound) => {
       const res = await axios.post(`${apiUrl}/auth/login`, userFound)
       setCurrentUser(res.data.userFound)
       localStorage.setItem("userData", JSON.stringify(res.data.userFound))
-      if (res.data.token) {
-        localStorage.setItem("userToken", JSON.stringify(res.data.token))
+      if (res.data.userToken) {
+        localStorage.setItem("userToken", JSON.stringify(res.data.userToken))
         navigate("/")
       }
-       return res.data.token  
+       return res.data.userToken  
 
     } catch (err) {
       setLoginMessage('Login Failed! Check Email or Password')
