@@ -25,7 +25,7 @@ const { currentUser, loginCall, loginMessage } = useAuth();
       backDelay: 1000,
       backSpeed: 70,
       showCursor: false,
-      strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC", " MOVING ", " FUNKY ",],
+      strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC", " MOVING ", " FUNKY ", " CALMING ", " JOYFUL ", " INTERESTING ", "ROCK N ROLL", "BRAVE", "BRIGHT", "BEAUTIFUL", "COLORFUL", "DISTINCT", "FANTASTIC", "TENDER" ],
     })
   }, [])
 
@@ -53,11 +53,11 @@ const { currentUser, loginCall, loginMessage } = useAuth();
     <div className="login" >
       <div className="login-wrapper">
         <div className="login-left">
-          <h3 className="login-logo-text">MUSIC NEVER SOUNDED SO...
+          <h3 className="login-logo-text" style={{fontSize: "45px",}}>MUSIC NEVER SOUNDED SO...
           <div ref={textRef} className="typed-text"></div></h3>
         </div>
           <div className="login-right">
-            <h2>Log In to Your Account</h2>
+            <h2>LOG INTO YOUR ACCOUNT</h2>
             <div className="login-form-message">
           {loginMessage && <span className="post-img-text" style={{color:'crimson'}}>{loginMessage}</span>}
           </div>
@@ -66,7 +66,7 @@ const { currentUser, loginCall, loginMessage } = useAuth();
             className="login-input" ref={email} required />
             <input type="password" placeholder="Password" 
             className="login-input" ref={password} required />
-            <button type='submit' className="login-btn">Log In</button>
+            <button type='submit' className="login-btn" style={{backgroundColor: "#639275", color: "white", margin: "5px", border:"none", minHeight:"25px", borderRadius: "5px"}}>LOG IN</button>
             <span className="login-forgot">Forgot Password?</span>
           </form>
           <span className="login-register">Don't have an account? <Link to={"/register"}>Sign Up</Link></span>
