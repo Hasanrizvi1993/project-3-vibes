@@ -5,6 +5,14 @@
 ### Features
 
 Vibes is a fully functional social media app for music lovers with many useful features. The user is able to sign up using username and password. The user is able to enter information and create their own profile. The user is able to login using the credentials they use to sign up. The user is able to make posts, delete posts, update posts, read posts. The user can also interact with other users by posting comments on other users posts on feed. The user can also delete, read, and update comments. The user is able to listen to music using the embedded music player on the app. The user is able to upload images and post images in the posts and comments. The user is also able to upload an image and set it as thier profile picture.
+![Screen_Shot_2022-03-07_at_9 08 25_PM](https://user-images.githubusercontent.com/88109038/157171324-e781febc-00fe-46f5-9ee1-f084f42fa456.png)
+
+![Screen_Shot_2022-03-07_at_9 08 36_PM](https://user-images.githubusercontent.com/88109038/157171341-8e0e70b6-8643-4a37-9c53-761f4aaa9c30.png)
+
+![Screen_Shot_2022-03-07_at_9 08 12_PM](https://user-images.githubusercontent.com/88109038/157171356-c572e680-115f-4a30-a5ca-df51e6f701c0.png)
+
+
+
 
 ## Technologies Used
 
