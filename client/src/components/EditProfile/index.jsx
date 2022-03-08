@@ -18,7 +18,7 @@ export const EditProfile = ({ user }) => {
   const location = useRef(currentUser.location);
   const aboutMe = useRef(currentUser.aboutMe);
   // pf img upload hook
-  const [file, setFile] = useState();
+  const [file, setFile] = useState(null);
  
 
   // User Update Handler
@@ -30,6 +30,18 @@ export const EditProfile = ({ user }) => {
     currentlyPlaying: currentlyPlaying.current.value,
     location: location.current.value,
     aboutMe: aboutMe.current.value,
+    }
+    if (file) {
+      const data = new FormData()
+      const fileName = file.name;
+      data.append("file", file)
+      data.append("name", fileName)
+      updatedUser.profileImage = fileName;
+      try {
+        await axios.post(`${apiUrl}/users/upload`, data);
+      } catch (err) {
+        console.log(err)
+      }
     }
     try {
       const res = await axios.put(`${apiUrl}/users/${currentUser._id}`, updatedUser)
