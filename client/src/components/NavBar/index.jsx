@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';    // NOTE NEED TO UPDATE NAVBAR PF IMAGE AFTER USER IMG UPLOADER COMPLETED
+import React, { useEffect, useState } from 'react';    
 import '../../stylesheets/index.scss';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
+
+// BACKEND PUBLIC FOLDER UPLOADS
+const PF_IMG = process.env.REACT_APP_PF_IMAGES;
 
 const apiUrl = "http://localhost:4000/api"
 
@@ -44,7 +47,7 @@ export const NavBar = () => {
             <div className="nav-pf" style={{marginLeft: '25px'}} >
              {currentUser ? <Link to={`/profile/${currentUser.userName}`} >
               <img className='nav-img' style={{height: '46px', width: '46px', borderRadius: '50%', objectFit: 'cover'}} src={currentUser && currentUser.profileImage 
-              ? currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt="" />
+              ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt="" />
               </Link> : <p></p>}
             </div>
         </div>
