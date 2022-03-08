@@ -263,11 +263,22 @@ $secondary-font: 'Helvetica', serif;
         .login-motto-text {
             width: 70%;
             border: 1px solid blue;
+            
+        }
+
+        .login-logo-text {
+            position: relative;
+            left: -200px;
+            top: -150px;
         }
 
         .typed-text {
-            display: flex;
-            justify-content: flex-end;
+            position: relative;
+            right: -450px;
+            font-size: 45px;
+            
+           
+            
         }
     }
 
@@ -278,11 +289,17 @@ $secondary-font: 'Helvetica', serif;
         top: 25%;
         right: 10%;
         text-align: center;
-        background: rgba(255, 255, 255, .25);
-        border-radius: 45px;
-        height: 400px;
-        width: 350px;
-
+        max-width: 350px;
+        font-family: $secondary-font;
+        font-size: 15px;
+        background: rgba(236,237,238, .5);
+        border-radius: 15px;
+        max-height: 800px;
+        min-height: 315px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        
         .login-btn {
             @include default-btn();
         }
