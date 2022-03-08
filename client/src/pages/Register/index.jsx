@@ -57,8 +57,8 @@ useEffect(()=> {
         <Person htmlColor='#639275' style={{fontSize: '65px',}}/>
         <h2>SIGN UP FOR AN ACCOUNT</h2>
             <form className="register-box" onSubmit={handleRegister} >
-              {/* <input type='text' placeholder="Display Name" 
-                className="register-input" ref={name} required /> JW: COMMENTING OUT AS IT IS REDUNDANT TO USERNAME */}
+              <input type='text' placeholder="Display Name" 
+                className="register-input" ref={name} required /> 
               <input type='text' placeholder="  USERNAME" style={{margin: "5px", border: "none", minHeight: "25px", borderRadius: "5px"}}
                 className="register-input" ref={userName} required />
               <input type='email' placeholder="  EMAIL" style={{margin: "5px", border: "none", minHeight: "25px", borderRadius: "5px"}}

@@ -15,6 +15,10 @@ const apiUrl = "http://localhost:4000/api"
 
 
 export const Post = ({ post }) => {
+// for edit input
+const [editInput, setEditInput] = useState(false);
+// input ref hook
+const editRef = useRef()
 const [user, setUser] = useState({});
 // ref hook for comment text
 const comment = useRef();
@@ -45,6 +49,24 @@ const { currentUser } = useAuth();
     }
 
   }
+
+  const deletePost = (e) => {
+    e.preventDefault()
+  }
+
+  const editPost = async (e) => {
+    e.preventDefault()
+    const updatedPost = {
+      body: editRef.current.value,
+    }
+    try {
+      await axios.put(`${apiUrl}/posts/${post._id}`, updatedPost)
+      
+    } catch (err) {
+      console.log(err)
+    }
+    window.location.reload();
+  }
   
  
   const likeHandler = () => {
@@ -71,6 +93,16 @@ const { currentUser } = useAuth();
         <div className="post-center">
           <span className="post-text">{post && post.body}</span>
           <img className="post-img" src={post.img && POST_IMG+post.img} alt="" />
+          {post && post.userId === currentUser._id ? <div className="edit-delete">
+            <button onClick={deletePost} className="delete-post">Delete</button>
+            <span onClick={()=> setEditInput(!editInput)} className='edit-text' 
+            style={{cursor: "pointer", color: "green", fontWeight: "bold"}}>Edit</span>
+            {editInput && 
+            <div className='edit-box'> 
+              <input className='edit-post-input' type='text' ref={editRef} />
+              <button onClick={editPost} className='edit-post'>Edit</button>
+            </div>}
+          </div> : <p></p>}
         </div>
         <div className="post-bottom">
           <div className="post-bottom-left">
