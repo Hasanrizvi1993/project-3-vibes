@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react';
 import '../../stylesheets/index.scss';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import axios from 'axios';
+
 
 // BACKEND PUBLIC FOLDER UPLOADS
 const PF_IMG = process.env.REACT_APP_PF_IMAGES;
-
-const apiUrl = "http://localhost:4000/api"
 
 export const NavBar = () => {
   const { logout, currentUser } = useAuth();
