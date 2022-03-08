@@ -57,10 +57,10 @@ const { currentUser } = useAuth();
         <div className="post-top">
           <div className="post-top-left">
           <Link to={"/profile/"+user.userName} >
-            <img className='post-profile-img' 
+            <img className='post-profile-img' style={{position: "relative", left:"-250px", top:"-30px" }}
             src={"/assets/staticImages/no_pf_img.png"} alt="" />
           </Link>
-          <Link to={"/profile/"+user.userName} >
+          <Link to={"/profile/"+user.userName} style={{position: "relative", left:"-250px", top:"-100px", fontFamily: "Helvetica", fontSize: "24px"}} >
             <span className="post-username">{user && user.name}</span>
           </Link>
           </div>

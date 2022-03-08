@@ -25,7 +25,7 @@ const { currentUser, loginCall, loginMessage } = useAuth();
       backDelay: 1000,
       backSpeed: 70,
       showCursor: false,
-      strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC"],
+      strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC", " MOVING ", " FUNKY ",],
     })
   }, [])
 
