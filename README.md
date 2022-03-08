@@ -2,23 +2,31 @@
 
 ## Introduction
 
-Vibes is a fully functional social media app for music lovers with multiple features. The user is able to sign up using username and password. The user is able to login using the credentials. The user is able to make posts and comments. The user is able to listen to music using the embedded music player on the app. The user is able to upload images and post images in the posts and comments. The user is also able to upload image and set it as thier profile picture.
+### Features
+
+Vibes is a fully functional social media app for music lovers with multiple features. The user is able to sign up using username and password. The user is able to login using the credentials. The user is able to make posts and interact with others by posting comments on posts. The user is able to listen to music using the embedded music player on the app. The user is able to upload images and post images in the posts and comments. The user is also able to upload image and set it as thier profile picture.
 
 ## Technologies Used
 
-React, Node, Mongoose, Sass, Express, APIs, while using MongoDB Atlas database.
+- ReactJS
+- NodeJs
+- Mongoose
+- SCSS
+- Express
+- APIs
+- MongoDB Atlas database.
 
-## Features
+## Getting Started
 
-- User
+### Project's Planning
 
-### `yarn start`
+#### Miro weblink
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://miro.com/app/board/uXjVOK5wtNw=/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Heroku
+
+????
 
 ### `yarn test`
 
