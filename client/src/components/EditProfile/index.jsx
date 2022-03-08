@@ -54,15 +54,21 @@ export const EditProfile = ({ user }) => {
   }
 
 
+
   return (
     <div className='edit-profile' >
        <div className="edit-profile-wrapper">
         <div className="edit-profile-top">
           <div className='user-info'>
-            <span className="user-info-label">Currently Playing:</span><br />
-            <span className="currently-playing">{user && user.currentlyPlaying ? user.currentlyPlaying : "Nothing Yet!"}</span><br />
-            <span className="user-info-label">About Me:</span><br />
+          <br></br>
+            <span className="user-info-label"style={{fontWeight: "bold"}} >CURRENTLY PLAYING:
+            </span><br />
+            <span className="currently-playing" >{user && user.currentlyPlaying ? user.currentlyPlaying : "Nothing Yet!"}</span><br />
+            <br></br>
+            <span className="user-info-label" style={{fontWeight: "bold"}}>ABOUT ME:</span><br />
             <span className="about-me">{user && user.aboutMe ? user.aboutMe : "No Bio Yet!"}</span>
+            <br></br>
+            <br></br>
           </div>
           </div>
           <hr className='edit-border' />
