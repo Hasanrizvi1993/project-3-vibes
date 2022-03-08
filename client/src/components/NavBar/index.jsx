@@ -26,27 +26,22 @@ export const NavBar = () => {
 
         </div>
         <div className="icons">
-        <div className="nav-links">
-          <Link to={"/"} >
-            <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", left:"-150px", fontSize: "28px"}}>FEED</span>
-          </Link>
-          {currentUser ? <Link to={"/profile/"+currentUser.userName} >
-            <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", left:"-150px", fontSize: "28px"}}>PROFILE</span>
-          </Link> : <p></p>}
-          <Link to={"#"} >
-                  <span className="nav-link" style={{color: "black", position: "relative", bottom: "-20px", left:"-150px",fontSize: "28px",}} onClick={signOut} >SIGN OUT</span>
-          </Link>
-          <div className="nav-pf" >
-             {currentUser ? <Link to={`/profile/${currentUser.userName}`} >
-              <img className='nav-img' style={{height: '50px', width: '50px', borderRadius: '50%', objectFit: 'cover', position: "relative", bottom: "30px", right:"-500px",}} src={currentUser && currentUser.profileImage 
-              ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt="" />
-              </Link> : <p></p>}
+          <div className="nav-links">
+            <Link to={"/"} >
+              <span className="nav-link" >FEED</span>
+            </Link>
+            {currentUser ? <Link to={"/profile/"+currentUser.userName} >
+              <span className="nav-link" >PROFILE</span>
+            </Link> : <p></p>}
+            <Link to={"#"} >
+                    <span className="nav-link" onClick={signOut} >SIGN OUT</span>
+            </Link>
+            <div className="nav-pf" >
+              {currentUser ? <Link to={`/profile/${currentUser.userName}`} >
+                <img className='nav-img' src={currentUser && currentUser.profileImage 
+                ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt="" />
+                </Link> : <p></p>}
             </div>
-            </div>
-        </div>
-        <div className="nav-right">
-          <div className="dark-mode">
-            <button type="button" className="btn" data-bs-toggle="button" style={{fontFamily: "helvetica", marginRight:"15px", marginTop: "28px"}}>LIGHT/DARK</button>
           </div>
         </div>
     </div>
