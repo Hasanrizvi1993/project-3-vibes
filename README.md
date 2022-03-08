@@ -2,11 +2,15 @@
 
 ## Introduction
 
-Vibes is a fully functional social media app for music lovers with multiple features.built with React, Node, Mongoose, Express, APIs, while using MongoDB Atlas database.
+Vibes is a fully functional social media app for music lovers with multiple features. The user is able to sign up using username and password. The user is able to login using the credentials. The user is able to make posts and comments. The user is able to listen to music using the embedded music player on the app. The user is able to upload images and post images using the image uploader. The user can also set a profile profile picture. 
+
+## Technologies Used
+
+React, Node, Mongoose, Sass, Express, APIs, while using MongoDB Atlas database.
 
 ## Features
 
-- User 
+- User
 
 ### `yarn start`
 
