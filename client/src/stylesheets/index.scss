@@ -8,7 +8,7 @@
          Variables
 =-=-=-=-=-=-=-=-=-=-=-=- */
 $hero-color: #639275;
-$background-color: #ECEDEE;
+$background-color: white;//UPDATING TO WHITE AS PER WIREFRAME
 $white:rgba(255, 255, 255, .5);
 
 // HERO FONT: PLAYFAIR DISPLAY ITALIC
@@ -63,7 +63,7 @@ $secondary-font: 'Helvetica', serif;
     position: fixed;
     width: 100%;
     min-height: 100%;
-    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 125px, $background-color 225px);
+    background: radial-gradient(circle at bottom 3em left 5em, $hero-color 300px, $background-color 450px);
     font-family: $hero-font;
     z-index: -2;
 }
@@ -80,7 +80,7 @@ $secondary-font: 'Helvetica', serif;
 .nav-container {
     display: flex;
     border-bottom: 1px solid black; 
-    height: 3rem;
+    height: 5rem;
     background: $white;
     font-size: 2rem;
     position: sticky;
@@ -108,11 +108,25 @@ $secondary-font: 'Helvetica', serif;
     width: 100%;
 }
 
+
+//Background-card styling 
+.background-card {
+    position: relative;
+    top: 50px;
+    background: rgba(236,237,238, .5);
+    border-radius: 15px;
+    max-height: 950px;
+    margin-left: 50px;
+   
+
 // Side Bar Styling
 .side-bar {
     flex: 3;
     margin: 1%;
-    width: 100%;
+    max-width: 400px;
+   
+
+   
 
     .side-bar-divider {
         background: linear-gradient(to right #FFFFFF, #000000, #FFFFFF);
@@ -138,27 +152,51 @@ $secondary-font: 'Helvetica', serif;
         margin: 0 1rem;
         padding: 1rem 0;
         position: absolute;
+        left: 60px;
         color: $hero-color;
-        text-align: center;
+        text-align: left;
         transform: rotate(-90deg) translateY(-7rem);
+     
     }
 
     .current-song{
         @include side-bar-detail-default ();
         width: 11rem;
+        margin: 10px;
     }
 
     .side-bar-top-artists {
         @include side-bar-detail-default ();
+        list-style-type: none;
+        text-align: left;
+        position: relative;
+        left: -20px;
+        margin: 15px;
+       
     }
+}
+
 }
 
 // Post Form Creation Styling
 .post-form {
-    width: 100%;
-    
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    position: relative;
+    background: rgba(236,237,238, .5);
+    border-radius: 15px;
+    max-height: 800px;
+    min-height: 350px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+
+
+
     .post-form-img {
-        @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+        @include profile-pic($img-size: 4rem, $padding-size: 3rem,);
+      
     }
 
     .post-form-input {
@@ -175,21 +213,40 @@ $secondary-font: 'Helvetica', serif;
 
 // Post display Styling
 .post {
-    width: 100%;
+    width: 60%;//MAIN POST FEED
+    font-family: $secondary-font;//HELVETICA
+    margin: auto;
+    padding: 10px;
+    background: rgba(236,237,238, .5);
+    border-radius: 15px;
+    max-height: 800px;
+    min-height: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    
     .post-profile-img {
         @include profile-pic($img-size: 4rem, $padding-size: 3rem);
+      
+        
     }
 
-    .post-img {
+    .post-img { //FOR ANY IMAGE THE USER ADDS
         width: 100%;
-        max-height: 350px;
+        max-height: 250px;//MAKING IMAGE SMALLER
         object-fit: contain;
+        margin-top: 25px;
+        margin-bottom: 25px;
     }
 
     .like-icon {
         width: 2rem;
         margin-right: 1rem;
         cursor: pointer;
+        position: relative;
+        bottom: -28px;
+        left: -150px
+       
     }
 }
 
@@ -206,11 +263,22 @@ $secondary-font: 'Helvetica', serif;
         .login-motto-text {
             width: 70%;
             border: 1px solid blue;
+            
+        }
+
+        .login-logo-text {
+            position: relative;
+            left: -200px;
+            top: -150px;
         }
 
         .typed-text {
-            display: flex;
-            justify-content: flex-end;
+            position: relative;
+            right: -450px;
+            font-size: 45px;
+            
+           
+            
         }
     }
 
@@ -221,11 +289,17 @@ $secondary-font: 'Helvetica', serif;
         top: 25%;
         right: 10%;
         text-align: center;
-        background: rgba(255, 255, 255, .5);
-        border-radius: 45px;
-        height: 400px;
-        width: 350px;
-
+        max-width: 350px;
+        font-family: $secondary-font;
+        font-size: 15px;
+        background: rgba(236,237,238, .5);
+        border-radius: 15px;
+        max-height: 800px;
+        min-height: 315px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        
         .login-btn {
             @include default-btn();
         }
@@ -244,12 +318,22 @@ $secondary-font: 'Helvetica', serif;
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid red;
         background: $white;
-        max-width: 500px;
+        max-width: 350px;
+        font-family: $secondary-font;
+        font-size: 15px;
+        background: rgba(236,237,238, .5);
+        border-radius: 15px;
+        max-height: 800px;
+        min-height: 315px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        
 
         .register-box {
             width: 40%;
+            ;
         }
     }
 }

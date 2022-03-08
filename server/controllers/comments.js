@@ -51,7 +51,11 @@ const update = (req, res) => {
 const destroy = (req, res) => {
 	db.Post.findById(req.params.id, (err, post) => {
 		const foundComment = post.comments.id(req.params.commentId);
-		console.log(foundComment);
+		if (err) {
+			res.status(400).json({
+				error: err,
+			})
+		}
 		foundComment.remove();
 		post.save();
 
