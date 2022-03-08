@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';    
+import React from 'react';    
 import '../../stylesheets/index.scss';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
