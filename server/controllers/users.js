@@ -22,7 +22,7 @@ const show = async (req, res) => {
 	}
 };
 
-// GET A USER - will query database for user based on post.userId on the feed, and for user based on username on profile page
+// GET A USER 
 const queryUser = async (req, res) => {
 	// adding a query to route
 	const userId = req.query.userId;

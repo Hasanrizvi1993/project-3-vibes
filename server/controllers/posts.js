@@ -72,7 +72,7 @@ const destroy = (req, res) => {
 };
 
 
-//PROFILE PAGE POSTS ONLY (based on the queried userName prop passed from profile page)
+//PROFILE PAGE POSTS ONLY 
 const getProfilePosts = async (req, res) => {
 	try {
 		// find user based on userName

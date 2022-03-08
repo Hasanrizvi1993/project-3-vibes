@@ -21,13 +21,13 @@ const upload = multer({
     },
 })
 
-// POST IMAGE UPLOAD ROUTE
+// PF IMAGE UPLOAD ROUTE
 router.post("/upload", upload.single('file'), users.uploadProfileImage);
 
 router.get("/", authRequired, users.queryUser) 
-router.get("/profile", authRequired, users.show); //REMOVED AUTHREQUIRED TO WAIT FOR AUTHENTICATION 
-router.put("/:id", users.update) //USED TO EDIT USERS
-router.delete("/:id", users.destroy)//USED TO DELETE USERS
+router.get("/profile", authRequired, users.show); 
+router.put("/:id", users.update) // EDIT USERS
+router.delete("/:id", users.destroy)// DELETE USERS
 
 
 

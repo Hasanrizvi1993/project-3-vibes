@@ -25,13 +25,10 @@ export const Timeline = ({ userName }) => {
 
   return (
     <div className="timeline" >
-     
       <PostForm />
       {posts && posts.map((p) => (   
       <Post  post={p} key={p._id} />
-        
       ) )}
-      
     </div>
   )
 }
