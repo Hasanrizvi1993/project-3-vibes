@@ -16,7 +16,20 @@ Vibes is a fully functional social media app for music lovers with many useful f
 - APIs
 - MongoDB Atlas database.
 
+## Packages
+
+- node-sass:
+- axios:
+- ityped:
+- prop-types:
+- timeago.js:
+- @material-ui/core:
+- @material-ui/icons:
+- react-router-dom:
+
 ## Getting Started
+
+This project was bootstrapped with Create React App.
 
 ### Project's Planning
 
