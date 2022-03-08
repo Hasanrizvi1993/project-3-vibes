@@ -48,4 +48,4 @@ None
 
 We plan to add more features to the website by making it more visually appealing.
 
-We also plan to add and "add friends" feature, which will allow our users to only interact with the people they have added as "friends".
+We also plan to add and "add friends" feature, which will allow our users to only interact with the people they have added as "friends"
