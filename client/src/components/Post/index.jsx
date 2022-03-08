@@ -46,6 +46,9 @@ const { currentUser } = useAuth();
 
   }
   
+
+  const PF_IMG = process.env.REACT_APP_PF_IMAGES;
+
  
   const likeHandler = () => {
 
@@ -57,8 +60,9 @@ const { currentUser } = useAuth();
         <div className="post-top">
           <div className="post-top-left">
           <Link to={"/profile/"+user.userName} >
-            <img className='post-profile-img' style={{position: "relative", left:"-250px", top:"-30px" }}
-            src={"/assets/staticImages/no_pf_img.png"} alt="" />
+            <img className='post-profile-img' style={{position: "relative", left:"-250px", top:"-30px", height: '65px', width: '65px', }}
+            src={currentUser && currentUser.profileImage 
+              ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt=""  />
           </Link>
           <Link to={"/profile/"+user.userName} style={{position: "relative", left:"-250px", top:"-100px", fontFamily: "Helvetica", fontSize: "24px"}} >
             <span className="post-username">{user && user.name}</span>
@@ -79,8 +83,8 @@ const { currentUser } = useAuth();
           </div>
           <div className="post-bottom-right">
             <form className='comment-box' onSubmit={submitComment} >
-            <input className='comment-input' type="text" placeholder='Add Comment' ref={comment} />
-            <button className="comment-btn" type="submit">Add Comment</button>
+            <input className='comment-input' type="text" placeholder='ADD COMMENT' ref={comment} style={{fontFamily:"helvetica"}} />
+            <button className="comment-btn" type="submit" style={{fontFamily:"helvetica"}}>ADD COMMENT</button>
             </form>
           </div>
         </div>
