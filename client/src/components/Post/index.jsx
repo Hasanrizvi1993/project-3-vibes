@@ -60,16 +60,15 @@ const { currentUser } = useAuth();
         <div className="post-top">
           <div className="post-top-left">
           <Link to={"/profile/"+user.userName} >
-            <img className='post-profile-img' style={{position: "relative", left:"-250px", top:"-30px", height: '65px', width: '65px', }}
-            src={currentUser && currentUser.profileImage 
-              ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt=""  />
+            <img className='post-profile-img' style={{position: "relative", left:"25px", top:"-30px", height: '65px', width: '65px', borderRadius: '150%', }}  src={currentUser && currentUser.profileImage 
+              ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt=""   />
           </Link>
-          <Link to={"/profile/"+user.userName} style={{position: "relative", left:"-250px", top:"-100px", fontFamily: "Helvetica", fontSize: "24px"}} >
+          <Link to={"/profile/"+user.userName} style={{position: "relative", left:"-90px", top:"-50px", fontFamily: "Helvetica", fontSize: "24px"}} >
             <span className="post-username">{user && user.name}</span>
           </Link>
           </div>
           <div className="post-top-right">
-          <span className="post-date">{post && format(post.createdAt)}</span>
+          <span className="post-date">{post && format(post.createdAt)} </span>
           </div>
         </div>
         <div className="post-center">
