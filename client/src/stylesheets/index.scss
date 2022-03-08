@@ -468,4 +468,15 @@ $secondary-font: 'Helvetica', serif;
     
     }
 
+    .edit-profile-btn {
+        background: #7cb190;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 25px;
+    }
+
+    .edit-textarea {
+        resize: none;
+    }
+
 }

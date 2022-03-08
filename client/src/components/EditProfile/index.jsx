@@ -103,7 +103,7 @@ export const EditProfile = ({ user }) => {
             <br></br>
             <label htmlFor="" className="edit-label">
               ABOUT ME <br />
-            <textarea type="text" maxLength={180} placeholder="Edit Your About Me" className="edit-input" defaultValue={currentUser.aboutMe} ref={aboutMe}  />
+            <textarea type="text" maxLength={180} placeholder="Edit Your About Me" className="edit-input edit-textarea" defaultValue={currentUser.aboutMe} ref={aboutMe}  />
             </label><br />
             <br></br>
             <div className="pf-img-upload">
