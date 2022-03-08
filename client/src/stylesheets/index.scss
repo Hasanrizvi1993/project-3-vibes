@@ -468,6 +468,10 @@ $secondary-font: 'Helvetica', serif;
     
     }
 
+    .profile-display-name, .user-info-label {
+        font-family: $hero-font;
+    }
+
     .edit-profile-btn {
         background: #7cb190;
         font-weight: bold;

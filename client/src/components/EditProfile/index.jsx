@@ -63,7 +63,7 @@ export const EditProfile = ({ user }) => {
           <br></br>
             <h2 className="profile-display-name" style={{fontWeight: "bold"}} >{user && user.name ? user.name+"'s Profile" : ""}</h2><br />
             <br></br>
-            <span className="user-info-label"style={{fontWeight: "bold"}} >Location:
+            <span className="user-info-label"style={{fontWeight: "bold"}} >LOCATION:
             </span><br />
             <span className="location" >{user && user.location ? user.location : ""}</span><br />
             <br></br>
