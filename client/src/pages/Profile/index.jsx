@@ -25,7 +25,7 @@ useEffect(() => {
     
   }
   fetchUser();
-}, [userName])
+}, [])
 
 
 

@@ -26,7 +26,10 @@ const userSchema = new Schema(
 			unique: true,
 		},
 
-		currentlyPlaying: { type: String },
+		currentlyPlaying: { 
+			type: String,
+			default: "",
+		},
 
 		profileImage: {
 			type: String,
@@ -35,7 +38,19 @@ const userSchema = new Schema(
 
 		location: {
 			type: String,
+			default: "" 
 		},
+
+		savedPosts : {
+			type: Array,
+			default: [],
+		},
+
+		aboutMe: {
+			type: String,
+			default: ""
+
+		}
 	},
 	{
 		timestamps: true,

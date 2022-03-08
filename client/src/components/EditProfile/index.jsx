@@ -1,12 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { Cancel } from '@material-ui/icons';
+import axios from 'axios';
 import '../../stylesheets/index.scss';
 
+// SERVER API URL
+const apiUrl = "http://localhost:4000/api"
+
+
 export const EditProfile = ({ user }) => {
+   // current logged in user
+   const { currentUser } = useAuth();
+  // refs for update user
+  const email = useRef(currentUser.email);
+  const name = useRef(currentUser.name)
+  const currentlyPlaying = useRef(currentUser.currentlyPlaying);
+  const location = useRef(currentUser.location);
+  const aboutMe = useRef(currentUser.aboutMe);
   // pf img upload hook
-  const [file, setFile] = useState();
-  // current logged in user
-  const { currentUser } = useAuth();
+  const [file, setFile] = useState(null);
+ 
+
+  // User Update Handler
+  const updateUser = async (e) => {
+    e.preventDefault()
+    const updatedUser = {
+    email: email.current.value,
+    name: name.current.value,
+    currentlyPlaying: currentlyPlaying.current.value,
+    location: location.current.value,
+    aboutMe: aboutMe.current.value,
+    }
+    if (file) {
+      const data = new FormData()
+      const fileName = file.name;
+      data.append("file", file)
+      data.append("name", fileName)
+      updatedUser.profileImage = fileName;
+      try {
+        await axios.post(`${apiUrl}/users/upload`, data);
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    try {
+      const res = await axios.put(`${apiUrl}/users/${currentUser._id}`, updatedUser)
+      localStorage.setItem("userData", JSON.stringify(res.data.data))
+      
+    } catch (err) {
+      console.log(err)
+    }
+    window.location.reload();
+  }
 
 
   return (
@@ -23,14 +68,35 @@ export const EditProfile = ({ user }) => {
           <hr className='edit-border' />
          {currentUser._id === user._id ? <><div className="edit-profile-center">
           <h4 className="edit-form-header">Edit Your Profile Info</h4>
-          <form className="edit-form">
-            <input type="email" placeholder="Edit Your Email" className="edit-input" />
-            <input type="name" placeholder="Edit Your Name" className="edit-input" />
-            <input type="text" placeholder="Edit Your Username" className="edit-input" />
-            <input type="text" placeholder="Currently Playing?" className="edit-input" />
-            <input type="text" placeholder="Edit Your About Me" className="edit-input" />
+          <form className="edit-form" onSubmit={updateUser} >
+            <label htmlFor="" className="edit-label" >
+              Email<br />
+            <input type="email" placeholder="Edit Your Email" className="edit-input" defaultValue={currentUser.email} ref={email} required />
+            </label><br />
+            <label htmlFor="" className="edit-label">
+              Display Name<br />
+            <input type="name" placeholder="Edit Your Name" className="edit-input" defaultValue={currentUser.name} ref={name} required />
+            </label><br />
+            <label htmlFor="" className="edit-label">
+              Currently Playing<br />
+            <input type="text" placeholder="Currently Playing?" className="edit-input" defaultValue={currentUser.currentlyPlaying} ref={currentlyPlaying}  />
+            </label><br />
+            <label htmlFor="" className="edit-label">
+              Location<br />
+            <input type="text" placeholder="Location?" className="edit-input" defaultValue={currentUser.location} ref={location}  />
+            </label><br />
+            <label htmlFor="" className="edit-label">
+              About Me <br />
+            <textarea type="text" maxLength={180} placeholder="Edit Your About Me" className="edit-input" defaultValue={currentUser.aboutMe} ref={aboutMe}  />
+            </label><br />
             <div className="pf-img-upload">
-              <label htmlFor='file' className="post-img-label">Add or Update Your Profile Picture!
+            {file && (
+            <div className="pf-img-box">
+              <img src={URL.createObjectURL(file)} alt="" className="pf-img-preview" style={{width: "120px", height: "120px", objectFit: "cover", borderRadius: '50%'}} />
+              <Cancel className="pf-img-cancel" onClick={() => setFile(null)} />
+            </div>
+              )}
+              <label htmlFor='file' className="post-img-label">Add or Update Your Profile Picture!<br />
                 <input type="file" name="file" placeholder="Update Profile Picture" id="file"
                   accept=".png, .jpg, .jpeg"
                   onChange={(e) => setFile(e.target.files[0])} />
