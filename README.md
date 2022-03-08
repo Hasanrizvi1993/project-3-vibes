@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Vibes Social Media App for music lovers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+### Features
 
-In the project directory, you can run:
+Vibes is a fully functional social media app for music lovers with many useful features. The user is able to sign up using username and password. The user is able to enter information and create their own profile. The user is able to login using the credentials they use to sign up. The user is able to make posts, delete posts, update posts, read posts. The user can also interact with other users by posting comments on other users posts on feed. The user can also delete, read, and update comments. The user is able to listen to music using the embedded music player on the app. The user is able to upload images and post images in the posts and comments. The user is also able to upload an image and set it as thier profile picture.
 
-### `yarn start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ReactJS
+- NodeJs
+- Mongoose
+- SCSS
+- Express
+- APIs
+- MongoDB Atlas database.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Packages
 
-### `yarn test`
+- node-sass: used Sass to style our app
+- axios: used to create HTTP requests that are present externally especially
+- ityped: used to display a string on our app, and it allowed us to type at the speed we had set, it also backspace what it's typed, and begin a new sentence for however many strings we had added.
+- prop-types:
+- timeago.js: used to show the datetime with "time ago" in our posts and comments
+- @material-ui/icons: used to bring icons in.
+- react-router-dom: enabled us to implement dynamic routing in a web app. It allows us to display pages and allow users to navigate them. It is a fully-featured client and server-side routing library for React.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `yarn build`
+This project was bootstrapped with Create React App.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Project's Planning
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Miro weblink
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://miro.com/app/board/uXjVOK5wtNw=/
 
-### `yarn eject`
+#### Heroku
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+https://vibesbymern.herokuapp.com/
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Unsolved Problems
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+None
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Future Enhancement
 
-## Learn More
+We plan to add more features to the website by making it more visually appealing.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+We also plan to add and "add friends" feature, which will allow our users to only interact with the people they have added as "friends"
