@@ -87,9 +87,23 @@ const { currentUser } = useAuth();
 
   const PF_IMG = process.env.REACT_APP_PF_IMAGES;
 
- // LIKE OR UNLIKE
-  const likeHandler = () => {
+ // LIKE OR UNLIKE CHECK & HANDLER
+ useEffect(() => {
+  setIsLiked(post.likes.includes(currentUser._id))
+},[currentUser._id, post.likes])
 
+
+  const likeHandler = () => {
+    const likeUser = {
+      userId: currentUser._id,
+    }
+    try {
+      axios.put(`${apiUrl}/posts/${post._id}/like`, likeUser)
+    } catch (err) {
+      console.log(err)
+    }
+    setLike(isLiked ? like-1 : like+1)
+    setIsLiked(!isLiked)
   }
 
   return (
@@ -127,6 +141,8 @@ const { currentUser } = useAuth();
           <div className="post-bottom-left">
           <img className="like-icon" src="/assets/staticImages/like_icon.png" 
           alt="" onClick={likeHandler} />
+          <span className="post-like-counter">{like} people like it</span>
+
           </div>
           <div className="post-bottom-right">
             <form className='comment-box' onSubmit={submitComment} >

@@ -111,7 +111,7 @@ const uploadPostImage = (req, res) => {
 
 const toggleLikes = async (req, res) => {
     try {
-        const foundPost = await Post.findById(req.params.id)
+        const foundPost = await db.Post.findById(req.params.id)
         if (!foundPost.likes.includes(req.body.userId)) {
             await foundPost.updateOne({
                 $push: { likes: req.body.userId}
@@ -120,7 +120,7 @@ const toggleLikes = async (req, res) => {
 				message: "The post was liked!",
 			})
         } else {
-            await post.updateOne({
+            await foundPost.updateOne({
                 $pull: { likes: req.body.userId }
             })
             res.status(200).json({
