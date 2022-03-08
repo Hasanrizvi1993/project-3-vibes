@@ -1,78 +1,73 @@
 const db = require("../models");
 
-const index = (req, res) => {
-	db.Comment.find().exec((err, allComments) => {
-		if (err)
-			return res.status(400).json({
-				message: "Status 400 Error!",
-				error: err,
-			});
-		return res.status(200).json({
-			message: "Success!",
-			data: allComments,
-		});
-	});
-};
 const show = (req, res) => {
-	db.Comment.findById(req.params.id, (err, foundComments) => {
-		if (err)
-			return res.status(400).json({
-				message: "Status 400 Error!",
-				error: err,
-			});
-		return res.status(200).json({
-			message: "Success!",
-			data: foundComments,
-		});
-	});
-};
-const create = (req, res) => {
-	db.Comment.create(req.body, (err, savedComments) => {
-		if (err)
-			return res.status(400).json({
-				message: "Status 400 Error!",
-				error: err,
-			});
-		return res.status(201).json({
-			message: "Success",
-			data: savedComments,
-		});
-	});
-};
-const update = (req, res) => {
-	db.Comment.findByIdAndUpdate(
-		req.params.id,
-		req.body,
-		{ new: true },
-		(err, updatedComments) => {
-			if (err)
-				return res.status(400).json({
-					message: "Status 400 Error!",
-					error: err,
-				});
-			return res.status(202).json({
-				message: "Success",
-				data: updatedComments,
+	db.Post.findById(req.params.id, (err, post) => {
+		if (post) {
+			return res.status(200).json({
+				message: "success",
+				data: post,
 			});
 		}
-	);
+		if (err) {
+			return res.status(404).json({
+				message: "status 404",
+				error: err,
+			});
+		}
+	});
 };
-const destroy = (req, res) => {
-	db.Comment.findByIdAndDelete(req.params.id, (err, deletedComments) => {
-		if (err)
+
+const create = (req, res) => {
+	db.Post.findById(req.params.id, (err, post) => {
+		post.comments.push(req.body);
+		post.save();
+		if (err) {
 			return res.status(400).json({
 				message: "Status 400 Error!",
 				error: err,
 			});
+		}
+
+		return res.status(201).json({
+			message: "comment created",
+			data: post.comments,
+		});
+	});
+};
+
+const update = (req, res) => {
+	db.Post.findById(req.params.id, (err, post) => {
+		const foundComment = post.comments.id(req.params.commentId);
+		foundComment.body = req.body.body;
+		post.save();
+
 		return res.status(200).json({
-			message: "Success!",
-			data: deletedComments,
+			message: "sucess!",
+			data: foundComment,
+		});
+	});
+};
+
+const destroy = (req, res) => {
+	db.Post.findById(req.params.id, (err, post) => {
+		const foundComment = post.comments.id(req.params.commentId);
+		if (err) {
+			res.status(400).json({
+				error: err,
+			})
+		}
+		foundComment.remove();
+		post.save();
+
+		return res.status(200).json({
+			message: "comment deleted",
+			data: foundComment,
 		});
 	});
 };
 
 module.exports = {
-	index,
+	// index,
 	show,
 	create,
 	update,

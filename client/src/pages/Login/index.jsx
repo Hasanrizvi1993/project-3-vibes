@@ -16,8 +16,7 @@ const textRef = useRef()
 const [message, setMessage] = useState('');
 // useAuth hook to pull loginCall from AuthContext
 const { currentUser, loginCall, loginMessage } = useAuth();
-// useNavigate hook for redirect
- const navigate = useNavigate();
+
 
 
   // useEffect for ityped text
@@ -26,7 +25,7 @@ const { currentUser, loginCall, loginMessage } = useAuth();
       backDelay: 1000,
       backSpeed: 70,
       showCursor: false,
-      strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC"],
+      strings: [" COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC", " MOVING ", " FUNKY ", " CALMING ", " JOYFUL ", " INTERESTING ", "ROCK N ROLL", "BRAVE", "BRIGHT", "BEAUTIFUL", "COLORFUL", "DISTINCT", "FANTASTIC", "TENDER", " COOL", " DOPE", " AWESOME", " GOOD", " FUN", " HYPED", " RELAXED", " EXCITING", " FUNKY", " ROMANTIC", " MOVING ", " FUNKY ", " CALMING ", " JOYFUL ", " INTERESTING ", "ROCK N ROLL", "BRAVE", "BRIGHT", "BEAUTIFUL", "COLORFUL", "DISTINCT", "FANTASTIC", "TENDER", ],
     })
   }, [])
 
@@ -41,7 +40,7 @@ const { currentUser, loginCall, loginMessage } = useAuth();
     }
     try {
       loginCall(userFound);  
-      navigate("/")
+      
     } catch (error) {
       console.log(error)
     }
@@ -54,23 +53,24 @@ const { currentUser, loginCall, loginMessage } = useAuth();
     <div className="login" >
       <div className="login-wrapper">
         <div className="login-left">
-          <h3 className="login-logo-text">MUSIC NEVER SOUNDED SO...
+          <h3 className="login-logo-text" style={{fontSize: "45px",}}>MUSIC NEVER SOUNDED SO...
           <div ref={textRef} className="typed-text"></div></h3>
         </div>
           <div className="login-right">
-            <h2>Log In to Your Account</h2>
+            <h2>LOG INTO YOUR ACCOUNT</h2>
             <div className="login-form-message">
           {loginMessage && <span className="post-img-text" style={{color:'crimson'}}>{loginMessage}</span>}
           </div>
           <form className="login-box" onSubmit={handleLogin} >
-            <input type='email' placeholder="Email" 
+            <input style={{margin: "5px", border: "none", minHeight: "25px", borderRadius: "5px"}} type='email' placeholder="EMAIL" 
             className="login-input" ref={email} required />
-            <input type="password" placeholder="Password" 
+            <input style={{margin: "5px", border: "none", minHeight: "25px", borderRadius: "5px"}} type="password" placeholder="PASSWORD" 
             className="login-input" ref={password} required />
-            <button type='submit' className="login-btn">Log In</button>
-            <span className="login-forgot">Forgot Password?</span>
+            <button type='submit' className="login-btn" style={{backgroundColor: "#639275", color: "white", margin: "10px", border:"none", minHeight:"25px", borderRadius: "5px", fontWeight: "bold",}}>LOG IN</button>
+            <span className="login-forgot">FORGOT PASSWORD?</span>
           </form>
-          <span className="login-register">Don't have an account? <Link to={"/register"}>Sign Up</Link></span>
+          <span className="login-register">DON'T HAVE AN ACCOUNT? <Link to={"/register"} style={{fontWeight: "bold"
+ }}>SIGN UP</Link></span>
          </div>
       </div>
     </div>

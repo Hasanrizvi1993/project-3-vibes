@@ -19,7 +19,7 @@ export const Timeline = ({ userName }) => {
   }
   fetchPosts()
   
-}, [posts, userName]) 
+}, [userName]) 
  
 
 
@@ -36,8 +36,3 @@ export const Timeline = ({ userName }) => {
   )
 }
 
-
-/*   {posts.map((p) => (   
-        <div className="user">{}</div>
-        
-      ) )}    <Post  post={p} key={p._id} /> {posts.map((p) => (    ) )}  key={p._id} post={p} */

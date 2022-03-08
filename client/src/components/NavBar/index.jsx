@@ -1,31 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';    
 import '../../stylesheets/index.scss';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import axios from 'axios';
 
 
-const apiUrl = "http://localhost:4000/api"
-
+// BACKEND PUBLIC FOLDER UPLOADS
+const PF_IMG = process.env.REACT_APP_PF_IMAGES;
 
 export const NavBar = () => {
-  const { logout } = useAuth();
+  const { logout, currentUser } = useAuth();
 
-  const [user, setUser] = useState({});
-  const { currentUser } = useAuth();
-
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const res = await axios.get(`${apiUrl}/users?userId=${user.userId}`)
-        setUser(res.data)
-    }
-    fetchUser();
-  }, [user.userId])
 
   const signOut = () => {
-    logout()
-    
+    logout();
+    window.location.reload();
   }
 
 
@@ -33,26 +21,30 @@ export const NavBar = () => {
     <div className='nav-container'>
         <div className="logo">
         <Link to={"/"} style={{textDecoration: 'none'}} >
-          <span className="logo">VIBE$</span>
+          <span className="logo" style={{fontSize: "50px", color:"white", WebkitTextStrokeWidth: "1px", WebkitTextStrokeColor:"black", position: "fixed", left:"5px", top:"0px"}}>VIBES</span>
         </Link>
 
         </div>
         <div className="icons">
-        <div className="nav-links">
-          <Link to={"/"} >
-            <span className="nav-link">Feed</span>
-          </Link>
-          <Link to={"/profile/"+user.userName} >
-            <span className="nav-link">Profile</span>
-          </Link>
-          <Link to={"#"} >
-                  <span className="nav-link" onClick={signOut} >Sign Out</span>
-          </Link>
+          <div className="nav-links">
+            <Link to={"/"} >
+              <span className="nav-link" >FEED</span>
+            </Link>
+            {currentUser ? <Link to={"/profile/"+currentUser.userName} >
+              <span className="nav-link" >PROFILE</span>
+            </Link> : <p></p>}
+            <Link to={"#"} >
+                    <span className="nav-link" onClick={signOut} >SIGN OUT</span>
+            </Link>
+            <div className="nav-pf" >
+              {currentUser ? <Link to={`/profile/${currentUser.userName}`} >
+                <img className='nav-img' src={currentUser && currentUser.profileImage 
+                ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt="" />
+                </Link> : <p></p>}
             </div>
-        </div>
-        <div className="nav-right">
-        <button type="button" className="btn" data-bs-toggle="button">Light/Dark</button>
+          </div>
         </div>
     </div>
   )
 }
+
