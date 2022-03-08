@@ -15,7 +15,10 @@ const apiUrl = "http://localhost:4000/api"
 
 
 export const Post = ({ post }) => {
-// for edit input
+// state hooks for liked posts
+const [like, setLike] = useState(post.likes.length);
+const [isLiked, setIsLiked] = useState(false);
+// state hook for edit input
 const [editInput, setEditInput] = useState(false);
 // input ref hook
 const editRef = useRef()
@@ -55,7 +58,7 @@ const { currentUser } = useAuth();
     }
 
   }
-
+// DELETE OR EDIT POSTS 
   const deletePost = async (e) => {
     e.preventDefault()
     try {
@@ -84,7 +87,7 @@ const { currentUser } = useAuth();
 
   const PF_IMG = process.env.REACT_APP_PF_IMAGES;
 
- 
+ // LIKE OR UNLIKE
   const likeHandler = () => {
 
   }

@@ -40,4 +40,7 @@ router.put("/:id/comments/:commentId", comments.update);
 //DELETING COMMENT
 router.delete("/:id/comments/:commentId", comments.destroy);
 
+// LIKE / UNLIKE POST
+router.put("/:id/like", posts.toggleLikes)
+
 module.exports = router;
