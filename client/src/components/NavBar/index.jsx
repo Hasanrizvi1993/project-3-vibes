@@ -23,7 +23,7 @@ export const NavBar = () => {
     <div className='nav-container'>
         <div className="logo">
         <Link to={"/"} style={{textDecoration: 'none'}} >
-          <span className="logo" style={{fontSize: "50px", color:"white", WebkitTextStrokeWidth: "1px", WebkitTextStrokeColor:"black", }}>VIBES</span>
+          <span className="logo" style={{fontSize: "50px", color:"white", WebkitTextStrokeWidth: "1px", WebkitTextStrokeColor:"black", position: "fixed", left:"5px", top:"0px"}}>VIBES</span>
         </Link>
 
         </div>
@@ -41,7 +41,7 @@ export const NavBar = () => {
           <div className="nav-pf" >
              {currentUser ? <Link to={`/profile/${currentUser.userName}`} >
               <img className='nav-img' style={{height: '50px', width: '50px', borderRadius: '50%', objectFit: 'cover', position: "relative", bottom: "30px", right:"-500px",}} src={currentUser && currentUser.profileImage 
-              ? currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt="" />
+              ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt="" />
               </Link> : <p></p>}
             </div>
             </div>
@@ -50,12 +50,6 @@ export const NavBar = () => {
           <div className="dark-mode">
             <button type="button" className="btn" data-bs-toggle="button" style={{fontFamily: "helvetica", marginRight:"15px", marginTop: "28px"}}>LIGHT/DARK</button>
           </div>
-            <div className="nav-pf" style={{marginLeft: '25px'}} >
-             {currentUser ? <Link to={`/profile/${currentUser.userName}`} >
-              <img className='nav-img' style={{height: '46px', width: '46px', borderRadius: '50%', objectFit: 'cover'}} src={currentUser && currentUser.profileImage 
-              ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt="" />
-              </Link> : <p></p>}
-            </div>
         </div>
     </div>
   )
