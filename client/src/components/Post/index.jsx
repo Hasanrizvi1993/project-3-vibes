@@ -10,7 +10,8 @@ const POST_IMG = process.env.REACT_APP_POST_IMAGES;
 
 
 // SERVER API URL
-const apiUrl = "http://localhost:4000/api"
+// const apiUrl = "http://localhost:4000/api"
+const apiUrl = "https://bussin.herokuapp.com/api"
 
 
 

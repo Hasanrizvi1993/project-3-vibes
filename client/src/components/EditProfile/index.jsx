@@ -5,7 +5,8 @@ import axios from 'axios';
 import '../../stylesheets/index.scss';
 
 // SERVER API URL
-const apiUrl = "http://localhost:4000/api"
+// const apiUrl = "http://localhost:4000/api"
+const apiUrl = "https://bussin.herokuapp.com/api"
 
 
 export const EditProfile = ({ user }) => {
