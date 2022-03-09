@@ -490,7 +490,10 @@ $secondary-font: 'Helvetica', serif;
     }
 
     .profile-display-name, .user-info-label {
-        font-family: $hero-font;
+        font-family: $secondary-font;
+        font-weight: bold;
+        text-transform: capitalize;
+
     }
 
     .edit-profile-btn {

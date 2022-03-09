@@ -61,7 +61,7 @@ export const EditProfile = ({ user }) => {
         <div className="edit-profile-top">
           <div className='user-info'>
           <br></br>
-            <h2 className="profile-display-name" style={{fontWeight: "bold"}} >{user && user.name ? user.name+"'s Profile" : ""}</h2><br />
+            <h2 className="profile-display-name" >{user && user.name ? user.name+"'s Profile" : ""}</h2><br />
             <br></br>
             <span className="user-info-label"style={{fontWeight: "bold"}} >LOCATION:
             </span><br />
