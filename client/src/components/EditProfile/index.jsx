@@ -63,7 +63,7 @@ export const EditProfile = ({ user }) => {
           <br></br>
             <h2 className="profile-display-name" style={{fontWeight: "bold"}} >{user && user.name ? user.name+"'s Profile" : ""}</h2><br />
             <br></br>
-            <span className="user-info-label"style={{fontWeight: "bold"}} >Location:
+            <span className="user-info-label"style={{fontWeight: "bold"}} >LOCATION:
             </span><br />
             <span className="location" >{user && user.location ? user.location : ""}</span><br />
             <br></br>
@@ -103,7 +103,7 @@ export const EditProfile = ({ user }) => {
             <br></br>
             <label htmlFor="" className="edit-label">
               ABOUT ME <br />
-            <textarea type="text" maxLength={180} placeholder="Edit Your About Me" rows="" className="edit-input" defaultValue={currentUser.aboutMe} ref={aboutMe} style={{border: '2px solid black', width: '88%', borderRadius: '10px', padding: '4px'}}  />
+            <textarea type="text" maxLength={180} placeholder="Edit Your About Me" className="edit-input edit-textarea" defaultValue={currentUser.aboutMe} ref={aboutMe}  />
             </label><br />
             <br></br>
             <div className="pf-img-upload">
