@@ -359,20 +359,20 @@ $secondary-font: 'Helvetica', serif;
         background: #7cb190;
         font-weight: bold;
         cursor: pointer;
-        border-radius: 25px;
+        border-radius: 5px;
         position: absolute;
         top: 2rem;
         right: 2rem;
     }
 
     .comment-input {
-        border-radius: 25px 0 0 25px;
+        border-radius: 5px 0 0 5px;
     }
 
     .comment-btn {
         background: #7cb190;
         cursor: pointer;
-        border-radius: 0 25px 25px 0;
+        border-radius: 0 5px 5px 0;
     }
 }
 
@@ -491,7 +491,10 @@ $secondary-font: 'Helvetica', serif;
     }
 
     .profile-display-name, .user-info-label {
-        font-family: $hero-font;
+        font-family: $secondary-font;
+        font-weight: bold;
+       
+
     }
 
     .edit-profile-btn {
@@ -504,5 +507,6 @@ $secondary-font: 'Helvetica', serif;
     .edit-textarea {
         resize: none;
     }
+
 
 }
