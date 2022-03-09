@@ -5,7 +5,8 @@ import axios from 'axios';
 
 
 // SERVER API URL
-const apiUrl = "http://localhost:4000/api"
+// const apiUrl = "http://localhost:4000/api"
+const apiUrl = "https://bussin.herokuapp.com/api"
 
 
 // Create AuthContext
