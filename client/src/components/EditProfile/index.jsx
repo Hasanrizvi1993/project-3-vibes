@@ -80,30 +80,30 @@ export const EditProfile = ({ user }) => {
           <hr className='edit-border' />
          {currentUser._id === user._id ? <><div className="edit-profile-center">
           <h4 className="edit-form-header">EDIT YOUR PROFILE INFO</h4>
-          <form className="edit-form" onSubmit={updateUser} >
+          <form className="edit-form" onSubmit={updateUser} style={{justifyContent: 'center', alignItems: 'center'}}  >
             <label htmlFor="" className="edit-label" >
               EMAIL<br />
-            <input type="email" placeholder="Edit Your Email" className="edit-input" defaultValue={currentUser.email} ref={email} required />
+            <input type="email" placeholder="Edit Your Email" className="edit-input" defaultValue={currentUser.email} ref={email} required style={{width: '88%', borderRadius: '10px', padding: '4px'}} />
             </label><br />
             <br></br>
             <label htmlFor="" className="edit-label">
               DISPLAY NAME<br />
-            <input type="name" placeholder="Edit Your Name" className="edit-input" defaultValue={currentUser.name} ref={name} required />
+            <input type="name" placeholder="Edit Your Name" className="edit-input" defaultValue={currentUser.name} ref={name} required style={{width: '88%', borderRadius: '10px', padding: '4px'}} />
             </label><br />
             <br></br>
             <label htmlFor="" className="edit-label">
               CURRENTLY PLAYING<br />
-            <input type="text" placeholder="Currently Playing?" className="edit-input" defaultValue={currentUser.currentlyPlaying} ref={currentlyPlaying}  />
+            <input type="text" placeholder="Currently Playing?" className="edit-input" defaultValue={currentUser.currentlyPlaying} ref={currentlyPlaying} style={{width: '88%', borderRadius: '10px', padding: '4px'}}  />
             </label><br />
             <br></br>
             <label htmlFor="" className="edit-label">
               LOCATION<br />
-            <input type="text" placeholder="Location?" className="edit-input" defaultValue={currentUser.location} ref={location}  />
+            <input type="text" placeholder="Location?" className="edit-input" defaultValue={currentUser.location} ref={location} style={{width: '88%', borderRadius: '10px', padding: '4px'}} />
             </label><br />
             <br></br>
             <label htmlFor="" className="edit-label">
               ABOUT ME <br />
-            <textarea type="text" maxLength={180} placeholder="Edit Your About Me" className="edit-input" defaultValue={currentUser.aboutMe} ref={aboutMe}  />
+            <textarea type="text" maxLength={180} placeholder="Edit Your About Me" rows="" className="edit-input" defaultValue={currentUser.aboutMe} ref={aboutMe} style={{border: '2px solid black', width: '88%', borderRadius: '10px', padding: '4px'}}  />
             </label><br />
             <br></br>
             <div className="pf-img-upload">
@@ -113,8 +113,8 @@ export const EditProfile = ({ user }) => {
               <Cancel className="pf-img-cancel" onClick={() => setFile(null)} />
             </div>
               )}
-              <label htmlFor='file' className="post-img-label" style={{fontWeight:"bold"}}>ADD OR UPDATE YOUR PROFILE PICTURE!<br /> <br></br>
-                <input type="file" name="file" placeholder="Update Profile Picture"  id="file"
+              <label htmlFor='file' className="post-img-label" style={{fontWeight:"bold"}}>ADD PF PICTURE<br /><br />
+                <input type="file" name="file"  id="file"
                   accept=".png, .jpg, .jpeg"
                   onChange={(e) => setFile(e.target.files[0])} />
               </label>
@@ -128,7 +128,6 @@ export const EditProfile = ({ user }) => {
           <div className="edit-profile-bottom">
             <div className="saved-posts">
               {/* NEED TO CREATE SAVED POST MODEL & LOGIC */}
-
               <br></br>
             </div>
           </div>
