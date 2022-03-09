@@ -306,6 +306,7 @@ $secondary-font: 'Helvetica', serif;
     background: rgba(236,237,238, .5);
     border-radius: 15px;
     max-height: 800px;
+    min-width: 500px;
     min-height: 150px;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -330,9 +331,8 @@ $secondary-font: 'Helvetica', serif;
         margin-right: 1rem;
         cursor: pointer;
         position: relative;
-        bottom: -28px;
-        left: -150px
-       
+        bottom: -1.75em;
+        left: -12em;
     }
 
     .delete-post {
@@ -353,6 +353,16 @@ $secondary-font: 'Helvetica', serif;
         position: absolute;
         top: 2rem;
         right: 2rem;
+    }
+
+    .comment-input {
+        border-radius: 25px 0 0 25px;
+    }
+
+    .comment-btn {
+        background: #7cb190;
+        cursor: pointer;
+        border-radius: 0 25px 25px 0;
     }
 }
 
@@ -451,6 +461,8 @@ $secondary-font: 'Helvetica', serif;
     }
 }
 
+
+// Edit profile side bar styling
 .edit-profile {
     font-family: $secondary-font;
 
