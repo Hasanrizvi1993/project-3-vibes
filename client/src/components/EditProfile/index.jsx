@@ -98,7 +98,7 @@ export const EditProfile = ({ user }) => {
             <br></br>
             <label htmlFor="" className="edit-label">
               LOCATION<br />
-            <input type="text" placeholder="Location?" className="edit-input" defaultValue={currentUser.location} ref={location} style={{width: '88%', borderRadius: '10px', padding: '4px'}} />
+            <input type="text" placeholder="Location?" className="edit-input" defaultValue={currentUser.location} ref={location} style={{width: '88%', borderRadius: '5px', padding: '4px', marginTop: "5px", marginBottom: "5px"}} />
             </label><br />
             <br></br>
             <label htmlFor="" className="edit-label">
