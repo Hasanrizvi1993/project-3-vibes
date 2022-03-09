@@ -39,9 +39,9 @@ app.use("/api/users", userRouter);
 
 app.use("/api/auth", authRouter);
 
-// app.use((req, res, next) => {
-// 	res.sendFile(path.join(__dirname, "build", "index.html"));
-// }); 
+app.use((req, res, next) => {
+	res.sendFile(path.join(__dirname, "build", "index.html"));
+}); 
 
 /* ====== Server Listener  ====== */
 app.listen(config.PORT, () => {
