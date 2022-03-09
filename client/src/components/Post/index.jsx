@@ -111,8 +111,7 @@ const { currentUser } = useAuth();
           <img className="post-img" src={post.img && POST_IMG+post.img} alt="" />
           {post && post.userId === currentUser._id ? <div className="edit-delete" style={{margin: 'auto', justifyContent: 'space-between'}} >
             <button onClick={deletePost} className="delete-post" style={{marginRight: '20px'}} >Delete</button>
-            <span onClick={()=> setEditInput(!editInput)} className='edit-text' 
-            style={{cursor: "pointer", color: "green", fontWeight: "bold", marginLeft: '20px'}}>Edit</span>
+            <button onClick={()=> setEditInput(!editInput)} className='edit-text'>Edit</button>
             {editInput && 
             <div className='edit-box'  > 
               <input className='edit-post-input' type='text' ref={editRef}  />

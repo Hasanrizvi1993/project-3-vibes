@@ -342,6 +342,17 @@ $secondary-font: 'Helvetica', serif;
         position: absolute;
         top: 2rem;
         left: 2rem;
+        cursor: pointer
+    }
+
+    .edit-text {
+        background: #7cb190;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 25px;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
     }
 }
 
@@ -455,6 +466,21 @@ $secondary-font: 'Helvetica', serif;
         margin-top: 50px;
         margin-bottom: 50px;
     
+    }
+
+    .profile-display-name, .user-info-label {
+        font-family: $hero-font;
+    }
+
+    .edit-profile-btn {
+        background: #7cb190;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 25px;
+    }
+
+    .edit-textarea {
+        resize: none;
     }
 
 }
