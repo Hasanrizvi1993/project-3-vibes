@@ -127,12 +127,12 @@ const { currentUser } = useAuth();
           <span className="post-text">{post && post.body}</span>
           <img className="post-img" src={post.img && POST_IMG+post.img} alt="" />
           {post && post.userId === currentUser._id ? <div className="edit-delete" style={{margin: 'auto', justifyContent: 'space-between'}} >
-            <button onClick={deletePost} className="delete-post" style={{marginRight: '20px'}} >Delete</button>
-            <button onClick={()=> setEditInput(!editInput)} className='edit-text'>Edit</button>
+            <button onClick={deletePost} className="delete-post" style={{marginRight: '20px', borderRadius: "5px", fontWeight:"bold", background:"black", color:"white"}} >DELETE</button>
+            <button onClick={()=> setEditInput(!editInput)} className='edit-text'>EDIT</button>
             {editInput && 
             <div className='edit-box'  > 
               <input className='edit-post-input' type='text' ref={editRef}  />
-              <button onClick={editPost} className='edit-post'>Edit</button>
+              <button onClick={editPost}className='edit-post'>Edit</button>
             </div>}
           </div> : <p></p>}
         </div>
