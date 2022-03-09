@@ -121,7 +121,7 @@ export const EditProfile = ({ user }) => {
               
             </div>
             <br></br>
-            <button type="submit" className="edit-profile-btn">UPDATE INFO</button>
+            <button type="submit" className="edit-profile-btn" style={{borderRadius: "2px"}}>UPDATE INFO</button>
           </form>
           <br></br>
         </div><hr className='edit-border' /></> : <p></p>}
