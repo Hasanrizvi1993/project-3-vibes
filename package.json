@@ -43,7 +43,7 @@
   },
   "description": "music social network",
   "main": "index.js",
-  "repository": "git+https://github.com/Jihunp/deployment-vibes.git",
+  "repository": "git+https://github.com/Hasanrizvi1993/project-3-vibes.git",
   "keywords": [],
   "author": "can you feel the mern",
   "license": "ISC",
@@ -53,7 +53,7 @@
     "packages/*"
   ],
   "bugs": {
-    "url": "https://github.com/Jihunp/deployment-vibes/issues"
+    "url": "https://github.com/Hasanrizvi1993/project-3-vibes/issues"
   },
-  "homepage": "https://github.com/Jihunp/deployment-vibes.git/readme"
+  "homepage": "https://github.com/Hasanrizvi1993/project-3-vibes#readme"
 }
