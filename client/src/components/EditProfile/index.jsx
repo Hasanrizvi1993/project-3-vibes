@@ -83,7 +83,7 @@ export const EditProfile = ({ user }) => {
           <form className="edit-form" onSubmit={updateUser} style={{justifyContent: 'center', alignItems: 'center'}}  >
             <label htmlFor="" className="edit-label" >
               EMAIL<br />
-            <input type="email" placeholder="Edit Your Email" className="edit-input" defaultValue={currentUser.email} ref={email} required style={{width: '88%', borderRadius: '5px', padding: '4px', border: "grey", borderWidth: "10px"}} />
+            <input type="email" placeholder="Edit Your Email" className="edit-input" defaultValue={currentUser.email} ref={email} required style={{width: '88%', borderRadius: '5px', padding: '4px', marginTop: "5px", marginBottom: "5px"}} />
             </label><br />
             <br></br>
             <label htmlFor="" className="edit-label">
