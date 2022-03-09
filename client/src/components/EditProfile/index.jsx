@@ -88,7 +88,7 @@ export const EditProfile = ({ user }) => {
             <br></br>
             <label htmlFor="" className="edit-label">
               DISPLAY NAME<br />
-            <input type="name" placeholder="Edit Your Name" className="edit-input" defaultValue={currentUser.name} ref={name} required style={{width: '88%', borderRadius: '10px', padding: '4px'}} />
+            <input type="name" placeholder="Edit Your Name" className="edit-input" defaultValue={currentUser.name} ref={name} required style={{width: '88%', borderRadius: '5px', padding: '4px', marginTop: "5px", marginBottom: "5px"}} />
             </label><br />
             <br></br>
             <label htmlFor="" className="edit-label">
