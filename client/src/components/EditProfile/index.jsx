@@ -103,7 +103,7 @@ export const EditProfile = ({ user }) => {
             <br></br>
             <label htmlFor="" className="edit-label">
               ABOUT ME <br />
-            <textarea type="text" maxLength={180} placeholder="Edit Your About Me" className="edit-input edit-textarea" defaultValue={currentUser.aboutMe} ref={aboutMe} style={{width: '88%', borderRadius: '5px', padding: '4px', marginTop: "5px", marginBottom: "5px"}} />
+            <textarea type="text" maxLength={180} placeholder="Edit Your About Me" className="edit-input edit-textarea" defaultValue={currentUser.aboutMe} ref={aboutMe} style={{width: '85%', borderRadius: '5px', padding: '4px', marginTop: "5px", marginBottom: "5px"}} />
             </label><br />
             <br></br>
             <div className="pf-img-upload">
@@ -113,7 +113,7 @@ export const EditProfile = ({ user }) => {
               <Cancel className="pf-img-cancel" onClick={() => setFile(null)} />
             </div>
               )}
-              <label htmlFor='file' className="post-img-label" style={{fontWeight:"bold"}}>ADD PF PICTURE<br /><br />
+              <label htmlFor='file' className="post-img-label" style={{fontWeight:"bold"}}>ADD PROFILE PICTURE<br /><br />
                 <input type="file" name="file"  id="file"
                   accept=".png, .jpg, .jpeg"
                   onChange={(e) => setFile(e.target.files[0])} />
