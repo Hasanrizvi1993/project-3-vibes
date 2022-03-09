@@ -46,7 +46,7 @@ https://miro.com/app/board/uXjVOK5wtNw=/
 
 #### Deployed on Heroku - weblink
 
-https://vibesbymern.herokuapp.com/
+https://bussin.herokuapp.com/
 
 ## Unsolved Problems
 
