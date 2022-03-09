@@ -18,6 +18,9 @@ const body = useRef();
 const [file, setFile] = useState(null)
 // state for success/error message 
 const [message, setMessage] = useState('')
+//procile picture
+const PF_IMG = process.env.REACT_APP_PF_IMAGES;
+
 
   // empty submitHandler - onChange for img input is already set to change file to first img uploaded if multiple
   const submitHandler = async (e) => {
@@ -60,7 +63,8 @@ const [message, setMessage] = useState('')
           <div className="post-form-message">
           {message && <span className="post-img-text" style={{color:'green'}}>{message}</span>}
           </div>
-          <img className="post-form-img"  style={{position: "relative", left:"-30px", top:"-30px" }} src='/assets/staticImages/no_pf_img.png' alt='' />
+          <img className="post-form-img"  style={{position: "relative", left:"-30px", top:"-30px", height: '65px', width: '65px', borderRadius: '150%', }}  src={currentUser && currentUser.profileImage 
+              ? PF_IMG+currentUser.profileImage : "/assets/staticImages/no_pf_img.png"} alt=""  /> 
           <textarea style={{fontFamily: "helvetica", width: "98%",}} cols="60" rows="" placeholder='START A POST...' ref={body} className="post-form-input" />
         </div>
         <hr className="post-form-border" />

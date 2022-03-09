@@ -72,7 +72,7 @@ const destroy = (req, res) => {
 };
 
 
-//PROFILE PAGE POSTS ONLY (based on the queried userName prop passed from profile page)
+//PROFILE PAGE POSTS ONLY 
 const getProfilePosts = async (req, res) => {
 	try {
 		// find user based on userName
@@ -106,6 +106,36 @@ const uploadPostImage = (req, res) => {
 	}
 };
 
+// LIKE/UNLIKE POSTS
+//LIKE or UNLIKE A POST
+
+const toggleLikes = async (req, res) => {
+    try {
+        const foundPost = await db.Post.findById(req.params.id)
+        if (!foundPost.likes.includes(req.body.userId)) {
+            await foundPost.updateOne({
+                $push: { likes: req.body.userId}
+            })
+            res.status(200).json({
+				message: "The post was liked!",
+			})
+        } else {
+            await foundPost.updateOne({
+                $pull: { likes: req.body.userId }
+            })
+            res.status(200).json({
+				message: "The post was unliked!",
+			})
+        } 
+    } catch (err) {
+        res.status(500).json({
+			message: "Error liking post",
+			error: err,
+		})
+        
+    }
+}
+
 module.exports = {
 	index,
 	show,
@@ -114,4 +144,5 @@ module.exports = {
 	destroy,
 	getProfilePosts,
 	uploadPostImage,
+	toggleLikes,
 };

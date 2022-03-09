@@ -50,13 +50,13 @@ const register = async (req, res) => {
         const validPassword = await bcrypt.compare(req.body.password, userFound.password)  
             if (validPassword) {
 
-                const token = jwt.sign( { _id: userFound._id }, "VIBE$", {
+                const userToken = jwt.sign( { _id: userFound._id }, "VIBE$", {
                     expiresIn: "2h",
                 })
                     res.status(201).json({
                     status: 201, 
                     message: "Login Successful!", 
-                    token,
+                    userToken,
                     userFound
                 })
             }
