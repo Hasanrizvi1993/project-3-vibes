@@ -492,7 +492,7 @@ $secondary-font: 'Helvetica', serif;
     .profile-display-name, .user-info-label {
         font-family: $secondary-font;
         font-weight: bold;
-        text-transform: capitalize;
+       
 
     }
 
@@ -506,5 +506,6 @@ $secondary-font: 'Helvetica', serif;
     .edit-textarea {
         resize: none;
     }
+
 
 }

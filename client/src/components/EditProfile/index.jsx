@@ -63,7 +63,7 @@ export const EditProfile = ({ user }) => {
           <br></br>
             <h2 className="profile-display-name" >{user && user.name ? user.name+"'s Profile" : ""}</h2><br />
             <br></br>
-            <span className="user-info-label"style={{fontWeight: "bold"}} >LOCATION:
+            <span className="user-info-label"style={{fontWeight: "bold",}} >LOCATION:
             </span><br />
             <span className="location" >{user && user.location ? user.location : ""}</span><br />
             <br></br>
@@ -83,7 +83,7 @@ export const EditProfile = ({ user }) => {
           <form className="edit-form" onSubmit={updateUser} style={{justifyContent: 'center', alignItems: 'center'}}  >
             <label htmlFor="" className="edit-label" >
               EMAIL<br />
-            <input type="email" placeholder="Edit Your Email" className="edit-input" defaultValue={currentUser.email} ref={email} required style={{width: '88%', borderRadius: '10px', padding: '4px'}} />
+            <input type="email" placeholder="Edit Your Email" className="edit-input" defaultValue={currentUser.email} ref={email} required style={{width: '88%', borderRadius: '5px', padding: '4px', border: "grey", borderWidth: "10px"}} />
             </label><br />
             <br></br>
             <label htmlFor="" className="edit-label">
