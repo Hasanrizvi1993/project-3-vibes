@@ -93,7 +93,7 @@ export const EditProfile = ({ user }) => {
             <br></br>
             <label htmlFor="" className="edit-label">
               CURRENTLY PLAYING<br />
-            <input type="text" placeholder="Currently Playing?" className="edit-input" defaultValue={currentUser.currentlyPlaying} ref={currentlyPlaying} style={{width: '88%', borderRadius: '10px', padding: '4px'}}  />
+            <input type="text" placeholder="Currently Playing?" className="edit-input" defaultValue={currentUser.currentlyPlaying} ref={currentlyPlaying} style={{width: '88%', borderRadius: '5px', padding: '4px', marginTop: "5px", marginBottom: "5px"}}  />
             </label><br />
             <br></br>
             <label htmlFor="" className="edit-label">
