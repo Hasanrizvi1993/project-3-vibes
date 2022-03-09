@@ -48,7 +48,8 @@ $secondary-font: 'Helvetica', serif;
     width: 90%;
     background-color: $hero-color;
     color: #FFFFFF;
-}
+} 
+
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-
       Component Styles
@@ -286,6 +287,14 @@ $secondary-font: 'Helvetica', serif;
 
     .post-form-input {
         resize: none;
+    }
+
+    .post-form-img {
+        max-width: 1000px;
+    }
+
+    .post-img-label {
+        
     }
 }
 
