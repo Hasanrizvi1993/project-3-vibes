@@ -77,8 +77,8 @@ const PF_IMG = process.env.REACT_APP_PF_IMAGES;
           )}
           <div className="post-img">
           <label htmlFor='file' className="post-img-label">
-            <PermMedia className="post-img-icon" style={{position: "absolute", bottom: "115px", left:"20px" }} />
-            {file ? <span className="post-img-text" style={{color:'green', fontFamily: "Helvetica", position: "absolute", bottom: "115px", left:"55px" }}>PHOTO ADDED!</span> 
+            <PermMedia className="post-img-icon" />
+            {file ? <span className="post-img-text" style={{color:'green', fontFamily: "Helvetica" }}>PHOTO ADDED!</span> 
             : <span className="post-img-text" style={{color:'black', fontFamily: "Helvetica", position: "Absolute", bottom: "115px", left:"55px" }}>ADD PHOTO</span>}
             <input style={{display:'none'}} type="file" id="file" 
                     accept=".png, .jpg, .jpeg"
